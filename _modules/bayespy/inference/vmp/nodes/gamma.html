@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.inference.vmp.nodes.gamma &mdash; BayesPy v0.3.5 Documentation</title>
+    <title>bayespy.inference.vmp.nodes.gamma &mdash; BayesPy v0.3.6 Documentation</title>
     
     <link rel="stylesheet" href="../../../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../../',
-        VERSION:     '0.3.5',
+        VERSION:     '0.3.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.5 Documentation" href="../../../../../index.html" />
+    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../../../../index.html" />
     <link rel="up" title="bayespy.inference" href="../../../inference.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="../../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../../../index.html">BayesPy v0.3.5 Documentation</a> &raquo;</li>
+        <li><a href="../../../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
           <li><a href="../../../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../../inference.html" accesskey="U">bayespy.inference</a> &raquo;</li> 
       </ul>
@@ -82,6 +82,7 @@
 
 <span class="kn">from</span> <span class="nn">.node</span> <span class="kn">import</span> <span class="n">Node</span>
 <span class="kn">from</span> <span class="nn">.deterministic</span> <span class="kn">import</span> <span class="n">Deterministic</span>
+<span class="kn">from</span> <span class="nn">.stochastic</span> <span class="kn">import</span> <span class="n">Stochastic</span>
 <span class="kn">from</span> <span class="nn">.expfamily</span> <span class="kn">import</span> <span class="n">ExponentialFamily</span><span class="p">,</span> <span class="n">ExponentialFamilyDistribution</span>
 <span class="kn">from</span> <span class="nn">.constant</span> <span class="kn">import</span> <span class="n">Constant</span>
 <span class="kn">from</span> <span class="nn">.node</span> <span class="kn">import</span> <span class="n">Moments</span>
@@ -150,15 +151,22 @@
 <span class="sd">    &quot;&quot;&quot;</span>    
     
 
-<div class="viewcode-block" id="GammaDistribution.compute_message_to_parent"><a class="viewcode-back" href="../../../../../dev_api/generated/generated/bayespy.inference.vmp.nodes.gamma.GammaDistribution.compute_message_to_parent.html#bayespy.inference.vmp.nodes.gamma.GammaDistribution.compute_message_to_parent">[docs]</a>    <span class="k">def</span> <span class="nf">compute_message_to_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">u_self</span><span class="p">,</span> <span class="o">*</span><span class="n">u_parents</span><span class="p">):</span>
+<div class="viewcode-block" id="GammaDistribution.compute_message_to_parent"><a class="viewcode-back" href="../../../../../dev_api/generated/generated/bayespy.inference.vmp.nodes.gamma.GammaDistribution.compute_message_to_parent.html#bayespy.inference.vmp.nodes.gamma.GammaDistribution.compute_message_to_parent">[docs]</a>    <span class="k">def</span> <span class="nf">compute_message_to_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">u_self</span><span class="p">,</span> <span class="n">u_a</span><span class="p">,</span> <span class="n">u_b</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        Compute the message to a parent node.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">u_self</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">logx</span> <span class="o">=</span> <span class="n">u_self</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
         <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;No analytic solution exists&quot;</span><span class="p">)</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">u_b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">logb</span> <span class="o">=</span> <span class="n">u_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">logx</span> <span class="o">+</span> <span class="n">logb</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                    <span class="n">u_parents</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">u_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="n">x</span><span class="p">,</span>
+                    <span class="n">a</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Index out of bounds&quot;</span><span class="p">)</span>
 
@@ -311,6 +319,64 @@
                                        <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; as Wishart&quot;</span><span class="p">)</span>
 
 
+<span class="k">class</span> <span class="nc">GammaShape</span><span class="p">(</span><span class="n">Stochastic</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ML point estimator for the shape parameter of the gamma distribution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">dims</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(),</span> <span class="p">()</span> <span class="p">)</span>
+    <span class="n">_moments</span> <span class="o">=</span> <span class="n">GammaPriorMoments</span><span class="p">()</span>
+    <span class="n">_parent_moments</span> <span class="o">=</span> <span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create gamma random variable node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">initialize</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_update_distribution_and_lowerbound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">        Find maximum likelihood estimate for the shape parameter</span>
+
+<span class="sd">        Messages from children appear in the lower bound as</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">           m_0 \cdot x +  m_1 \cdot \log(\Gamma(x))</span>
+
+<span class="sd">        Take derivative, put it zero and solve:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">           m_0 + m_1 \cdot d\log(\Gamma(x)) &amp;= 0</span>
+<span class="sd">           \\</span>
+<span class="sd">           m_0 + m_1 \cdot \psi(x) &amp;= 0</span>
+<span class="sd">           \\</span>
+<span class="sd">           x &amp;= \psi^{-1}(-\frac{m_0}{m_1})</span>
+
+<span class="sd">        where :math:`\psi^{-1}` is the inverse digamma function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c"># Maximum likelihood estimate</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">invpsi</span><span class="p">(</span><span class="o">-</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="c"># Compute moments</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_moments</span><span class="o">.</span><span class="n">compute_fixed_moments</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="k">return</span>
+
+
+    <span class="k">def</span> <span class="nf">initialize_from_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_moments</span><span class="o">.</span><span class="n">compute_fixed_moments</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span>
+
+
+    <span class="k">def</span> <span class="nf">lower_bound_contribution</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+
 <span class="k">class</span> <span class="nc">_GammaToDiagonalWishart</span><span class="p">(</span><span class="n">Deterministic</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Transform a set of gamma scalars into a diagonal Wishart matrix.</span>
@@ -405,7 +471,7 @@
         <li class="right" >
           <a href="../../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../../../index.html">BayesPy v0.3.5 Documentation</a> &raquo;</li>
+        <li><a href="../../../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
           <li><a href="../../../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../../inference.html" >bayespy.inference</a> &raquo;</li> 
       </ul>

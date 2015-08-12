@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.utils.misc &mdash; BayesPy v0.3.5 Documentation</title>
+    <title>bayespy.utils.misc &mdash; BayesPy v0.3.6 Documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.3.5',
+        VERSION:     '0.3.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.5 Documentation" href="../../index.html" />
+    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../index.html" />
     <link rel="up" title="Utility functions" href="../utils.html" />
     <link rel="next" title="bayespy.utils.misc.T" href="generated/bayespy.utils.misc.T.html" />
     <link rel="prev" title="bayespy.utils.optimize.minimize" href="generated/bayespy.utils.optimize.minimize.html" /> 
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="generated/bayespy.utils.optimize.minimize.html" title="bayespy.utils.optimize.minimize"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">BayesPy v0.3.5 Documentation</a> &raquo;</li>
+        <li><a href="../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
           <li><a href="../dev_api.html" >Developer API</a> &raquo;</li>
           <li><a href="../utils.html" accesskey="U">Utility functions</a> &raquo;</li> 
       </ul>
@@ -160,80 +160,92 @@
 <tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.dist_haversine.html#bayespy.utils.misc.dist_haversine" title="bayespy.utils.misc.dist_haversine"><tt class="xref py py-obj docutils literal"><span class="pre">dist_haversine</span></tt></a>(c1,&nbsp;c2[,&nbsp;radius])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.first.html#bayespy.utils.misc.first" title="bayespy.utils.misc.first"><tt class="xref py py-obj docutils literal"><span class="pre">first</span></tt></a>(L)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.find_set_index.html#bayespy.utils.misc.find_set_index" title="bayespy.utils.misc.find_set_index"><tt class="xref py py-obj docutils literal"><span class="pre">find_set_index</span></tt></a>(index,&nbsp;set_lengths)</td>
+<td>Given set sizes and an index, returns the index of the set</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.first.html#bayespy.utils.misc.first" title="bayespy.utils.misc.first"><tt class="xref py py-obj docutils literal"><span class="pre">first</span></tt></a>(L)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.gaussian_logpdf.html#bayespy.utils.misc.gaussian_logpdf" title="bayespy.utils.misc.gaussian_logpdf"><tt class="xref py py-obj docutils literal"><span class="pre">gaussian_logpdf</span></tt></a>(y_invcov_y,&nbsp;y_invcov_mu,&nbsp;...)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.gaussian_logpdf.html#bayespy.utils.misc.gaussian_logpdf" title="bayespy.utils.misc.gaussian_logpdf"><tt class="xref py py-obj docutils literal"><span class="pre">gaussian_logpdf</span></tt></a>(y_invcov_y,&nbsp;y_invcov_mu,&nbsp;...)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.get_diag.html#bayespy.utils.misc.get_diag" title="bayespy.utils.misc.get_diag"><tt class="xref py py-obj docutils literal"><span class="pre">get_diag</span></tt></a>(X[,&nbsp;ndim])</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.get_diag.html#bayespy.utils.misc.get_diag" title="bayespy.utils.misc.get_diag"><tt class="xref py py-obj docutils literal"><span class="pre">get_diag</span></tt></a>(X[,&nbsp;ndim])</td>
 <td>Get the diagonal of an array.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.grid.html#bayespy.utils.misc.grid" title="bayespy.utils.misc.grid"><tt class="xref py py-obj docutils literal"><span class="pre">grid</span></tt></a>(x1,&nbsp;x2)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.grid.html#bayespy.utils.misc.grid" title="bayespy.utils.misc.grid"><tt class="xref py py-obj docutils literal"><span class="pre">grid</span></tt></a>(x1,&nbsp;x2)</td>
 <td>Returns meshgrid as a (M*N,2)-shape array.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.identity.html#bayespy.utils.misc.identity" title="bayespy.utils.misc.identity"><tt class="xref py py-obj docutils literal"><span class="pre">identity</span></tt></a>(*shape)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.identity.html#bayespy.utils.misc.identity" title="bayespy.utils.misc.identity"><tt class="xref py py-obj docutils literal"><span class="pre">identity</span></tt></a>(*shape)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.is_callable.html#bayespy.utils.misc.is_callable" title="bayespy.utils.misc.is_callable"><tt class="xref py py-obj docutils literal"><span class="pre">is_callable</span></tt></a>(f)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.invgamma.html#bayespy.utils.misc.invgamma" title="bayespy.utils.misc.invgamma"><tt class="xref py py-obj docutils literal"><span class="pre">invgamma</span></tt></a>(x)</td>
+<td>Inverse gamma function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.invpsi.html#bayespy.utils.misc.invpsi" title="bayespy.utils.misc.invpsi"><tt class="xref py py-obj docutils literal"><span class="pre">invpsi</span></tt></a>(x)</td>
+<td>Inverse digamma (psi) function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.is_callable.html#bayespy.utils.misc.is_callable" title="bayespy.utils.misc.is_callable"><tt class="xref py py-obj docutils literal"><span class="pre">is_callable</span></tt></a>(f)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.is_numeric.html#bayespy.utils.misc.is_numeric" title="bayespy.utils.misc.is_numeric"><tt class="xref py py-obj docutils literal"><span class="pre">is_numeric</span></tt></a>(a)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.is_numeric.html#bayespy.utils.misc.is_numeric" title="bayespy.utils.misc.is_numeric"><tt class="xref py py-obj docutils literal"><span class="pre">is_numeric</span></tt></a>(a)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.is_shape_subset.html#bayespy.utils.misc.is_shape_subset" title="bayespy.utils.misc.is_shape_subset"><tt class="xref py py-obj docutils literal"><span class="pre">is_shape_subset</span></tt></a>(sub_shape,&nbsp;full_shape)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.is_shape_subset.html#bayespy.utils.misc.is_shape_subset" title="bayespy.utils.misc.is_shape_subset"><tt class="xref py py-obj docutils literal"><span class="pre">is_shape_subset</span></tt></a>(sub_shape,&nbsp;full_shape)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.is_string.html#bayespy.utils.misc.is_string" title="bayespy.utils.misc.is_string"><tt class="xref py py-obj docutils literal"><span class="pre">is_string</span></tt></a>(s)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.is_string.html#bayespy.utils.misc.is_string" title="bayespy.utils.misc.is_string"><tt class="xref py py-obj docutils literal"><span class="pre">is_string</span></tt></a>(s)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.isinteger.html#bayespy.utils.misc.isinteger" title="bayespy.utils.misc.isinteger"><tt class="xref py py-obj docutils literal"><span class="pre">isinteger</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.isinteger.html#bayespy.utils.misc.isinteger" title="bayespy.utils.misc.isinteger"><tt class="xref py py-obj docutils literal"><span class="pre">isinteger</span></tt></a>(x)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.kalman_filter.html#bayespy.utils.misc.kalman_filter" title="bayespy.utils.misc.kalman_filter"><tt class="xref py py-obj docutils literal"><span class="pre">kalman_filter</span></tt></a>(y,&nbsp;U,&nbsp;A,&nbsp;V,&nbsp;mu0,&nbsp;Cov0[,&nbsp;out])</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.kalman_filter.html#bayespy.utils.misc.kalman_filter" title="bayespy.utils.misc.kalman_filter"><tt class="xref py py-obj docutils literal"><span class="pre">kalman_filter</span></tt></a>(y,&nbsp;U,&nbsp;A,&nbsp;V,&nbsp;mu0,&nbsp;Cov0[,&nbsp;out])</td>
 <td>Perform Kalman filtering to obtain filtered mean and covariance.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.logdet_chol.html#bayespy.utils.misc.logdet_chol" title="bayespy.utils.misc.logdet_chol"><tt class="xref py py-obj docutils literal"><span class="pre">logdet_chol</span></tt></a>(U)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.logdet_chol.html#bayespy.utils.misc.logdet_chol" title="bayespy.utils.misc.logdet_chol"><tt class="xref py py-obj docutils literal"><span class="pre">logdet_chol</span></tt></a>(U)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.logsumexp.html#bayespy.utils.misc.logsumexp" title="bayespy.utils.misc.logsumexp"><tt class="xref py py-obj docutils literal"><span class="pre">logsumexp</span></tt></a>(X[,&nbsp;axis,&nbsp;keepdims])</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.logsumexp.html#bayespy.utils.misc.logsumexp" title="bayespy.utils.misc.logsumexp"><tt class="xref py py-obj docutils literal"><span class="pre">logsumexp</span></tt></a>(X[,&nbsp;axis,&nbsp;keepdims])</td>
 <td>Compute log(sum(exp(X)) in a numerically stable way</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.m_digamma.html#bayespy.utils.misc.m_digamma" title="bayespy.utils.misc.m_digamma"><tt class="xref py py-obj docutils literal"><span class="pre">m_digamma</span></tt></a>(a,&nbsp;d)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.m_digamma.html#bayespy.utils.misc.m_digamma" title="bayespy.utils.misc.m_digamma"><tt class="xref py py-obj docutils literal"><span class="pre">m_digamma</span></tt></a>(a,&nbsp;d)</td>
 <td>Returns the derivative of the log of multivariate gamma.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.m_dot.html#bayespy.utils.misc.m_dot" title="bayespy.utils.misc.m_dot"><tt class="xref py py-obj docutils literal"><span class="pre">m_dot</span></tt></a>(A,&nbsp;b)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.m_dot.html#bayespy.utils.misc.m_dot" title="bayespy.utils.misc.m_dot"><tt class="xref py py-obj docutils literal"><span class="pre">m_dot</span></tt></a>(A,&nbsp;b)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.m_outer.html#bayespy.utils.misc.m_outer" title="bayespy.utils.misc.m_outer"><tt class="xref py py-obj docutils literal"><span class="pre">m_outer</span></tt></a>(A,&nbsp;B)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.m_outer.html#bayespy.utils.misc.m_outer" title="bayespy.utils.misc.m_outer"><tt class="xref py py-obj docutils literal"><span class="pre">m_outer</span></tt></a>(A,&nbsp;B)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.m_solve_triangular.html#bayespy.utils.misc.m_solve_triangular" title="bayespy.utils.misc.m_solve_triangular"><tt class="xref py py-obj docutils literal"><span class="pre">m_solve_triangular</span></tt></a>(U,&nbsp;B,&nbsp;**kwargs)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.m_solve_triangular.html#bayespy.utils.misc.m_solve_triangular" title="bayespy.utils.misc.m_solve_triangular"><tt class="xref py py-obj docutils literal"><span class="pre">m_solve_triangular</span></tt></a>(U,&nbsp;B,&nbsp;**kwargs)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.make_equal_length.html#bayespy.utils.misc.make_equal_length" title="bayespy.utils.misc.make_equal_length"><tt class="xref py py-obj docutils literal"><span class="pre">make_equal_length</span></tt></a>(*shapes)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.make_equal_length.html#bayespy.utils.misc.make_equal_length" title="bayespy.utils.misc.make_equal_length"><tt class="xref py py-obj docutils literal"><span class="pre">make_equal_length</span></tt></a>(*shapes)</td>
 <td>Make tuples equal length.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.make_equal_ndim.html#bayespy.utils.misc.make_equal_ndim" title="bayespy.utils.misc.make_equal_ndim"><tt class="xref py py-obj docutils literal"><span class="pre">make_equal_ndim</span></tt></a>(*arrays)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.make_equal_ndim.html#bayespy.utils.misc.make_equal_ndim" title="bayespy.utils.misc.make_equal_ndim"><tt class="xref py py-obj docutils literal"><span class="pre">make_equal_ndim</span></tt></a>(*arrays)</td>
 <td>Add trailing unit axes so that arrays have equal ndim</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.mean.html#bayespy.utils.misc.mean" title="bayespy.utils.misc.mean"><tt class="xref py py-obj docutils literal"><span class="pre">mean</span></tt></a>(X[,&nbsp;axis,&nbsp;keepdims])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.mean.html#bayespy.utils.misc.mean" title="bayespy.utils.misc.mean"><tt class="xref py py-obj docutils literal"><span class="pre">mean</span></tt></a>(X[,&nbsp;axis,&nbsp;keepdims])</td>
 <td>Compute the mean, ignoring NaNs.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.moveaxis.html#bayespy.utils.misc.moveaxis" title="bayespy.utils.misc.moveaxis"><tt class="xref py py-obj docutils literal"><span class="pre">moveaxis</span></tt></a>(A,&nbsp;axis_from,&nbsp;axis_to)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.moveaxis.html#bayespy.utils.misc.moveaxis" title="bayespy.utils.misc.moveaxis"><tt class="xref py py-obj docutils literal"><span class="pre">moveaxis</span></tt></a>(A,&nbsp;axis_from,&nbsp;axis_to)</td>
 <td>Move the axis <cite>axis_from</cite> to position <cite>axis_to</cite>.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.multidigamma.html#bayespy.utils.misc.multidigamma" title="bayespy.utils.misc.multidigamma"><tt class="xref py py-obj docutils literal"><span class="pre">multidigamma</span></tt></a>(a,&nbsp;d)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.multidigamma.html#bayespy.utils.misc.multidigamma" title="bayespy.utils.misc.multidigamma"><tt class="xref py py-obj docutils literal"><span class="pre">multidigamma</span></tt></a>(a,&nbsp;d)</td>
 <td>Returns the derivative of the log of multivariate gamma.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.multiply_shapes.html#bayespy.utils.misc.multiply_shapes" title="bayespy.utils.misc.multiply_shapes"><tt class="xref py py-obj docutils literal"><span class="pre">multiply_shapes</span></tt></a>(*shapes)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.multiply_shapes.html#bayespy.utils.misc.multiply_shapes" title="bayespy.utils.misc.multiply_shapes"><tt class="xref py py-obj docutils literal"><span class="pre">multiply_shapes</span></tt></a>(*shapes)</td>
 <td>Compute element-wise product of lists/tuples.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.nans.html#bayespy.utils.misc.nans" title="bayespy.utils.misc.nans"><tt class="xref py py-obj docutils literal"><span class="pre">nans</span></tt></a>([size])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.nans.html#bayespy.utils.misc.nans" title="bayespy.utils.misc.nans"><tt class="xref py py-obj docutils literal"><span class="pre">nans</span></tt></a>([size])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.nested_iterator.html#bayespy.utils.misc.nested_iterator" title="bayespy.utils.misc.nested_iterator"><tt class="xref py py-obj docutils literal"><span class="pre">nested_iterator</span></tt></a>(max_inds)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.nested_iterator.html#bayespy.utils.misc.nested_iterator" title="bayespy.utils.misc.nested_iterator"><tt class="xref py py-obj docutils literal"><span class="pre">nested_iterator</span></tt></a>(max_inds)</td>
 <td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.utils.misc.parse_command_line_arguments.html#bayespy.utils.misc.parse_command_line_arguments" title="bayespy.utils.misc.parse_command_line_arguments"><tt class="xref py py-obj docutils literal"><span class="pre">parse_command_line_arguments</span></tt></a>(mandatory_args,&nbsp;...)</td>
+<td>Parse command line arguments of style &#8220;&#8211;parameter=value&#8221;.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="generated/bayespy.utils.misc.remove_whitespace.html#bayespy.utils.misc.remove_whitespace" title="bayespy.utils.misc.remove_whitespace"><tt class="xref py py-obj docutils literal"><span class="pre">remove_whitespace</span></tt></a>(s)</td>
 <td></td>
@@ -338,7 +350,7 @@
         <li class="right" >
           <a href="generated/bayespy.utils.optimize.minimize.html" title="bayespy.utils.optimize.minimize"
              >previous</a> |</li>
-        <li><a href="../../index.html">BayesPy v0.3.5 Documentation</a> &raquo;</li>
+        <li><a href="../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
           <li><a href="../dev_api.html" >Developer API</a> &raquo;</li>
           <li><a href="../utils.html" >Utility functions</a> &raquo;</li> 
       </ul>

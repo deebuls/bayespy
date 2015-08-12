@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.inference.vmp.nodes.node &mdash; BayesPy v0.3.5 Documentation</title>
+    <title>bayespy.inference.vmp.nodes.node &mdash; BayesPy v0.3.6 Documentation</title>
     
     <link rel="stylesheet" href="../../../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../../',
-        VERSION:     '0.3.5',
+        VERSION:     '0.3.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.5 Documentation" href="../../../../../index.html" />
+    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../../../../index.html" />
     <link rel="up" title="bayespy.inference" href="../../../inference.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="../../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../../../index.html">BayesPy v0.3.5 Documentation</a> &raquo;</li>
+        <li><a href="../../../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
           <li><a href="../../../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../../inference.html" accesskey="U">bayespy.inference</a> &raquo;</li> 
       </ul>
@@ -170,6 +170,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c"># Check if there is no need for a conversion</span>
+        <span class="c">#</span>
+        <span class="c"># TODO/FIXME: This isn&#39;t sufficient. Moments can have attributes that</span>
+        <span class="c"># make them incompatible (e.g., ndim in GaussianMoments).</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moments_to</span><span class="p">):</span>
             <span class="k">return</span> <span class="k">lambda</span> <span class="n">X</span><span class="p">:</span> <span class="n">X</span>
 
@@ -368,6 +371,7 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_ensure_moments</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">moments</span><span class="p">):</span>
+
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
             <span class="c"># Convert to correct type</span>
             <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">_convert</span><span class="p">(</span><span class="n">moments</span><span class="o">.</span><span class="n">__class__</span><span class="p">)</span>
@@ -1318,7 +1322,7 @@
         <li class="right" >
           <a href="../../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../../../index.html">BayesPy v0.3.5 Documentation</a> &raquo;</li>
+        <li><a href="../../../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
           <li><a href="../../../../index.html" >Module code</a> &raquo;</li>
           <li><a href="../../../inference.html" >bayespy.inference</a> &raquo;</li> 
       </ul>

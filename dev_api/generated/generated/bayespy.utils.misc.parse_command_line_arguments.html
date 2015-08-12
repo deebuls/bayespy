@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bayespy.utils.misc.parse_command_line_arguments &mdash; BayesPy v0.3.6 Documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.3.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../../index.html" />
+    <link rel="up" title="bayespy.utils.misc" href="../bayespy.utils.misc.html" />
+    <link rel="next" title="bayespy.utils.misc.remove_whitespace" href="bayespy.utils.misc.remove_whitespace.html" />
+    <link rel="prev" title="bayespy.utils.misc.nested_iterator" href="bayespy.utils.misc.nested_iterator.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bayespy.utils.misc.remove_whitespace.html" title="bayespy.utils.misc.remove_whitespace"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bayespy.utils.misc.nested_iterator.html" title="bayespy.utils.misc.nested_iterator"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
+          <li><a href="../../dev_api.html" >Developer API</a> &raquo;</li>
+          <li><a href="../../utils.html" >Utility functions</a> &raquo;</li>
+          <li><a href="../bayespy.utils.misc.html" accesskey="U">bayespy.utils.misc</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bayespy.utils.misc.nested_iterator.html"
+                        title="previous chapter">bayespy.utils.misc.nested_iterator</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bayespy.utils.misc.remove_whitespace.html"
+                        title="next chapter">bayespy.utils.misc.remove_whitespace</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/dev_api/generated/generated/bayespy.utils.misc.parse_command_line_arguments.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="bayespy-utils-misc-parse-command-line-arguments">
+<h1>bayespy.utils.misc.parse_command_line_arguments<a class="headerlink" href="#bayespy-utils-misc-parse-command-line-arguments" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bayespy.utils.misc.parse_command_line_arguments">
+<tt class="descclassname">bayespy.utils.misc.</tt><tt class="descname">parse_command_line_arguments</tt><big>(</big><em>mandatory_args</em>, <em>*optional_args_list</em>, <em>argv=None</em><big>)</big><a class="reference internal" href="../../../_modules/bayespy/utils/misc.html#parse_command_line_arguments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.utils.misc.parse_command_line_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse command line arguments of style &#8220;&#8211;parameter=value&#8221;.</p>
+<p>Parameter specification is tuple: (name, converter, description).</p>
+<p>Some special handling:</p>
+<ul class="simple">
+<li>If converter is None, the command line does not accept any value
+for it, but instead use either &#8220;&#8211;option&#8221; to enable or
+&#8220;&#8211;no-option&#8221; to disable.</li>
+<li>If argument name contains hyphens, those are converted to
+underscores in the keys of the returned dictionaries.</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>mandatory_args</strong> : list of tuples</p>
+<blockquote>
+<div><p>Specs for mandatory arguments</p>
+</div></blockquote>
+<p><strong>optional_args_list</strong> : list of lists of tuples</p>
+<blockquote>
+<div><p>Specs for each optional arguments set</p>
+</div></blockquote>
+<p><strong>argv</strong> : list of strings (optional)</p>
+<blockquote>
+<div><p>The command line arguments. By default, read sys.argv.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>args</strong> : dictionary</p>
+<blockquote>
+<div><p>The parsed mandatory arguments</p>
+</div></blockquote>
+<p><strong>kwargs</strong> : dictionary</p>
+<blockquote class="last">
+<div><p>The parsed optional arguments</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="k">print</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="o">=</span> <span class="n">parse_command_line_arguments</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="c"># Mandatory arguments</span>
+<span class="gp">... </span>    <span class="p">[</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span>     <span class="nb">str</span><span class="p">,</span>  <span class="s">&quot;Full name&quot;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;age&#39;</span><span class="p">,</span>      <span class="nb">int</span><span class="p">,</span>  <span class="s">&quot;Age (years)&quot;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;employed&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&quot;Working&quot;</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="c"># Optional arguments</span>
+<span class="gp">... </span>    <span class="p">[</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;phone&#39;</span><span class="p">,</span>          <span class="nb">str</span><span class="p">,</span> <span class="s">&quot;Phone number&quot;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;favorite-color&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="s">&quot;Favorite color&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;--name=John Doe&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s">&#39;--age=42&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s">&#39;--no-employed&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s">&#39;--favorite-color=pink&#39;</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="go">{&#39;age&#39;: 42, &#39;employed&#39;: False, &#39;name&#39;: &#39;John Doe&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="go">{&#39;favorite_color&#39;: &#39;pink&#39;}</span>
+</pre></div>
+</div>
+<p>It is possible to have several optional argument sets:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw_info</span><span class="p">,</span> <span class="n">kw_fav</span><span class="p">)</span> <span class="o">=</span> <span class="n">parse_command_line_arguments</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="c"># Mandatory arguments</span>
+<span class="gp">... </span>    <span class="p">[</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span>     <span class="nb">str</span><span class="p">,</span>  <span class="s">&quot;Full name&quot;</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="c"># Optional arguments (contact information)</span>
+<span class="gp">... </span>    <span class="p">[</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;phone&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="s">&quot;Phone number&quot;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;email&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="s">&quot;E-mail address&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="c"># Optional arguments (preferences)</span>
+<span class="gp">... </span>    <span class="p">[</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;favorite-color&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="s">&quot;Favorite color&quot;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="p">(</span><span class="s">&#39;favorite-food&#39;</span><span class="p">,</span>  <span class="nb">str</span><span class="p">,</span> <span class="s">&quot;Favorite food&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="p">],</span>
+<span class="gp">... </span>    <span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;--name=John Doe&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s">&#39;--favorite-color=pink&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s">&#39;--email=john.doe@email.com&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s">&#39;--favorite-food=spaghetti&#39;</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="go">{&#39;name&#39;: &#39;John Doe&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">kw_info</span><span class="p">)</span>
+<span class="go">{&#39;email&#39;: &#39;john.doe@email.com&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">kw_fav</span><span class="p">)</span>
+<span class="go">{&#39;favorite_color&#39;: &#39;pink&#39;, &#39;favorite_food&#39;: &#39;spaghetti&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bayespy.utils.misc.remove_whitespace.html" title="bayespy.utils.misc.remove_whitespace"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bayespy.utils.misc.nested_iterator.html" title="bayespy.utils.misc.nested_iterator"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
+          <li><a href="../../dev_api.html" >Developer API</a> &raquo;</li>
+          <li><a href="../../utils.html" >Utility functions</a> &raquo;</li>
+          <li><a href="../bayespy.utils.misc.html" >bayespy.utils.misc</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

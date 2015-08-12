@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.utils.misc &mdash; BayesPy v0.3.5 Documentation</title>
+    <title>bayespy.utils.misc &mdash; BayesPy v0.3.6 Documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.3.5',
+        VERSION:     '0.3.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.5 Documentation" href="../../../index.html" />
+    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../../index.html" />
     <link rel="up" title="Module code" href="../../index.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">BayesPy v0.3.5 Documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
           <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>
@@ -78,6 +78,10 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">functools</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">getopt</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
@@ -92,6 +96,214 @@
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">testing</span>
 
 
+<div class="viewcode-block" id="find_set_index"><a class="viewcode-back" href="../../../dev_api/generated/generated/bayespy.utils.misc.find_set_index.html#bayespy.utils.misc.find_set_index">[docs]</a><span class="k">def</span> <span class="nf">find_set_index</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">set_lengths</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given set sizes and an index, returns the index of the set</span>
+
+<span class="sd">    The given index is for the concatenated list of the sets.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c"># Negative indices to positive</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">set_lengths</span><span class="p">)</span>
+
+    <span class="c"># Indices must be on range (0, N-1)</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">set_lengths</span><span class="p">)</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;Index out bounds&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">set_lengths</span><span class="p">),</span> <span class="n">index</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s">&#39;right&#39;</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="parse_command_line_arguments"><a class="viewcode-back" href="../../../dev_api/generated/generated/bayespy.utils.misc.parse_command_line_arguments.html#bayespy.utils.misc.parse_command_line_arguments">[docs]</a><span class="k">def</span> <span class="nf">parse_command_line_arguments</span><span class="p">(</span><span class="n">mandatory_args</span><span class="p">,</span> <span class="o">*</span><span class="n">optional_args_list</span><span class="p">,</span> <span class="n">argv</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse command line arguments of style &quot;--parameter=value&quot;.</span>
+
+<span class="sd">    Parameter specification is tuple: (name, converter, description).</span>
+
+<span class="sd">    Some special handling:</span>
+
+<span class="sd">    * If converter is None, the command line does not accept any value</span>
+<span class="sd">      for it, but instead use either &quot;--option&quot; to enable or</span>
+<span class="sd">      &quot;--no-option&quot; to disable.</span>
+
+<span class="sd">    * If argument name contains hyphens, those are converted to</span>
+<span class="sd">      underscores in the keys of the returned dictionaries.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    mandatory_args : list of tuples</span>
+<span class="sd">        Specs for mandatory arguments</span>
+
+<span class="sd">    optional_args_list : list of lists of tuples</span>
+<span class="sd">        Specs for each optional arguments set</span>
+
+<span class="sd">    argv : list of strings (optional)</span>
+<span class="sd">        The command line arguments. By default, read sys.argv.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    args : dictionary</span>
+<span class="sd">        The parsed mandatory arguments</span>
+
+<span class="sd">    kwargs : dictionary</span>
+<span class="sd">        The parsed optional arguments</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    &gt;&gt;&gt; from pprint import pprint as print</span>
+<span class="sd">    &gt;&gt;&gt; (args, kwargs) = parse_command_line_arguments(</span>
+<span class="sd">    ...     # Mandatory arguments</span>
+<span class="sd">    ...     [</span>
+<span class="sd">    ...         (&#39;name&#39;,     str,  &quot;Full name&quot;),</span>
+<span class="sd">    ...         (&#39;age&#39;,      int,  &quot;Age (years)&quot;),</span>
+<span class="sd">    ...         (&#39;employed&#39;, None, &quot;Working&quot;),</span>
+<span class="sd">    ...     ],</span>
+<span class="sd">    ...     # Optional arguments</span>
+<span class="sd">    ...     [</span>
+<span class="sd">    ...         (&#39;phone&#39;,          str, &quot;Phone number&quot;),</span>
+<span class="sd">    ...         (&#39;favorite-color&#39;, str, &quot;Favorite color&quot;)</span>
+<span class="sd">    ...     ],</span>
+<span class="sd">    ...     argv=[&#39;--name=John Doe&#39;,</span>
+<span class="sd">    ...           &#39;--age=42&#39;,</span>
+<span class="sd">    ...           &#39;--no-employed&#39;,</span>
+<span class="sd">    ...           &#39;--favorite-color=pink&#39;]</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; print(args)</span>
+<span class="sd">    {&#39;age&#39;: 42, &#39;employed&#39;: False, &#39;name&#39;: &#39;John Doe&#39;}</span>
+<span class="sd">    &gt;&gt;&gt; print(kwargs)</span>
+<span class="sd">    {&#39;favorite_color&#39;: &#39;pink&#39;}</span>
+
+<span class="sd">    It is possible to have several optional argument sets:</span>
+
+<span class="sd">    &gt;&gt;&gt; (args, kw_info, kw_fav) = parse_command_line_arguments(</span>
+<span class="sd">    ...     # Mandatory arguments</span>
+<span class="sd">    ...     [</span>
+<span class="sd">    ...         (&#39;name&#39;,     str,  &quot;Full name&quot;),</span>
+<span class="sd">    ...     ],</span>
+<span class="sd">    ...     # Optional arguments (contact information)</span>
+<span class="sd">    ...     [</span>
+<span class="sd">    ...         (&#39;phone&#39;, str, &quot;Phone number&quot;),</span>
+<span class="sd">    ...         (&#39;email&#39;, str, &quot;E-mail address&quot;)</span>
+<span class="sd">    ...     ],</span>
+<span class="sd">    ...     # Optional arguments (preferences)</span>
+<span class="sd">    ...     [</span>
+<span class="sd">    ...         (&#39;favorite-color&#39;, str, &quot;Favorite color&quot;),</span>
+<span class="sd">    ...         (&#39;favorite-food&#39;,  str, &quot;Favorite food&quot;)</span>
+<span class="sd">    ...     ],</span>
+<span class="sd">    ...     argv=[&#39;--name=John Doe&#39;,</span>
+<span class="sd">    ...           &#39;--favorite-color=pink&#39;,</span>
+<span class="sd">    ...           &#39;--email=john.doe@email.com&#39;,</span>
+<span class="sd">    ...           &#39;--favorite-food=spaghetti&#39;]</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; print(args)</span>
+<span class="sd">    {&#39;name&#39;: &#39;John Doe&#39;}</span>
+<span class="sd">    &gt;&gt;&gt; print(kw_info)</span>
+<span class="sd">    {&#39;email&#39;: &#39;john.doe@email.com&#39;}</span>
+<span class="sd">    &gt;&gt;&gt; print(kw_fav)</span>
+<span class="sd">    {&#39;favorite_color&#39;: &#39;pink&#39;, &#39;favorite_food&#39;: &#39;spaghetti&#39;}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">argv</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">argv</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="n">mandatory_arg_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">mandatory_args</span><span class="p">]</span>
+
+    <span class="c"># Sizes of each optional argument list</span>
+    <span class="n">optional_args_lengths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">opt_args</span><span class="p">)</span> <span class="k">for</span> <span class="n">opt_args</span> <span class="ow">in</span> <span class="n">optional_args_list</span><span class="p">]</span>
+
+    <span class="n">all_args</span> <span class="o">=</span> <span class="n">mandatory_args</span> <span class="o">+</span> <span class="n">functools</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="n">optional_args_list</span><span class="p">)</span>
+
+    <span class="c"># Create a list of arg names for the getopt parser</span>
+    <span class="n">arg_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">all_args</span><span class="p">:</span>
+        <span class="n">arg_name</span> <span class="o">=</span> <span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">arg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg_name</span><span class="p">)</span>
+            <span class="n">arg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;no-&quot;</span> <span class="o">+</span> <span class="n">arg_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">arg_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg_name</span> <span class="o">+</span> <span class="s">&quot;=&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">arg_list</span><span class="p">))</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arg_list</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;Argument names are not unique&quot;</span><span class="p">)</span>
+
+    <span class="c"># Use getopt parser</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">cl_opts</span><span class="p">,</span> <span class="n">cl_args</span><span class="p">)</span> <span class="o">=</span> <span class="n">getopt</span><span class="o">.</span><span class="n">getopt</span><span class="p">(</span><span class="n">argv</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">arg_list</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">getopt</span><span class="o">.</span><span class="n">GetoptError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Usage:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">all_args</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;--{0}</span><span class="se">\t</span><span class="s">{1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
+                                          <span class="n">arg</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;--{0}=&lt;{1}&gt;</span><span class="se">\t</span><span class="s">{2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
+                                               <span class="nb">str</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
+                                               <span class="n">arg</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c"># A list of all valid flag names: [&quot;--first-argument&quot;, &quot;--another-argument&quot;]</span>
+    <span class="n">valid_flags</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">valid_flag_arg_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_args</span><span class="p">):</span>
+        <span class="n">valid_flags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;--&quot;</span> <span class="o">+</span> <span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="n">valid_flag_arg_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">valid_flags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;--no-&quot;</span> <span class="o">+</span> <span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+            <span class="n">valid_flag_arg_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+
+    <span class="c"># Go through all the given command line arguments and store them in the</span>
+    <span class="c"># correct dictionaries</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">kwargs_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">optional_args_list</span><span class="p">))]</span>
+    <span class="n">handled_arg_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">cl_opt</span><span class="p">,</span> <span class="n">cl_arg</span><span class="p">)</span> <span class="ow">in</span> <span class="n">cl_opts</span><span class="p">:</span>
+
+        <span class="c"># Get the index of the argument</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ind</span> <span class="o">=</span> <span class="n">valid_flag_arg_indices</span><span class="p">[</span><span class="n">valid_flags</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cl_opt</span><span class="o">.</span><span class="n">lower</span><span class="p">())]</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Invalid command line argument: {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cl_opt</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;Invalid argument given&quot;</span><span class="p">)</span>
+
+        <span class="c"># Check that the argument wasn&#39;t already given and then mark the</span>
+        <span class="c"># argument as handled</span>
+        <span class="k">if</span> <span class="n">all_args</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">handled_arg_names</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;Same argument given multiple times&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">handled_arg_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">all_args</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c"># Check whether to add the argument to the mandatory or optional</span>
+        <span class="c"># argument dictionary</span>
+        <span class="k">if</span> <span class="n">ind</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">mandatory_args</span><span class="p">):</span>
+            <span class="n">dict_to</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dict_index</span> <span class="o">=</span> <span class="n">find_set_index</span><span class="p">(</span><span class="n">ind</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">mandatory_args</span><span class="p">),</span>
+                                        <span class="n">optional_args_lengths</span><span class="p">)</span>
+            <span class="n">dict_to</span> <span class="o">=</span> <span class="n">kwargs_list</span><span class="p">[</span><span class="n">dict_index</span><span class="p">]</span>
+
+        <span class="c"># Convert and store the argument</span>
+        <span class="n">convert_function</span> <span class="o">=</span> <span class="n">all_args</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">arg_name</span> <span class="o">=</span> <span class="n">all_args</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;_&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">convert_function</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cl_opt</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s">&quot;--no-&quot;</span><span class="p">:</span>
+                <span class="n">dict_to</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dict_to</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dict_to</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">convert_function</span><span class="p">(</span><span class="n">cl_arg</span><span class="p">)</span>
+
+    <span class="c"># Check if some mandatory argument was not given</span>
+    <span class="k">for</span> <span class="n">arg_name</span> <span class="ow">in</span> <span class="n">mandatory_arg_names</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arg_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">handled_arg_names</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&quot;Mandatory argument --{0} not given&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg_name</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">args</span><span class="p">]</span> <span class="o">+</span> <span class="n">kwargs_list</span><span class="p">)</span>
+
+</div>
 <div class="viewcode-block" id="composite_function"><a class="viewcode-back" href="../../../dev_api/generated/generated/bayespy.utils.misc.composite_function.html#bayespy.utils.misc.composite_function">[docs]</a><span class="k">def</span> <span class="nf">composite_function</span><span class="p">(</span><span class="n">function_list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Construct a function composition from a list of functions.</span>
@@ -1305,6 +1517,39 @@
         <span class="n">maxX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">maxX</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">))</span> <span class="o">+</span> <span class="n">maxX</span>
+
+</div>
+<div class="viewcode-block" id="invpsi"><a class="viewcode-back" href="../../../dev_api/generated/generated/bayespy.utils.misc.invpsi.html#bayespy.utils.misc.invpsi">[docs]</a><span class="k">def</span> <span class="nf">invpsi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">    Inverse digamma (psi) function.</span>
+
+<span class="sd">    The digamma function is the derivative of the log gamma function.</span>
+<span class="sd">    This calculates the value Y &gt; 0 for a value X such that digamma(Y) = X.</span>
+
+<span class="sd">    See: http://www4.ncsu.edu/~pfackler/</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">L</span> <span class="o">&gt;</span> <span class="mf">1e-10</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">L</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">special</span><span class="o">.</span><span class="n">psi</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">L</span> <span class="o">/=</span> <span class="mi">2</span>
+    <span class="c"># Ad hoc by Jaakko</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;-</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;-</span><span class="mi">10</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+</div>
+<div class="viewcode-block" id="invgamma"><a class="viewcode-back" href="../../../dev_api/generated/generated/bayespy.utils.misc.invgamma.html#bayespy.utils.misc.invgamma">[docs]</a><span class="k">def</span> <span class="nf">invgamma</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">    Inverse gamma function.</span>
+
+<span class="sd">    See: http://mathoverflow.net/a/28977</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mf">1.461632</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">0.036534</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">lambertw</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">L</span><span class="o">/</span><span class="n">W</span> <span class="o">+</span> <span class="mf">0.5</span>
+
 </div>
 <div class="viewcode-block" id="mean"><a class="viewcode-back" href="../../../dev_api/generated/generated/bayespy.utils.misc.mean.html#bayespy.utils.misc.mean">[docs]</a><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -1337,7 +1582,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../index.html">BayesPy v0.3.5 Documentation</a> &raquo;</li>
+        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

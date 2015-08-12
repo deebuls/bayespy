@@ -32,11 +32,14 @@ bayespy.utils.misc
       diag
       diagonal
       dist_haversine
+      find_set_index
       first
       gaussian_logpdf
       get_diag
       grid
       identity
+      invgamma
+      invpsi
       is_callable
       is_numeric
       is_shape_subset
@@ -57,6 +60,7 @@ bayespy.utils.misc
       multiply_shapes
       nans
       nested_iterator
+      parse_command_line_arguments
       remove_whitespace
       repeat_to_shape
       rmse
