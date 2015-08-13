@@ -24,7 +24,10 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../index.html" /> 
+    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../index.html" />
+    <link rel="up" title="Examples" href="examples.html" />
+    <link rel="next" title="Developer guide" href="../dev_guide/dev_guide.html" />
+    <link rel="prev" title="Linear state-space model" href="lssm.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,11 +39,36 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="../dev_guide/dev_guide.html" title="Developer guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="lssm.html" title="Linear state-space model"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
+          <li><a href="examples.html" accesskey="U">Examples</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Latent Dirichlet allocation</a><ul>
+<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#model">Model</a></li>
+<li><a class="reference internal" href="#inference">Inference</a></li>
+<li><a class="reference internal" href="#results">Results</a></li>
+<li><a class="reference internal" href="#stochastic-variational-inference">Stochastic variational inference</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="lssm.html"
+                        title="previous chapter">Linear state-space model</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../dev_guide/dev_guide.html"
+                        title="next chapter">Developer guide</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/examples/lda.txt"
@@ -69,7 +97,253 @@
             
   <div class="section" id="latent-dirichlet-allocation">
 <h1>Latent Dirichlet allocation<a class="headerlink" href="#latent-dirichlet-allocation" title="Permalink to this headline">¶</a></h1>
-<p>blaa blaa blaa..</p>
+<p>Latent Dirichlet allocation is a widely used topic model.  The data is a
+collection of documents which contain words.  The goal of the analysis is to
+find topics (distribution of words in topics) and document topics (distribution
+of topics in documents).</p>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>The data consists of two vectors of equal length.  The elements in these vectors
+correspond to the words in all documents combined.  If there were <span class="math">\(M\)</span>
+documents and each document had <span class="math">\(K\)</span> words, the vectors contain <span class="math">\(M
+\cdot K\)</span> elements.  Let <span class="math">\(M\)</span> be the number of documents in total.  The
+first vector gives each word a document index <span class="math">\(i\in \{0,\ldots,M-1\}\)</span>
+defining to which document the word belongs.  Let <span class="math">\(N\)</span> be the size of the
+whole available vocabulary.  The second vector gives each word a vocabulary
+index <span class="math">\(j\in \{0,\ldots,N-1\}\)</span> defining which word it is from the
+vocabulary.</p>
+<p>For this demo, we will just generate an artificial dataset for simplicity.  We
+use the LDA model itself to generate the dataset.  First, import relevant
+packages:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayespy</span> <span class="kn">import</span> <span class="n">nodes</span>
+</pre></div>
+</div>
+<p>Let us decide the number of documents and the number of words in those documents:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n_documents</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n_words</span> <span class="o">=</span> <span class="mi">10000</span>
+</pre></div>
+</div>
+<p>Randomly choose into which document each word belongs to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">word_documents</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_documents</span><span class="p">)</span><span class="o">/</span><span class="n">n_documents</span><span class="p">,</span>
+<span class="gp">... </span>                                   <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_words</span><span class="p">,))</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Let us also decide the size of our vocabulary:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n_vocabulary</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>Also, let us decide the true number of topics:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n_topics</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>Generate some random distributions for the topics in each document:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p_topic</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Dirichlet</span><span class="p">(</span><span class="mf">1e-1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_topics</span><span class="p">),</span>
+<span class="gp">... </span>                          <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_documents</span><span class="p">,))</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Generate some random distributions for the words in each topic:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p_word</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Dirichlet</span><span class="p">(</span><span class="mf">1e-1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_vocabulary</span><span class="p">),</span>
+<span class="gp">... </span>                         <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_topics</span><span class="p">,))</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Sample topic assignments for each word in each document:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">topic</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">p_topic</span><span class="p">[</span><span class="n">word_documents</span><span class="p">],</span>
+<span class="gp">... </span>                          <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_words</span><span class="p">,))</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>And finally, draw vocabulary indices for each word in all the documents:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">corpus</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">p_word</span><span class="p">[</span><span class="n">topic</span><span class="p">],</span>
+<span class="gp">... </span>                           <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_words</span><span class="p">,))</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, our dataset consists of <tt class="docutils literal"><span class="pre">word_documents</span></tt> and <tt class="docutils literal"><span class="pre">corpus</span></tt>, which define the
+document and vocabulary indices for each word in our dataset.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Use some large real-world dataset, for instance, Wikipedia.</p>
+</div>
+</div>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<p>Variable for learning the topic distribution for each document:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p_topic</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Dirichlet</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_topics</span><span class="p">),</span>
+<span class="gp">... </span>                          <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_documents</span><span class="p">,),</span>
+<span class="gp">... </span>                          <span class="n">name</span><span class="o">=</span><span class="s">&#39;p_topic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Variable for learning the word distribution for each topic:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p_word</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Dirichlet</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_vocabulary</span><span class="p">),</span>
+<span class="gp">... </span>                         <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_topics</span><span class="p">,),</span>
+<span class="gp">... </span>                         <span class="n">name</span><span class="o">=</span><span class="s">&#39;p_word&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The document indices for each word in the corpus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayespy.inference.vmp.nodes.categorical</span> <span class="kn">import</span> <span class="n">CategoricalMoments</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">document_indices</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Constant</span><span class="p">(</span><span class="n">CategoricalMoments</span><span class="p">(</span><span class="n">n_documents</span><span class="p">),</span> <span class="n">word_documents</span><span class="p">,</span>
+<span class="gp">... </span>                                  <span class="n">name</span><span class="o">=</span><span class="s">&#39;document_indices&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Variable for learning the topic assignments of each word in the corpus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">topics</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Gate</span><span class="p">(</span><span class="n">document_indices</span><span class="p">,</span> <span class="n">p_topic</span><span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">corpus</span><span class="p">),),</span>
+<span class="gp">... </span>                           <span class="n">name</span><span class="o">=</span><span class="s">&#39;topics&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The vocabulary indices for each word in the corpus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Gate</span><span class="p">(</span><span class="n">topics</span><span class="p">,</span> <span class="n">p_word</span><span class="p">),</span>
+<span class="gp">... </span>                          <span class="n">name</span><span class="o">=</span><span class="s">&#39;words&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="inference">
+<h2>Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h2>
+<p>Observe the corpus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">words</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Break symmetry by random initialization:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p_topic</span><span class="o">.</span><span class="n">initialize_from_random</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p_word</span><span class="o">.</span><span class="n">initialize_from_random</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Construct inference engine:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayespy.inference</span> <span class="kn">import</span> <span class="n">VB</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">VB</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">topics</span><span class="p">,</span> <span class="n">p_word</span><span class="p">,</span> <span class="n">p_topic</span><span class="p">,</span> <span class="n">document_indices</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run the VB learning algorithm:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">repeat</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="go">Iteration ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Use <tt class="docutils literal"><span class="pre">bayespy.plot</span></tt> to plot the results:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">bayespy.plot</span> <span class="kn">as</span> <span class="nn">bpplt</span>
+</pre></div>
+</div>
+<p>Plot the topic distributions for each document:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="go">&lt;matplotlib.figure.Figure object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">hinton</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="s">&#39;p_topic&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&quot;Posterior topic distribution for each document&quot;</span><span class="p">)</span>
+<span class="go">&lt;matplotlib.text.Text object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;Topics&quot;</span><span class="p">)</span>
+<span class="go">&lt;matplotlib.text.Text object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;Documents&quot;</span><span class="p">)</span>
+<span class="go">&lt;matplotlib.text.Text object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>Plot the word distributions for each topic:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="go">&lt;matplotlib.figure.Figure object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">hinton</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="s">&#39;p_word&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&quot;Posterior word distributions for each topic&quot;</span><span class="p">)</span>
+<span class="go">&lt;matplotlib.text.Text object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;Words&quot;</span><span class="p">)</span>
+<span class="go">&lt;matplotlib.text.Text object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;Topics&quot;</span><span class="p">)</span>
+<span class="go">&lt;matplotlib.text.Text object at 0x...&gt;</span>
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Create more illustrative plots.</p>
+</div>
+</div>
+<div class="section" id="stochastic-variational-inference">
+<h2>Stochastic variational inference<a class="headerlink" href="#stochastic-variational-inference" title="Permalink to this headline">¶</a></h2>
+<p>LDA is a popular example for stochastic variational inference (SVI).  Using SVI
+for LDA is quite simple in BayesPy.  In SVI, only a subset of the dataset is
+used at each iteration step but this subset is &#8220;repeated&#8221; to get the same size
+as the original dataset.  Let us define a size for the subset:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">subset_size</span> <span class="o">=</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+<p>Thus, our subset will be repeat this many times:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">plates_multiplier</span> <span class="o">=</span> <span class="n">n_words</span> <span class="o">/</span> <span class="n">subset_size</span>
+</pre></div>
+</div>
+<p>Note that this multiplier doesn&#8217;t need to be an integer.</p>
+<p>Now, let us repeat the model construction with only one minor addition.  The
+following variables are identical to previous:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p_topic</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Dirichlet</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_topics</span><span class="p">),</span>
+<span class="gp">... </span>                          <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_documents</span><span class="p">,),</span>
+<span class="gp">... </span>                          <span class="n">name</span><span class="o">=</span><span class="s">&#39;p_topic&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p_word</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Dirichlet</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_vocabulary</span><span class="p">),</span>
+<span class="gp">... </span>                         <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">n_topics</span><span class="p">,),</span>
+<span class="gp">... </span>                         <span class="n">name</span><span class="o">=</span><span class="s">&#39;p_word&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The document indices vector is now a bit shorter, using only a subset:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">document_indices</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Constant</span><span class="p">(</span><span class="n">CategoricalMoments</span><span class="p">(</span><span class="n">n_documents</span><span class="p">),</span>
+<span class="gp">... </span>                                  <span class="n">word_documents</span><span class="p">[:</span><span class="n">subset_size</span><span class="p">],</span>
+<span class="gp">... </span>                                  <span class="n">name</span><span class="o">=</span><span class="s">&#39;document_indices&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that at this point, it doesn&#8217;t matter which elements we chose for the
+subset.  For the topic assignments of each word in the corpus we need to use
+<tt class="docutils literal"><span class="pre">plates_multiplier</span></tt> because these topic assignments for the subset are
+&#8220;repeated&#8221; to recover the full dataset:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">topics</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Gate</span><span class="p">(</span><span class="n">document_indices</span><span class="p">,</span> <span class="n">p_topic</span><span class="p">),</span>
+<span class="gp">... </span>                           <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="n">subset_size</span><span class="p">,),</span>
+<span class="gp">... </span>                           <span class="n">plates_multiplier</span><span class="o">=</span><span class="p">(</span><span class="n">plates_multiplier</span><span class="p">,),</span>
+<span class="gp">... </span>                           <span class="n">name</span><span class="o">=</span><span class="s">&#39;topics&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, the vocabulary indices for each word in the corpus are constructed as
+before:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">Gate</span><span class="p">(</span><span class="n">topics</span><span class="p">,</span> <span class="n">p_word</span><span class="p">),</span>
+<span class="gp">... </span>                          <span class="n">name</span><span class="o">=</span><span class="s">&#39;words&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This node inherits the plates and multipliers from its parent <tt class="docutils literal"><span class="pre">topics</span></tt>, so
+there is no need to define them here.  Again, break symmetry by random
+initialization:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p_topic</span><span class="o">.</span><span class="n">initialize_from_random</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p_word</span><span class="o">.</span><span class="n">initialize_from_random</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Construct inference engine:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayespy.inference</span> <span class="kn">import</span> <span class="n">VB</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">VB</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">topics</span><span class="p">,</span> <span class="n">p_word</span><span class="p">,</span> <span class="n">p_topic</span><span class="p">,</span> <span class="n">document_indices</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In order to use SVI, we need to disable some lower bound checks, because the
+lower bound doesn&#8217;t anymore necessarily increase at each iteration step:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">ignore_bound_checks</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>For the stochastic gradient ascent, we&#8217;ll define some learning parameters:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">forgetting_rate</span> <span class="o">=</span> <span class="mf">0.7</span>
+</pre></div>
+</div>
+<p>Run the inference:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="c"># Observe a random mini-batch</span>
+<span class="gp">... </span>    <span class="n">subset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">n_words</span><span class="p">,</span> <span class="n">subset_size</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">Q</span><span class="p">[</span><span class="s">&#39;words&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">corpus</span><span class="p">[</span><span class="n">subset</span><span class="p">])</span>
+<span class="gp">... </span>    <span class="n">Q</span><span class="p">[</span><span class="s">&#39;document_indices&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">word_documents</span><span class="p">[</span><span class="n">subset</span><span class="p">])</span>
+<span class="gp">... </span>    <span class="c"># Learn intermediate variables</span>
+<span class="gp">... </span>    <span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;topics&#39;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="c"># Set step length</span>
+<span class="gp">... </span>    <span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">delay</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">forgetting_rate</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="c"># Stochastic gradient for the global variables</span>
+<span class="gp">... </span>    <span class="n">Q</span><span class="o">.</span><span class="n">gradient_step</span><span class="p">(</span><span class="s">&#39;p_topic&#39;</span><span class="p">,</span> <span class="s">&#39;p_word&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If one is interested, the lower bound values during the SVI algorithm can be plotted as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="go">&lt;matplotlib.figure.Figure object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">L</span><span class="p">)</span>
+<span class="go">[&lt;matplotlib.lines.Line2D object at 0x...&gt;]</span>
+</pre></div>
+</div>
+<p>The other results can be plotted as before.</p>
+</div>
 </div>
 
 
@@ -87,7 +361,14 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="../dev_guide/dev_guide.html" title="Developer guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="lssm.html" title="Linear state-space model"
+             >previous</a> |</li>
+        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
+          <li><a href="examples.html" >Examples</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
