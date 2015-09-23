@@ -36,6 +36,7 @@ bayespy.inference.VB
       ~VB.set_callback
       ~VB.set_parameters
       ~VB.update
+      ~VB.use_logging
    
    
 

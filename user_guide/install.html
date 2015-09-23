@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>Installation &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../index.html" />
     <link rel="up" title="User guide" href="user_guide.html" />
     <link rel="next" title="Quick start guide" href="quickstart.html" />
     <link rel="prev" title="User guide" href="user_guide.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,11 +45,11 @@
         <li class="right" >
           <a href="user_guide.html" title="User guide"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -72,12 +72,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="quickstart.html"
                         title="next chapter">Quick start guide</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/user_guide/install.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/install.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -96,7 +98,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
@@ -190,7 +192,7 @@ instance, you may try <a class="reference external" href="http://continuum.io/do
 <a class="reference external" href="https://www.enthought.com/products/canopy/">Enthought</a>.</p>
 </li>
 <li><p class="first">Install the packages using the system package manager.  On Linux, the
-packages might be called something like <tt class="docutils literal"><span class="pre">python-scipy</span></tt> or <tt class="docutils literal"><span class="pre">scipy</span></tt>.
+packages might be called something like <code class="docutils literal"><span class="pre">python-scipy</span></code> or <code class="docutils literal"><span class="pre">scipy</span></code>.
 However, it is possible that these system packages are not recent enough
 for BayesPy.</p>
 </li>
@@ -219,15 +221,15 @@ may install the required system libraries for each package as:</p>
 <h2>Compiling documentation<a class="headerlink" href="#compiling-documentation" title="Permalink to this headline">¶</a></h2>
 <p>This documentation can be found at <a class="reference external" href="http://bayespy.org/">http://bayespy.org/</a> in HTML and PDF formats.
 The documentation source files are also readable as such in reStructuredText
-format in <tt class="docutils literal"><span class="pre">doc/source/</span></tt> directory.  It is possible to compile the
+format in <code class="docutils literal"><span class="pre">doc/source/</span></code> directory.  It is possible to compile the
 documentation into HTML or PDF yourself.  In order to compile the documentation,
 Sphinx is required and a few extensions for it. Those can be installed as:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="go">pip install &quot;sphinx&gt;=1.2.3&quot; sphinxcontrib-tikz sphinxcontrib-bayesnet sphinxcontrib-bibtex &quot;numpydoc&gt;=0.5&quot;</span>
 </pre></div>
 </div>
-<p>In order to visualize graphical models in HTML, you need to have <tt class="docutils literal"><span class="pre">ImageMagick</span></tt>
-or <tt class="docutils literal"><span class="pre">Netpbm</span></tt> installed.  The documentation can be compiled to HTML and PDF by
-running the following commands in the <tt class="docutils literal"><span class="pre">doc</span></tt> directory:</p>
+<p>In order to visualize graphical models in HTML, you need to have <code class="docutils literal"><span class="pre">ImageMagick</span></code>
+or <code class="docutils literal"><span class="pre">Netpbm</span></code> installed.  The documentation can be compiled to HTML and PDF by
+running the following commands in the <code class="docutils literal"><span class="pre">doc</span></code> directory:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="go">make html</span>
 <span class="go">make latexpdf</span>
 </pre></div>
@@ -249,7 +251,7 @@ running the following commands in the <tt class="docutils literal"><span class="
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -264,13 +266,13 @@ running the following commands in the <tt class="docutils literal"><span class="
         <li class="right" >
           <a href="user_guide.html" title="User guide"
              >previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" >User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" >User guide</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

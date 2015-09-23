@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.nodes.Dirichlet &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>bayespy.nodes.Dirichlet &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../../index.html" />
     <link rel="up" title="bayespy.nodes" href="../bayespy.nodes.html" />
     <link rel="next" title="bayespy.nodes.Dirichlet.__init__" href="generated/bayespy.nodes.Dirichlet.__init__.html" />
     <link rel="prev" title="bayespy.nodes.Beta.plates_multiplier" href="generated/bayespy.nodes.Beta.plates_multiplier.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,12 +45,12 @@
         <li class="right" >
           <a href="generated/bayespy.nodes.Beta.plates_multiplier.html" title="bayespy.nodes.Beta.plates_multiplier"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li><a href="../bayespy.nodes.html" accesskey="U">bayespy.nodes</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../bayespy.nodes.html" accesskey="U">bayespy.nodes</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="generated/bayespy.nodes.Beta.plates_multiplier.html"
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="generated/bayespy.nodes.Dirichlet.__init__.html"
                         title="next chapter">bayespy.nodes.Dirichlet.__init__</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../../../_sources/user_api/generated/generated/bayespy.nodes.Dirichlet.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_api/generated/generated/bayespy.nodes.Dirichlet.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../../search.html" method="get">
       <input type="text" name="q" />
@@ -82,13 +84,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="bayespy-nodes-dirichlet">
 <h1>bayespy.nodes.Dirichlet<a class="headerlink" href="#bayespy-nodes-dirichlet" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="bayespy.nodes.Dirichlet">
-<em class="property">class </em><tt class="descclassname">bayespy.nodes.</tt><tt class="descname">Dirichlet</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bayespy.nodes.Dirichlet" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">bayespy.nodes.</code><code class="descname">Dirichlet</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bayespy/inference/vmp/nodes/dirichlet.html#Dirichlet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.nodes.Dirichlet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Node for Dirichlet random variables.</p>
 <p>The node models a set of probabilities <span class="math">\(\{\pi_0, \ldots, \pi_{K-1}\}\)</span>
 which satisfy <span class="math">\(\sum_{k=0}^{K-1} \pi_k = 1\)</span> and <span class="math">\(\pi_k \in [0,1]
@@ -113,11 +115,11 @@ concentration parameters.</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="bayespy.nodes.Beta.html#bayespy.nodes.Beta" title="bayespy.nodes.Beta"><tt class="xref py py-obj docutils literal"><span class="pre">Beta</span></tt></a>, <a class="reference internal" href="bayespy.nodes.Categorical.html#bayespy.nodes.Categorical" title="bayespy.nodes.Categorical"><tt class="xref py py-obj docutils literal"><span class="pre">Categorical</span></tt></a>, <a class="reference internal" href="bayespy.nodes.Multinomial.html#bayespy.nodes.Multinomial" title="bayespy.nodes.Multinomial"><tt class="xref py py-obj docutils literal"><span class="pre">Multinomial</span></tt></a>, <a class="reference internal" href="bayespy.nodes.CategoricalMarkovChain.html#bayespy.nodes.CategoricalMarkovChain" title="bayespy.nodes.CategoricalMarkovChain"><tt class="xref py py-obj docutils literal"><span class="pre">CategoricalMarkovChain</span></tt></a></p>
+<p class="last"><a class="reference internal" href="bayespy.nodes.Beta.html#bayespy.nodes.Beta" title="bayespy.nodes.Beta"><code class="xref py py-obj docutils literal"><span class="pre">Beta</span></code></a>, <a class="reference internal" href="bayespy.nodes.Categorical.html#bayespy.nodes.Categorical" title="bayespy.nodes.Categorical"><code class="xref py py-obj docutils literal"><span class="pre">Categorical</span></code></a>, <a class="reference internal" href="bayespy.nodes.Multinomial.html#bayespy.nodes.Multinomial" title="bayespy.nodes.Multinomial"><code class="xref py py-obj docutils literal"><span class="pre">Multinomial</span></code></a>, <a class="reference internal" href="bayespy.nodes.CategoricalMarkovChain.html#bayespy.nodes.CategoricalMarkovChain" title="bayespy.nodes.CategoricalMarkovChain"><code class="xref py py-obj docutils literal"><span class="pre">CategoricalMarkovChain</span></code></a></p>
 </div>
 <dl class="method">
 <dt id="bayespy.nodes.Dirichlet.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bayespy.nodes.Dirichlet.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bayespy.nodes.Dirichlet.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -127,94 +129,94 @@ concentration parameters.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.__init__.html#bayespy.nodes.Dirichlet.__init__" title="bayespy.nodes.Dirichlet.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(*args,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.__init__.html#bayespy.nodes.Dirichlet.__init__" title="bayespy.nodes.Dirichlet.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>(*args,&nbsp;**kwargs)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.add_plate_axis.html#bayespy.nodes.Dirichlet.add_plate_axis" title="bayespy.nodes.Dirichlet.add_plate_axis"><tt class="xref py py-obj docutils literal"><span class="pre">add_plate_axis</span></tt></a>(to_plate)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.add_plate_axis.html#bayespy.nodes.Dirichlet.add_plate_axis" title="bayespy.nodes.Dirichlet.add_plate_axis"><code class="xref py py-obj docutils literal"><span class="pre">add_plate_axis</span></code></a>(to_plate)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.broadcasting_multiplier.html#bayespy.nodes.Dirichlet.broadcasting_multiplier" title="bayespy.nodes.Dirichlet.broadcasting_multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">broadcasting_multiplier</span></tt></a>(plates,&nbsp;*args)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.broadcasting_multiplier.html#bayespy.nodes.Dirichlet.broadcasting_multiplier" title="bayespy.nodes.Dirichlet.broadcasting_multiplier"><code class="xref py py-obj docutils literal"><span class="pre">broadcasting_multiplier</span></code></a>(plates,&nbsp;*args)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.delete.html#bayespy.nodes.Dirichlet.delete" title="bayespy.nodes.Dirichlet.delete"><tt class="xref py py-obj docutils literal"><span class="pre">delete</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.delete.html#bayespy.nodes.Dirichlet.delete" title="bayespy.nodes.Dirichlet.delete"><code class="xref py py-obj docutils literal"><span class="pre">delete</span></code></a>()</td>
 <td>Delete this node and the children</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_gradient.html#bayespy.nodes.Dirichlet.get_gradient" title="bayespy.nodes.Dirichlet.get_gradient"><tt class="xref py py-obj docutils literal"><span class="pre">get_gradient</span></tt></a>(rg)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_gradient.html#bayespy.nodes.Dirichlet.get_gradient" title="bayespy.nodes.Dirichlet.get_gradient"><code class="xref py py-obj docutils literal"><span class="pre">get_gradient</span></code></a>(rg)</td>
 <td>Computes gradient with respect to the natural parameters.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_mask.html#bayespy.nodes.Dirichlet.get_mask" title="bayespy.nodes.Dirichlet.get_mask"><tt class="xref py py-obj docutils literal"><span class="pre">get_mask</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_mask.html#bayespy.nodes.Dirichlet.get_mask" title="bayespy.nodes.Dirichlet.get_mask"><code class="xref py py-obj docutils literal"><span class="pre">get_mask</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_moments.html#bayespy.nodes.Dirichlet.get_moments" title="bayespy.nodes.Dirichlet.get_moments"><tt class="xref py py-obj docutils literal"><span class="pre">get_moments</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_moments.html#bayespy.nodes.Dirichlet.get_moments" title="bayespy.nodes.Dirichlet.get_moments"><code class="xref py py-obj docutils literal"><span class="pre">get_moments</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_parameters.html#bayespy.nodes.Dirichlet.get_parameters" title="bayespy.nodes.Dirichlet.get_parameters"><tt class="xref py py-obj docutils literal"><span class="pre">get_parameters</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_parameters.html#bayespy.nodes.Dirichlet.get_parameters" title="bayespy.nodes.Dirichlet.get_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_parameters</span></code></a>()</td>
 <td>Return parameters of the VB distribution.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_riemannian_gradient.html#bayespy.nodes.Dirichlet.get_riemannian_gradient" title="bayespy.nodes.Dirichlet.get_riemannian_gradient"><tt class="xref py py-obj docutils literal"><span class="pre">get_riemannian_gradient</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_riemannian_gradient.html#bayespy.nodes.Dirichlet.get_riemannian_gradient" title="bayespy.nodes.Dirichlet.get_riemannian_gradient"><code class="xref py py-obj docutils literal"><span class="pre">get_riemannian_gradient</span></code></a>()</td>
 <td>Computes the Riemannian/natural gradient.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_shape.html#bayespy.nodes.Dirichlet.get_shape" title="bayespy.nodes.Dirichlet.get_shape"><tt class="xref py py-obj docutils literal"><span class="pre">get_shape</span></tt></a>(ind)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.get_shape.html#bayespy.nodes.Dirichlet.get_shape" title="bayespy.nodes.Dirichlet.get_shape"><code class="xref py py-obj docutils literal"><span class="pre">get_shape</span></code></a>(ind)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.has_plotter.html#bayespy.nodes.Dirichlet.has_plotter" title="bayespy.nodes.Dirichlet.has_plotter"><tt class="xref py py-obj docutils literal"><span class="pre">has_plotter</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.has_plotter.html#bayespy.nodes.Dirichlet.has_plotter" title="bayespy.nodes.Dirichlet.has_plotter"><code class="xref py py-obj docutils literal"><span class="pre">has_plotter</span></code></a>()</td>
 <td>Return True if the node has a plotter</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.initialize_from_parameters.html#bayespy.nodes.Dirichlet.initialize_from_parameters" title="bayespy.nodes.Dirichlet.initialize_from_parameters"><tt class="xref py py-obj docutils literal"><span class="pre">initialize_from_parameters</span></tt></a>(*args)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.initialize_from_parameters.html#bayespy.nodes.Dirichlet.initialize_from_parameters" title="bayespy.nodes.Dirichlet.initialize_from_parameters"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_parameters</span></code></a>(*args)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.initialize_from_prior.html#bayespy.nodes.Dirichlet.initialize_from_prior" title="bayespy.nodes.Dirichlet.initialize_from_prior"><tt class="xref py py-obj docutils literal"><span class="pre">initialize_from_prior</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.initialize_from_prior.html#bayespy.nodes.Dirichlet.initialize_from_prior" title="bayespy.nodes.Dirichlet.initialize_from_prior"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_prior</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.initialize_from_random.html#bayespy.nodes.Dirichlet.initialize_from_random" title="bayespy.nodes.Dirichlet.initialize_from_random"><tt class="xref py py-obj docutils literal"><span class="pre">initialize_from_random</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.initialize_from_random.html#bayespy.nodes.Dirichlet.initialize_from_random" title="bayespy.nodes.Dirichlet.initialize_from_random"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_random</span></code></a>()</td>
 <td>Set the variable to a random sample from the current distribution.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.initialize_from_value.html#bayespy.nodes.Dirichlet.initialize_from_value" title="bayespy.nodes.Dirichlet.initialize_from_value"><tt class="xref py py-obj docutils literal"><span class="pre">initialize_from_value</span></tt></a>(x,&nbsp;*args)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.initialize_from_value.html#bayespy.nodes.Dirichlet.initialize_from_value" title="bayespy.nodes.Dirichlet.initialize_from_value"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_value</span></code></a>(x,&nbsp;*args)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.load.html#bayespy.nodes.Dirichlet.load" title="bayespy.nodes.Dirichlet.load"><tt class="xref py py-obj docutils literal"><span class="pre">load</span></tt></a>(filename)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.load.html#bayespy.nodes.Dirichlet.load" title="bayespy.nodes.Dirichlet.load"><code class="xref py py-obj docutils literal"><span class="pre">load</span></code></a>(filename)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.logpdf.html#bayespy.nodes.Dirichlet.logpdf" title="bayespy.nodes.Dirichlet.logpdf"><tt class="xref py py-obj docutils literal"><span class="pre">logpdf</span></tt></a>(X[,&nbsp;mask])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.logpdf.html#bayespy.nodes.Dirichlet.logpdf" title="bayespy.nodes.Dirichlet.logpdf"><code class="xref py py-obj docutils literal"><span class="pre">logpdf</span></code></a>(X[,&nbsp;mask])</td>
 <td>Compute the log probability density function Q(X) of this node.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.lower_bound_contribution.html#bayespy.nodes.Dirichlet.lower_bound_contribution" title="bayespy.nodes.Dirichlet.lower_bound_contribution"><tt class="xref py py-obj docutils literal"><span class="pre">lower_bound_contribution</span></tt></a>([gradient,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.lower_bound_contribution.html#bayespy.nodes.Dirichlet.lower_bound_contribution" title="bayespy.nodes.Dirichlet.lower_bound_contribution"><code class="xref py py-obj docutils literal"><span class="pre">lower_bound_contribution</span></code></a>([gradient,&nbsp;...])</td>
 <td>Compute E[ log p(X|parents) - log q(X) ]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.lowerbound.html#bayespy.nodes.Dirichlet.lowerbound" title="bayespy.nodes.Dirichlet.lowerbound"><tt class="xref py py-obj docutils literal"><span class="pre">lowerbound</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.lowerbound.html#bayespy.nodes.Dirichlet.lowerbound" title="bayespy.nodes.Dirichlet.lowerbound"><code class="xref py py-obj docutils literal"><span class="pre">lowerbound</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.move_plates.html#bayespy.nodes.Dirichlet.move_plates" title="bayespy.nodes.Dirichlet.move_plates"><tt class="xref py py-obj docutils literal"><span class="pre">move_plates</span></tt></a>(from_plate,&nbsp;to_plate)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.move_plates.html#bayespy.nodes.Dirichlet.move_plates" title="bayespy.nodes.Dirichlet.move_plates"><code class="xref py py-obj docutils literal"><span class="pre">move_plates</span></code></a>(from_plate,&nbsp;to_plate)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.observe.html#bayespy.nodes.Dirichlet.observe" title="bayespy.nodes.Dirichlet.observe"><tt class="xref py py-obj docutils literal"><span class="pre">observe</span></tt></a>(x,&nbsp;*args[,&nbsp;mask])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.observe.html#bayespy.nodes.Dirichlet.observe" title="bayespy.nodes.Dirichlet.observe"><code class="xref py py-obj docutils literal"><span class="pre">observe</span></code></a>(x,&nbsp;*args[,&nbsp;mask])</td>
 <td>Fix moments, compute f and propagate mask.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.pdf.html#bayespy.nodes.Dirichlet.pdf" title="bayespy.nodes.Dirichlet.pdf"><tt class="xref py py-obj docutils literal"><span class="pre">pdf</span></tt></a>(X[,&nbsp;mask])</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.pdf.html#bayespy.nodes.Dirichlet.pdf" title="bayespy.nodes.Dirichlet.pdf"><code class="xref py py-obj docutils literal"><span class="pre">pdf</span></code></a>(X[,&nbsp;mask])</td>
 <td>Compute the probability density function of this node.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.plot.html#bayespy.nodes.Dirichlet.plot" title="bayespy.nodes.Dirichlet.plot"><tt class="xref py py-obj docutils literal"><span class="pre">plot</span></tt></a>([fig])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.plot.html#bayespy.nodes.Dirichlet.plot" title="bayespy.nodes.Dirichlet.plot"><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code></a>([fig])</td>
 <td>Plot the node distribution using the plotter of the node</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.random.html#bayespy.nodes.Dirichlet.random" title="bayespy.nodes.Dirichlet.random"><tt class="xref py py-obj docutils literal"><span class="pre">random</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.random.html#bayespy.nodes.Dirichlet.random" title="bayespy.nodes.Dirichlet.random"><code class="xref py py-obj docutils literal"><span class="pre">random</span></code></a>()</td>
 <td>Draw a random sample from the distribution.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.save.html#bayespy.nodes.Dirichlet.save" title="bayespy.nodes.Dirichlet.save"><tt class="xref py py-obj docutils literal"><span class="pre">save</span></tt></a>(filename)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.save.html#bayespy.nodes.Dirichlet.save" title="bayespy.nodes.Dirichlet.save"><code class="xref py py-obj docutils literal"><span class="pre">save</span></code></a>(filename)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.set_parameters.html#bayespy.nodes.Dirichlet.set_parameters" title="bayespy.nodes.Dirichlet.set_parameters"><tt class="xref py py-obj docutils literal"><span class="pre">set_parameters</span></tt></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.set_parameters.html#bayespy.nodes.Dirichlet.set_parameters" title="bayespy.nodes.Dirichlet.set_parameters"><code class="xref py py-obj docutils literal"><span class="pre">set_parameters</span></code></a>(x)</td>
 <td>Set the parameters of the VB distribution.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.set_plotter.html#bayespy.nodes.Dirichlet.set_plotter" title="bayespy.nodes.Dirichlet.set_plotter"><tt class="xref py py-obj docutils literal"><span class="pre">set_plotter</span></tt></a>(plotter)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.set_plotter.html#bayespy.nodes.Dirichlet.set_plotter" title="bayespy.nodes.Dirichlet.set_plotter"><code class="xref py py-obj docutils literal"><span class="pre">set_plotter</span></code></a>(plotter)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.show.html#bayespy.nodes.Dirichlet.show" title="bayespy.nodes.Dirichlet.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.show.html#bayespy.nodes.Dirichlet.show" title="bayespy.nodes.Dirichlet.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>()</td>
 <td>Print the distribution using standard parameterization.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.unobserve.html#bayespy.nodes.Dirichlet.unobserve" title="bayespy.nodes.Dirichlet.unobserve"><tt class="xref py py-obj docutils literal"><span class="pre">unobserve</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.unobserve.html#bayespy.nodes.Dirichlet.unobserve" title="bayespy.nodes.Dirichlet.unobserve"><code class="xref py py-obj docutils literal"><span class="pre">unobserve</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.update.html#bayespy.nodes.Dirichlet.update" title="bayespy.nodes.Dirichlet.update"><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></a>([annealing])</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.update.html#bayespy.nodes.Dirichlet.update" title="bayespy.nodes.Dirichlet.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>([annealing])</td>
 <td></td>
 </tr>
 </tbody>
@@ -226,13 +228,13 @@ concentration parameters.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.dims.html#bayespy.nodes.Dirichlet.dims" title="bayespy.nodes.Dirichlet.dims"><tt class="xref py py-obj docutils literal"><span class="pre">dims</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.dims.html#bayespy.nodes.Dirichlet.dims" title="bayespy.nodes.Dirichlet.dims"><code class="xref py py-obj docutils literal"><span class="pre">dims</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.plates.html#bayespy.nodes.Dirichlet.plates" title="bayespy.nodes.Dirichlet.plates"><tt class="xref py py-obj docutils literal"><span class="pre">plates</span></tt></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.plates.html#bayespy.nodes.Dirichlet.plates" title="bayespy.nodes.Dirichlet.plates"><code class="xref py py-obj docutils literal"><span class="pre">plates</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.plates_multiplier.html#bayespy.nodes.Dirichlet.plates_multiplier" title="bayespy.nodes.Dirichlet.plates_multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">plates_multiplier</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.plates_multiplier.html#bayespy.nodes.Dirichlet.plates_multiplier" title="bayespy.nodes.Dirichlet.plates_multiplier"><code class="xref py py-obj docutils literal"><span class="pre">plates_multiplier</span></code></a></td>
 <td>Plate multiplier is applied to messages to parents</td>
 </tr>
 </tbody>
@@ -247,7 +249,7 @@ concentration parameters.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -262,14 +264,14 @@ concentration parameters.</p>
         <li class="right" >
           <a href="generated/bayespy.nodes.Beta.plates_multiplier.html" title="bayespy.nodes.Beta.plates_multiplier"
              >previous</a> |</li>
-        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li><a href="../bayespy.nodes.html" >bayespy.nodes</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../bayespy.nodes.html" >bayespy.nodes</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

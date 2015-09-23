@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.inference.vmp.nodes.gaussian &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>bayespy.inference.vmp.nodes.gaussian &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../../../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,12 +23,12 @@
     <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../../../../index.html" />
-    <link rel="up" title="bayespy.inference" href="../../../inference.html" /> 
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../../index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -37,14 +37,13 @@
         <li class="right" >
           <a href="../../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="../../../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../../inference.html" accesskey="U">bayespy.inference</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<div id="searchbox" style="display: none">
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../../../../search.html" method="get">
       <input type="text" name="q" />
@@ -63,7 +62,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <h1>Source code for bayespy.inference.vmp.nodes.gaussian</h1><div class="highlight"><pre>
 <span class="c">################################################################################</span>
@@ -1148,7 +1147,7 @@
 <span class="c">#</span>
 
 </div></div>
-<span class="k">class</span> <span class="nc">Gaussian</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
+<div class="viewcode-block" id="Gaussian"><a class="viewcode-back" href="../../../../../user_api/generated/generated/bayespy.nodes.Gaussian.html#bayespy.inference.vmp.nodes.gaussian.Gaussian">[docs]</a><span class="k">class</span> <span class="nc">Gaussian</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
     <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">    Node for Gaussian variables.</span>
 
@@ -1190,13 +1189,13 @@
     <span class="n">_parent_moments</span> <span class="o">=</span> <span class="p">[</span><span class="n">GaussianWishartMoments</span><span class="p">()]</span>
 
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Gaussian.__init__"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.Gaussian.__init__.html#bayespy.inference.vmp.nodes.gaussian.Gaussian.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        Create Gaussian node</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     
-
+</div>
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_constructor</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
@@ -1222,11 +1221,11 @@
                 <span class="n">cls</span><span class="o">.</span><span class="n">_parent_moments</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">initialize_from_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">):</span>
+<div class="viewcode-block" id="Gaussian.initialize_from_parameters"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.Gaussian.initialize_from_parameters.html#bayespy.inference.vmp.nodes.gaussian.Gaussian.initialize_from_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_from_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">):</span>
         <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent_moments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">compute_fixed_moments</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_from_parent_moments</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
 
-        
+        </div>
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">Cov</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">misc</span><span class="o">.</span><span class="n">m_outer</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
@@ -1238,7 +1237,7 @@
                 <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Cov</span><span class="p">))</span>
 
 
-    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">inv</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logdet</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Gaussian.rotate"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.Gaussian.rotate.html#bayespy.inference.vmp.nodes.gaussian.Gaussian.rotate">[docs]</a>    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">inv</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logdet</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">inv</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">invR</span> <span class="o">=</span> <span class="n">inv</span>
@@ -1276,8 +1275,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mvdot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">-=</span> <span class="n">logdetR</span>
-
-    <span class="k">def</span> <span class="nf">rotate_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="p">,</span> <span class="n">inv1</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logdet1</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">inv2</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logdet2</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+</div>
+<div class="viewcode-block" id="Gaussian.rotate_matrix"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.Gaussian.rotate_matrix.html#bayespy.inference.vmp.nodes.gaussian.Gaussian.rotate_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">rotate_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R1</span><span class="p">,</span> <span class="n">R2</span><span class="p">,</span> <span class="n">inv1</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logdet1</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">inv2</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logdet2</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        The vector is reshaped into a matrix by stacking the row vectors.</span>
 
@@ -1336,8 +1335,8 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_update_moments_and_cgf</span><span class="p">()</span>
 
-
-<span class="k">class</span> <span class="nc">GaussianARD</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
+</div></div>
+<div class="viewcode-block" id="GaussianARD"><a class="viewcode-back" href="../../../../../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.inference.vmp.nodes.gaussian.GaussianARD">[docs]</a><span class="k">class</span> <span class="nc">GaussianARD</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
     <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">    Node for Gaussian variables with ARD prior.</span>
 
@@ -1376,13 +1375,13 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianARD.__init__"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianARD.__init__.html#bayespy.inference.vmp.nodes.gaussian.GaussianARD.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        Create GaussianARD node.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">ndim</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-
+</div>
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_constructor</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
@@ -1479,7 +1478,7 @@
                 <span class="n">parent_moments</span><span class="p">)</span>
         
 
-    <span class="k">def</span> <span class="nf">initialize_from_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianARD.initialize_from_parameters"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianARD.initialize_from_parameters.html#bayespy.inference.vmp.nodes.gaussian.GaussianARD.initialize_from_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_from_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
         <span class="c"># Explicit broadcasting so the shapes match</span>
         <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
         <span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span>
@@ -1488,8 +1487,8 @@
         <span class="c"># Initialize distribution</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_from_parent_moments</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
 
-
-    <span class="k">def</span> <span class="nf">initialize_from_mean_and_covariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Cov</span><span class="p">):</span>
+</div>
+<div class="viewcode-block" id="GaussianARD.initialize_from_mean_and_covariance"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianARD.initialize_from_mean_and_covariance.html#bayespy.inference.vmp.nodes.gaussian.GaussianARD.initialize_from_mean_and_covariance">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_from_mean_and_covariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Cov</span><span class="p">):</span>
         <span class="n">ndim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_distribution</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="n">u</span> <span class="o">=</span> <span class="p">[</span><span class="n">mu</span><span class="p">,</span> <span class="n">Cov</span> <span class="o">+</span> <span class="n">linalg</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">ndim</span><span class="p">)]</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">observed</span><span class="p">)</span>
@@ -1497,7 +1496,7 @@
         <span class="c"># Cov. Do it later.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_moments_and_cgf</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
         <span class="k">return</span>
-
+</div>
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">Cov</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">misc</span><span class="o">.</span><span class="n">m_outer</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
@@ -1509,7 +1508,7 @@
                 <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Cov</span><span class="p">))</span>
 
 
-    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">inv</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logdet</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianARD.rotate"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianARD.rotate.html#bayespy.inference.vmp.nodes.gaussian.GaussianARD.rotate">[docs]</a>    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">inv</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logdet</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
 
         <span class="n">ndim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_distribution</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         
@@ -1540,8 +1539,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">-=</span> <span class="n">logdetR</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 
         <span class="k">return</span>
-
-    <span class="k">def</span> <span class="nf">rotate_plates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">plate_axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+</div>
+<div class="viewcode-block" id="GaussianARD.rotate_plates"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianARD.rotate_plates.html#bayespy.inference.vmp.nodes.gaussian.GaussianARD.rotate_plates">[docs]</a>    <span class="k">def</span> <span class="nf">rotate_plates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">plate_axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        Approximate rotation of a plate axis.</span>
 
@@ -1574,8 +1573,8 @@
 
         <span class="k">return</span>
 
-
-<span class="k">class</span> <span class="nc">GaussianGammaISO</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
+</div></div>
+<div class="viewcode-block" id="GaussianGammaISO"><a class="viewcode-back" href="../../../../../user_api/generated/generated/bayespy.nodes.GaussianGammaISO.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaISO">[docs]</a><span class="k">class</span> <span class="nc">GaussianGammaISO</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
     <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">    Node for Gaussian-gamma (isotropic) random variables.</span>
 
@@ -1648,7 +1647,7 @@
                 <span class="n">cls</span><span class="o">.</span><span class="n">_parent_moments</span><span class="p">)</span>
 
     
-    <span class="k">def</span> <span class="nf">plotmatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianGammaISO.plotmatrix"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianGammaISO.plotmatrix.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaISO.plotmatrix">[docs]</a>    <span class="k">def</span> <span class="nf">plotmatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        Creates a matrix of marginal plots.</span>
 
@@ -1709,8 +1708,8 @@
         <span class="n">bpplt</span><span class="o">.</span><span class="n">_pdf_gamma</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">D</span><span class="p">,</span><span class="n">D</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">axes</span>
 
-
-    <span class="k">def</span> <span class="nf">get_gaussian_mean_and_variance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</div>
+<div class="viewcode-block" id="GaussianGammaISO.get_gaussian_mean_and_variance"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianGammaISO.get_gaussian_mean_and_variance.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaISO.get_gaussian_mean_and_variance">[docs]</a>    <span class="k">def</span> <span class="nf">get_gaussian_mean_and_variance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        Return the mean and variance of the distribution</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1732,8 +1731,8 @@
 
         <span class="k">return</span> <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
 
-
-    <span class="k">def</span> <span class="nf">get_marginal_logpdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gaussian</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+</div>
+<div class="viewcode-block" id="GaussianGammaISO.get_marginal_logpdf"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianGammaISO.get_marginal_logpdf.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaISO.get_marginal_logpdf">[docs]</a>    <span class="k">def</span> <span class="nf">get_marginal_logpdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gaussian</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        Get the (marginal) log pdf of a subset of the variables</span>
 
@@ -1826,8 +1825,8 @@
 
             <span class="k">return</span> <span class="n">logpdf</span>
 
-
-<span class="k">class</span> <span class="nc">GaussianGammaARD</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
+</div></div>
+<div class="viewcode-block" id="GaussianGammaARD"><a class="viewcode-back" href="../../../../../user_api/generated/generated/bayespy.nodes.GaussianGammaARD.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARD">[docs]</a><span class="k">class</span> <span class="nc">GaussianGammaARD</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
     <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">    Node for Gaussian and gamma random variables with ARD form.</span>
 
@@ -1854,13 +1853,13 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianGammaARD.__init__"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.GaussianGammaARD.__init__.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARD.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
-    
-<span class="k">class</span> <span class="nc">GaussianWishart</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
+    </div></div>
+<div class="viewcode-block" id="GaussianWishart"><a class="viewcode-back" href="../../../../../user_api/generated/generated/bayespy.nodes.GaussianWishart.html#bayespy.inference.vmp.nodes.gaussian.GaussianWishart">[docs]</a><span class="k">class</span> <span class="nc">GaussianWishart</span><span class="p">(</span><span class="n">ExponentialFamily</span><span class="p">):</span>
     <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">    Node for Gaussian-Wishart random variables.</span>
 
@@ -2063,7 +2062,7 @@
 <span class="c">## GaussianARDMoments.add_converter(GaussianISOMoments,</span>
 <span class="c">##                                  GaussianARDToGaussianISO)</span>
 
-
+</div>
 <div class="viewcode-block" id="GaussianToGaussianGammaISO"><a class="viewcode-back" href="../../../../../dev_api/generated/bayespy.inference.vmp.nodes.gaussian.GaussianToGaussianGammaISO.html#bayespy.inference.vmp.nodes.gaussian.GaussianToGaussianGammaISO">[docs]</a><span class="k">class</span> <span class="nc">GaussianToGaussianGammaISO</span><span class="p">(</span><span class="n">Deterministic</span><span class="p">):</span>
     <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">    Converter for Gaussian moments to Gaussian-gamma isotropic moments</span>
@@ -2248,14 +2247,14 @@
     
 
     <span class="nd">@ensureparents</span>
-<div class="viewcode-block" id="WrapToGaussianGammaISO.__init__"><a class="viewcode-back" href="../../../../../dev_api/generated/generated/bayespy.inference.vmp.nodes.gaussian.WrapToGaussianGammaISO.__init__.html#bayespy.inference.vmp.nodes.gaussian.WrapToGaussianGammaISO.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">D</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">dims</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="n">D</span><span class="p">,),</span> <span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">D</span><span class="p">),</span> <span class="p">(),</span> <span class="p">()</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">dims</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
             
-</div>
+
     <span class="k">def</span> <span class="nf">_compute_moments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_X</span><span class="p">,</span> <span class="n">u_alpha</span><span class="p">):</span>
         <span class="sd">r&quot;&quot;&quot;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2803,7 +2802,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -2812,14 +2811,13 @@
         <li class="right" >
           <a href="../../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../../../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="../../../../index.html" >Module code</a> &raquo;</li>
-          <li><a href="../../../inference.html" >bayespy.inference</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

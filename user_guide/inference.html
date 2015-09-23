@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Performing inference &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>Performing inference &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../index.html" />
     <link rel="up" title="User guide" href="user_guide.html" />
     <link rel="next" title="Examining the results" href="plot.html" />
     <link rel="prev" title="Constructing the model" href="modelconstruct.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,11 +45,11 @@
         <li class="right" >
           <a href="modelconstruct.html" title="Constructing the model"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -74,12 +74,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="plot.html"
                         title="next chapter">Examining the results</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/user_guide/inference.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/inference.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -98,7 +100,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="performing-inference">
 <h1>Performing inference<a class="headerlink" href="#performing-inference" title="Permalink to this headline">¶</a></h1>
@@ -119,14 +121,14 @@ the previous section.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The data is provided by simply calling <tt class="docutils literal"><span class="pre">observe</span></tt> method of a stochastic node:</p>
+<p>The data is provided by simply calling <code class="docutils literal"><span class="pre">observe</span></code> method of a stochastic node:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Y</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>It is important that the shape of the <tt class="docutils literal"><span class="pre">data</span></tt> array matches the plates and
-shape of the node <tt class="docutils literal"><span class="pre">Y</span></tt>.  For instance, if <tt class="docutils literal"><span class="pre">Y</span></tt> was <tt class="xref py py-class docutils literal"><span class="pre">Wishart</span></tt> node for
-<span class="math">\(3\times 3\)</span> matrices with plates <tt class="docutils literal"><span class="pre">(5,1,10)</span></tt>, the full shape of <tt class="docutils literal"><span class="pre">Y</span></tt>
-would be <tt class="docutils literal"><span class="pre">(5,1,10,3,3)</span></tt>.  The <tt class="docutils literal"><span class="pre">data</span></tt> array should have this shape exactly,
+<p>It is important that the shape of the <code class="docutils literal"><span class="pre">data</span></code> array matches the plates and
+shape of the node <code class="docutils literal"><span class="pre">Y</span></code>.  For instance, if <code class="docutils literal"><span class="pre">Y</span></code> was <code class="xref py py-class docutils literal"><span class="pre">Wishart</span></code> node for
+<span class="math">\(3\times 3\)</span> matrices with plates <code class="docutils literal"><span class="pre">(5,1,10)</span></code>, the full shape of <code class="docutils literal"><span class="pre">Y</span></code>
+would be <code class="docutils literal"><span class="pre">(5,1,10,3,3)</span></code>.  The <code class="docutils literal"><span class="pre">data</span></code> array should have this shape exactly,
 that is, no broadcasting rules are applied.</p>
 <div class="section" id="missing-values">
 <h3>Missing values<a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h3>
@@ -136,9 +138,9 @@ array:</p>
 <span class="gp">... </span>                      <span class="p">[</span><span class="bp">False</span><span class="p">],</span> <span class="p">[</span><span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="bp">True</span><span class="p">],</span> <span class="p">[</span><span class="bp">False</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">True</span></tt> means that the value is observed and <tt class="docutils literal"><span class="pre">False</span></tt> means that the value is
-missing.  The shape of the above mask is <tt class="docutils literal"><span class="pre">(10,1)</span></tt>, which broadcasts to the
-plates of Y, <tt class="docutils literal"><span class="pre">(10,100)</span></tt>.  Thus, the above mask means that the second, third,
+<p><code class="docutils literal"><span class="pre">True</span></code> means that the value is observed and <code class="docutils literal"><span class="pre">False</span></code> means that the value is
+missing.  The shape of the above mask is <code class="docutils literal"><span class="pre">(10,1)</span></code>, which broadcasts to the
+plates of Y, <code class="docutils literal"><span class="pre">(10,100)</span></code>.  Thus, the above mask means that the second, third,
 sixth and tenth rows of the <span class="math">\(10\times 100\)</span> data matrix are missing.</p>
 <p>The mask is applied to the <em>plates</em>, not to the data array directly.  This means
 that it is not possible to observe a random variable partially, each repetition
@@ -146,18 +148,18 @@ defined by the plates is either fully observed or fully missing.  Thus, the mask
 is applied to the plates.  It is often possible to circumvent this seemingly
 tight restriction by adding an observable child node which factorizes more.</p>
 <p>The shape of the mask is broadcasted to plates using standard NumPy broadcasting
-rules. So, if the variable has plates <tt class="docutils literal"><span class="pre">(5,1,10)</span></tt>, the mask could have a shape
-<tt class="docutils literal"><span class="pre">()</span></tt>, <tt class="docutils literal"><span class="pre">(1,)</span></tt>, <tt class="docutils literal"><span class="pre">(1,1)</span></tt>, <tt class="docutils literal"><span class="pre">(1,1,1)</span></tt>, <tt class="docutils literal"><span class="pre">(10,)</span></tt>, <tt class="docutils literal"><span class="pre">(1,10)</span></tt>, <tt class="docutils literal"><span class="pre">(1,1,10)</span></tt>,
-<tt class="docutils literal"><span class="pre">(5,1,1)</span></tt> or <tt class="docutils literal"><span class="pre">(5,1,10)</span></tt>.  In order to speed up the inference, missing values
+rules. So, if the variable has plates <code class="docutils literal"><span class="pre">(5,1,10)</span></code>, the mask could have a shape
+<code class="docutils literal"><span class="pre">()</span></code>, <code class="docutils literal"><span class="pre">(1,)</span></code>, <code class="docutils literal"><span class="pre">(1,1)</span></code>, <code class="docutils literal"><span class="pre">(1,1,1)</span></code>, <code class="docutils literal"><span class="pre">(10,)</span></code>, <code class="docutils literal"><span class="pre">(1,10)</span></code>, <code class="docutils literal"><span class="pre">(1,1,10)</span></code>,
+<code class="docutils literal"><span class="pre">(5,1,1)</span></code> or <code class="docutils literal"><span class="pre">(5,1,10)</span></code>.  In order to speed up the inference, missing values
 are automatically integrated out if they are not needed as latent variables to
 child nodes.  This leads to faster convergence and more accurate approximations.</p>
 </div>
 </div>
 <div class="section" id="choosing-the-inference-method">
 <h2>Choosing the inference method<a class="headerlink" href="#choosing-the-inference-method" title="Permalink to this headline">¶</a></h2>
-<p>Inference methods can be found in <a class="reference internal" href="../user_api/generated/bayespy.inference.html#module-bayespy.inference" title="bayespy.inference"><tt class="xref py py-mod docutils literal"><span class="pre">bayespy.inference</span></tt></a> package.  Currently,
+<p>Inference methods can be found in <a class="reference internal" href="../user_api/generated/bayespy.inference.html#module-bayespy.inference" title="bayespy.inference"><code class="xref py py-mod docutils literal"><span class="pre">bayespy.inference</span></code></a> package.  Currently,
 only variational Bayesian approximation is implemented
-(<a class="reference internal" href="../user_api/generated/generated/bayespy.inference.VB.html#bayespy.inference.VB" title="bayespy.inference.VB"><tt class="xref py py-class docutils literal"><span class="pre">bayespy.inference.VB</span></tt></a>).  The inference engine is constructed by giving
+(<a class="reference internal" href="../user_api/generated/generated/bayespy.inference.VB.html#bayespy.inference.VB" title="bayespy.inference.VB"><code class="xref py py-class docutils literal"><span class="pre">bayespy.inference.VB</span></code></a>).  The inference engine is constructed by giving
 the stochastic nodes of the model.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayespy.inference</span> <span class="kn">import</span> <span class="n">VB</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">VB</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
@@ -177,7 +179,7 @@ be made more robust in future versions.</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>Thus, one may use the object <tt class="docutils literal"><span class="pre">X</span></tt> when it is available.  However, if the model
+<p>Thus, one may use the object <code class="docutils literal"><span class="pre">X</span></code> when it is available.  However, if the model
 and the inference engine are constructed in another function or module, the node
 object may not be available directly and this feature becomes useful.</p>
 </div>
@@ -188,40 +190,40 @@ default.  However, the inference algorithms can be sensitive to the
 initialization, thus it is sometimes necessary to have better control over the
 initialization.  For VB, the following initialization methods are available:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">initialize_from_prior</span></tt>: Use the current states of the parent nodes to
+<li><code class="docutils literal"><span class="pre">initialize_from_prior</span></code>: Use the current states of the parent nodes to
 update the node. This is the default initialization.</li>
-<li><tt class="docutils literal"><span class="pre">initialize_from_parameters</span></tt>: Use the given parameter values for the
+<li><code class="docutils literal"><span class="pre">initialize_from_parameters</span></code>: Use the given parameter values for the
 distribution.</li>
-<li><tt class="docutils literal"><span class="pre">initialize_from_value</span></tt>: Use the given value for the variable.</li>
-<li><tt class="docutils literal"><span class="pre">initialize_from_random</span></tt>: Draw a random value for the variable.  The random
+<li><code class="docutils literal"><span class="pre">initialize_from_value</span></code>: Use the given value for the variable.</li>
+<li><code class="docutils literal"><span class="pre">initialize_from_random</span></code>: Draw a random value for the variable.  The random
 sample is drawn from the current state of the node&#8217;s distribution.</li>
 </ul>
-<p>Note that <tt class="docutils literal"><span class="pre">initialize_from_value</span></tt> and <tt class="docutils literal"><span class="pre">initialize_from_random</span></tt> initialize
+<p>Note that <code class="docutils literal"><span class="pre">initialize_from_value</span></code> and <code class="docutils literal"><span class="pre">initialize_from_random</span></code> initialize
 the distribution with a value of the variable instead of parameters of the
 distribution.  Thus, the distribution is actually a delta distribution with a
 peak on the value after the initialization.  This state of the distribution does
 not have proper natural parameter values nor normalization, thus the VB lower
-bound terms are <tt class="docutils literal"><span class="pre">np.nan</span></tt> for this initial state.</p>
+bound terms are <code class="docutils literal"><span class="pre">np.nan</span></code> for this initial state.</p>
 <p>These initialization methods can be used to perform even a bit more complex
 initializations.  For instance, a Gaussian distribution could be initialized
 with a random mean and variance 0.1.  In our PCA model, this can be obtained by</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="o">.</span><span class="n">initialize_from_parameters</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">D</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that the shape of the random mean is the sum of the plates <tt class="docutils literal"><span class="pre">(1,</span> <span class="pre">100)</span></tt> and
-the variable shape <tt class="docutils literal"><span class="pre">(D,)</span></tt>.  In addition, instead of variance,
-<tt class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></tt> uses precision as the second parameter, thus we initialized
+<p>Note that the shape of the random mean is the sum of the plates <code class="docutils literal"><span class="pre">(1,</span> <span class="pre">100)</span></code> and
+the variable shape <code class="docutils literal"><span class="pre">(D,)</span></code>.  In addition, instead of variance,
+<code class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></code> uses precision as the second parameter, thus we initialized
 the variance to <span class="math">\(\frac{1}{10}\)</span>.  This random initialization is important
-in our PCA model because the default initialization gives <tt class="docutils literal"><span class="pre">C</span></tt> and <tt class="docutils literal"><span class="pre">X</span></tt> zero
+in our PCA model because the default initialization gives <code class="docutils literal"><span class="pre">C</span></code> and <code class="docutils literal"><span class="pre">X</span></code> zero
 mean.  If the mean of the other variable was zero when the other is updated, the
 other variable gets zero mean too.  This would lead to an update algorithm where
 both means remain zeros and effectively no latent space is found.  Thus, it is
-important to give non-zero random initialization for <tt class="docutils literal"><span class="pre">X</span></tt> if <tt class="docutils literal"><span class="pre">C</span></tt> is updated
-before <tt class="docutils literal"><span class="pre">X</span></tt> the first time.  It is typical that at least some nodes need be
+important to give non-zero random initialization for <code class="docutils literal"><span class="pre">X</span></code> if <code class="docutils literal"><span class="pre">C</span></code> is updated
+before <code class="docutils literal"><span class="pre">X</span></code> the first time.  It is typical that at least some nodes need be
 initialized with some randomness.</p>
-<p>By default, nodes are initialized with the method <tt class="docutils literal"><span class="pre">initialize_from_prior</span></tt>.
+<p>By default, nodes are initialized with the method <code class="docutils literal"><span class="pre">initialize_from_prior</span></code>.
 The method is not very time consuming but if for any reason you want to avoid
-that default initialization computation, you can provide <tt class="docutils literal"><span class="pre">initialize=False</span></tt>
+that default initialization computation, you can provide <code class="docutils literal"><span class="pre">initialize=False</span></code>
 when creating the stochastic node.  However, the node does not have a proper
 state in that case, which leads to errors in VB learning unless the distribution
 is initialized using the above methods.</p>
@@ -229,15 +231,15 @@ is initialized using the above methods.</p>
 <div class="section" id="running-the-inference-algorithm">
 <h2>Running the inference algorithm<a class="headerlink" href="#running-the-inference-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>The approximation methods are based on iterative algorithms, which can
-be run using <tt class="docutils literal"><span class="pre">update</span></tt> method. By default, it takes one iteration step
+be run using <code class="docutils literal"><span class="pre">update</span></code> method. By default, it takes one iteration step
 updating all nodes once:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 <span class="go">Iteration 1: loglike=-9.305259e+02 (... seconds)</span>
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">loglike</span></tt> tells the VB lower bound.  The order in which the nodes are
+<p>The <code class="docutils literal"><span class="pre">loglike</span></code> tells the VB lower bound.  The order in which the nodes are
 updated is the same as the order in which the nodes were given when creating
-<tt class="docutils literal"><span class="pre">Q</span></tt>.  If you want to change the order or update only some of the nodes, you
+<code class="docutils literal"><span class="pre">Q</span></code>.  If you want to change the order or update only some of the nodes, you
 can give as arguments the nodes you want to update and they are updated in the
 given order:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
@@ -249,9 +251,9 @@ given order:</p>
 <span class="go">Iteration 3: loglike=-8.071222e+02 (... seconds)</span>
 </pre></div>
 </div>
-<p>Note that each call to <tt class="docutils literal"><span class="pre">update</span></tt> is counted as one iteration step although not
+<p>Note that each call to <code class="docutils literal"><span class="pre">update</span></code> is counted as one iteration step although not
 variables are necessarily updated.  Instead of doing one iteration step,
-<tt class="docutils literal"><span class="pre">repeat</span></tt> keyword argument can be used to perform several iteration steps:</p>
+<code class="docutils literal"><span class="pre">repeat</span></code> keyword argument can be used to perform several iteration steps:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">repeat</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">Iteration 4: loglike=-7.167588e+02 (... seconds)</span>
 <span class="go">Iteration 5: loglike=-6.827873e+02 (... seconds)</span>
@@ -275,8 +277,8 @@ change in the lower bound is below some threshold:</p>
 </pre></div>
 </div>
 <p>Now the algorithm stopped before taking 1000 iteration steps because it
-converged.  The relative tolerance can be adjusted by providing <tt class="docutils literal"><span class="pre">tol</span></tt> keyword
-argument to the <tt class="docutils literal"><span class="pre">update</span></tt> method:</p>
+converged.  The relative tolerance can be adjusted by providing <code class="docutils literal"><span class="pre">tol</span></code> keyword
+argument to the <code class="docutils literal"><span class="pre">update</span></code> method:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">repeat</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
 <span class="go">Iteration 489: loglike=-1.224094e+02 (... seconds)</span>
 <span class="gp">...</span>
@@ -286,8 +288,8 @@ argument to the <tt class="docutils literal"><span class="pre">update</span></tt
 </div>
 <p>Making the tolerance smaller, may improve the result but it may also
 significantly increase the iteration steps until convergence.</p>
-<p>Instead of using <tt class="docutils literal"><span class="pre">update</span></tt> method of the inference engine <tt class="docutils literal"><span class="pre">VB</span></tt>, it is
-possible to use the <tt class="docutils literal"><span class="pre">update</span></tt> methods of the nodes directly as</p>
+<p>Instead of using <code class="docutils literal"><span class="pre">update</span></code> method of the inference engine <code class="docutils literal"><span class="pre">VB</span></code>, it is
+possible to use the <code class="docutils literal"><span class="pre">update</span></code> methods of the nodes directly as</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -295,8 +297,8 @@ possible to use the <tt class="docutils literal"><span class="pre">update</span>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="p">[</span><span class="s">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>However, this is not recommended, because the <tt class="docutils literal"><span class="pre">update</span></tt> method of the inference
-engine <tt class="docutils literal"><span class="pre">VB</span></tt> is a wrapper which, in addition to calling the nodes&#8217; <tt class="docutils literal"><span class="pre">update</span></tt>
+<p>However, this is not recommended, because the <code class="docutils literal"><span class="pre">update</span></code> method of the inference
+engine <code class="docutils literal"><span class="pre">VB</span></code> is a wrapper which, in addition to calling the nodes&#8217; <code class="docutils literal"><span class="pre">update</span></code>
 methods, checks for convergence and does a few other useful minor things.  But
 if for any reason these direct update methods are needed, they can be used.</p>
 <div class="section" id="parameter-expansion">
@@ -326,7 +328,7 @@ auxiliary variable which rotates the variables <span class="math">\(\mathbf{c}\)
 <span class="math">\(q(\mathbf{c})\)</span> and <span class="math">\(q(\mathbf{x})\)</span>, and optimizing the VB lower
 bound with respect to the rotation leads to parameterized joint optimization of
 <span class="math">\(\mathbf{c}\)</span> and <span class="math">\(\mathbf{x}\)</span>.</p>
-<p>The available parameter expansion methods are in module <tt class="docutils literal"><span class="pre">transformations</span></tt>:</p>
+<p>The available parameter expansion methods are in module <code class="docutils literal"><span class="pre">transformations</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayespy.inference.vmp</span> <span class="kn">import</span> <span class="n">transformations</span>
 </pre></div>
 </div>
@@ -335,18 +337,18 @@ bound with respect to the rotation leads to parameterized joint optimization of
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotC</span> <span class="o">=</span> <span class="n">transformations</span><span class="o">.</span><span class="n">RotateGaussianARD</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here, the rotation for <tt class="docutils literal"><span class="pre">C</span></tt> provides the ARD parameters <tt class="docutils literal"><span class="pre">alpha</span></tt> so they are
-updated simultaneously.  In addition to <a class="reference internal" href="../user_api/generated/generated/bayespy.inference.vmp.transformations.RotateGaussianARD.html#bayespy.inference.vmp.transformations.RotateGaussianARD" title="bayespy.inference.vmp.transformations.RotateGaussianARD"><tt class="xref py py-class docutils literal"><span class="pre">RotateGaussianARD</span></tt></a>, there are a
-few other built-in rotations defined, for instance, <a class="reference internal" href="../user_api/generated/generated/bayespy.inference.vmp.transformations.RotateGaussian.html#bayespy.inference.vmp.transformations.RotateGaussian" title="bayespy.inference.vmp.transformations.RotateGaussian"><tt class="xref py py-class docutils literal"><span class="pre">RotateGaussian</span></tt></a> and
-<a class="reference internal" href="../user_api/generated/generated/bayespy.inference.vmp.transformations.RotateGaussianMarkovChain.html#bayespy.inference.vmp.transformations.RotateGaussianMarkovChain" title="bayespy.inference.vmp.transformations.RotateGaussianMarkovChain"><tt class="xref py py-class docutils literal"><span class="pre">RotateGaussianMarkovChain</span></tt></a>.  It is extremely important that the model
+<p>Here, the rotation for <code class="docutils literal"><span class="pre">C</span></code> provides the ARD parameters <code class="docutils literal"><span class="pre">alpha</span></code> so they are
+updated simultaneously.  In addition to <a class="reference internal" href="../user_api/generated/generated/bayespy.inference.vmp.transformations.RotateGaussianARD.html#bayespy.inference.vmp.transformations.RotateGaussianARD" title="bayespy.inference.vmp.transformations.RotateGaussianARD"><code class="xref py py-class docutils literal"><span class="pre">RotateGaussianARD</span></code></a>, there are a
+few other built-in rotations defined, for instance, <a class="reference internal" href="../user_api/generated/generated/bayespy.inference.vmp.transformations.RotateGaussian.html#bayespy.inference.vmp.transformations.RotateGaussian" title="bayespy.inference.vmp.transformations.RotateGaussian"><code class="xref py py-class docutils literal"><span class="pre">RotateGaussian</span></code></a> and
+<a class="reference internal" href="../user_api/generated/generated/bayespy.inference.vmp.transformations.RotateGaussianMarkovChain.html#bayespy.inference.vmp.transformations.RotateGaussianMarkovChain" title="bayespy.inference.vmp.transformations.RotateGaussianMarkovChain"><code class="xref py py-class docutils literal"><span class="pre">RotateGaussianMarkovChain</span></code></a>.  It is extremely important that the model
 satisfies the assumptions made by the rotation class and the user is mostly
 responsible for this.  The optimizer for the rotations is constructed by giving
 the two rotations and the dimensionality of the rotated space:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">transformations</span><span class="o">.</span><span class="n">RotationOptimizer</span><span class="p">(</span><span class="n">rotC</span><span class="p">,</span> <span class="n">rotX</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now, calling <tt class="docutils literal"><span class="pre">rotate</span></tt> method will find optimal rotation and update the
-relevant nodes (<tt class="docutils literal"><span class="pre">X</span></tt>, <tt class="docutils literal"><span class="pre">C</span></tt> and <tt class="docutils literal"><span class="pre">alpha</span></tt>) accordingly:</p>
+<p>Now, calling <code class="docutils literal"><span class="pre">rotate</span></code> method will find optimal rotation and update the
+relevant nodes (<code class="docutils literal"><span class="pre">X</span></code>, <code class="docutils literal"><span class="pre">C</span></code> and <code class="docutils literal"><span class="pre">alpha</span></code>) accordingly:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="o">.</span><span class="n">rotate</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -392,7 +394,7 @@ converge to a proper solution in a reasonable time.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -407,13 +409,13 @@ converge to a proper solution in a reasonable time.</p>
         <li class="right" >
           <a href="modelconstruct.html" title="Constructing the model"
              >previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" >User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" >User guide</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Constructing the model &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>Constructing the model &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../index.html" />
     <link rel="up" title="User guide" href="user_guide.html" />
     <link rel="next" title="Performing inference" href="inference.html" />
     <link rel="prev" title="Quick start guide" href="quickstart.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,11 +45,11 @@
         <li class="right" >
           <a href="quickstart.html" title="Quick start guide"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -85,12 +85,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="inference.html"
                         title="next chapter">Performing inference</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/user_guide/modelconstruct.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/modelconstruct.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -109,7 +111,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="constructing-the-model">
 <h1>Constructing the model<a class="headerlink" href="#constructing-the-model" title="Permalink to this headline">¶</a></h1>
@@ -118,13 +120,13 @@ network.  There are two types of nodes: stochastic and deterministic.  A
 stochastic node corresponds to a random variable (or a set of random variables)
 from a specific probability distribution.  A deterministic node corresponds to a
 deterministic function of its parents. For a list of built-in nodes, see the
-<a class="reference internal" href="../user_api/user_api.html#sec-user-api"><em>User API</em></a>.</p>
+<a class="reference internal" href="../user_api/user_api.html#sec-user-api"><span>User API</span></a>.</p>
 <div class="section" id="creating-nodes">
 <h2>Creating nodes<a class="headerlink" href="#creating-nodes" title="Permalink to this headline">¶</a></h2>
 <p>Creating a node is basically like writing the conditional prior distribution of
 the variable in Python.  The node is constructed by giving the parent nodes,
 that is, the conditioning variables as arguments.  The number of parents and
-their meaning depend on the node.  For instance, a <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.Gaussian.html#bayespy.nodes.Gaussian" title="bayespy.nodes.Gaussian"><tt class="xref py py-class docutils literal"><span class="pre">Gaussian</span></tt></a> node is
+their meaning depend on the node.  For instance, a <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.Gaussian.html#bayespy.nodes.Gaussian" title="bayespy.nodes.Gaussian"><code class="xref py py-class docutils literal"><span class="pre">Gaussian</span></code></a> node is
 created by giving the mean vector and the precision matrix. These parents can be
 constant numerical arrays if they are known:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayespy.nodes</span> <span class="kn">import</span> <span class="n">Gaussian</span>
@@ -138,7 +140,7 @@ constant numerical arrays if they are known:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Nodes can also be named by providing <tt class="docutils literal"><span class="pre">name</span></tt> keyword argument:</p>
+<p>Nodes can also be named by providing <code class="docutils literal"><span class="pre">name</span></code> keyword argument:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">Lambda</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -153,10 +155,10 @@ distributions for variables. However, one often uses distributions that are easy
 to handle in practice. Quite often this means that the parents are given
 conjugate priors. This is also one of the limitations in BayesPy: only conjugate
 family prior distributions are accepted currently. Thus, although in principle
-one could give, for instance, gamma prior for the mean parameter <tt class="docutils literal"><span class="pre">mu</span></tt>, only
+one could give, for instance, gamma prior for the mean parameter <code class="docutils literal"><span class="pre">mu</span></code>, only
 Gaussian-family distributions are accepted because of the conjugacy. If the
 parent is not of a proper type, an error is raised. This conjugacy is checked
-automatically by BayesPy and <tt class="docutils literal"><span class="pre">NoConverterError</span></tt> is raised if a parent cannot
+automatically by BayesPy and <code class="docutils literal"><span class="pre">NoConverterError</span></code> is raised if a parent cannot
 be interpreted as being from a conjugate distribution.</p>
 </div>
 <div class="section" id="independence-of-the-parents">
@@ -172,11 +174,11 @@ instance, the following leads to an error:</p>
 <span class="gr">ValueError</span>: <span class="n">Parent nodes are not independent</span>
 </pre></div>
 </div>
-<p>The error is raised because <tt class="docutils literal"><span class="pre">X</span></tt> is given as two parents for <tt class="docutils literal"><span class="pre">Y</span></tt>, and
-obviously <tt class="docutils literal"><span class="pre">X</span></tt> is not independent of <tt class="docutils literal"><span class="pre">X</span></tt> in the posterior approximation. Even
-if <tt class="docutils literal"><span class="pre">X</span></tt> is not given several times directly but there are some intermediate
+<p>The error is raised because <code class="docutils literal"><span class="pre">X</span></code> is given as two parents for <code class="docutils literal"><span class="pre">Y</span></code>, and
+obviously <code class="docutils literal"><span class="pre">X</span></code> is not independent of <code class="docutils literal"><span class="pre">X</span></code> in the posterior approximation. Even
+if <code class="docutils literal"><span class="pre">X</span></code> is not given several times directly but there are some intermediate
 deterministic nodes, an error is raised because the deterministic nodes depend
-on their parents and thus the parents of <tt class="docutils literal"><span class="pre">Y</span></tt> would not be independent.
+on their parents and thus the parents of <code class="docutils literal"><span class="pre">Y</span></code> would not be independent.
 However, it is valid that a node is a parent of another node via several paths
 if all the paths or all except one path has intermediate stochastic nodes. This
 is valid because the intermediate stochastic nodes have independent posterior
@@ -187,8 +189,8 @@ errors:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Y</span> <span class="o">=</span> <span class="n">Dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This works because there is now an intermediate stochastic node <tt class="docutils literal"><span class="pre">Z</span></tt> on the
-other path from <tt class="docutils literal"><span class="pre">X</span></tt> node to <tt class="docutils literal"><span class="pre">Y</span></tt> node.</p>
+<p>This works because there is now an intermediate stochastic node <code class="docutils literal"><span class="pre">Z</span></code> on the
+other path from <code class="docutils literal"><span class="pre">X</span></code> node to <code class="docutils literal"><span class="pre">Y</span></code> node.</p>
 </div>
 </div>
 <div class="section" id="effects-of-the-nodes-on-inference">
@@ -203,11 +205,11 @@ three important aspects:</p>
 <div class="section" id="prior-probability-distribution">
 <h3>Prior probability distribution<a class="headerlink" href="#prior-probability-distribution" title="Permalink to this headline">¶</a></h3>
 <p>First, the most intuitive feature of the nodes is that they define the prior
-distribution. In the previous example, <tt class="docutils literal"><span class="pre">mu</span></tt> was a stochastic
-<a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><tt class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></tt></a> node corresponding to <span class="math">\(\mu\)</span> from the normal
-distribution, <tt class="docutils literal"><span class="pre">tau</span></tt> was a stochastic <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.Gamma.html#bayespy.nodes.Gamma" title="bayespy.nodes.Gamma"><tt class="xref py py-class docutils literal"><span class="pre">Gamma</span></tt></a> node corresponding to
-<span class="math">\(\tau\)</span> from the gamma distribution, and <tt class="docutils literal"><span class="pre">y</span></tt> was a stochastic
-<a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><tt class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></tt></a> node corresponding to <span class="math">\(y\)</span> from the normal
+distribution. In the previous example, <code class="docutils literal"><span class="pre">mu</span></code> was a stochastic
+<a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><code class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></code></a> node corresponding to <span class="math">\(\mu\)</span> from the normal
+distribution, <code class="docutils literal"><span class="pre">tau</span></code> was a stochastic <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.Gamma.html#bayespy.nodes.Gamma" title="bayespy.nodes.Gamma"><code class="xref py py-class docutils literal"><span class="pre">Gamma</span></code></a> node corresponding to
+<span class="math">\(\tau\)</span> from the gamma distribution, and <code class="docutils literal"><span class="pre">y</span></code> was a stochastic
+<a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><code class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></code></a> node corresponding to <span class="math">\(y\)</span> from the normal
 distribution with mean <span class="math">\(\mu\)</span> and precision <span class="math">\(\tau\)</span>.  If we denote the
 set of all stochastic nodes by <span class="math">\(\Omega\)</span>, and by <span class="math">\(\pi_X\)</span> the set of
 parents of a node <span class="math">\(X\)</span>, the model is defined as</p>
@@ -220,7 +222,7 @@ parents of a node <span class="math">\(X\)</span>, the model is defined as</p>
 <p>Second, the nodes define the structure of the posterior approximation.  The
 variational Bayesian approximation factorizes with respect to nodes, that is,
 each node corresponds to an independent probability distribution in the
-posterior approximation. In the previous example, <tt class="docutils literal"><span class="pre">mu</span></tt> and <tt class="docutils literal"><span class="pre">tau</span></tt> were
+posterior approximation. In the previous example, <code class="docutils literal"><span class="pre">mu</span></code> and <code class="docutils literal"><span class="pre">tau</span></code> were
 separate nodes, thus the posterior approximation factorizes with respect to
 them: <span class="math">\(q(\mu)q(\tau)\)</span>. Thus, the posterior approximation can be written
 as:</p>
@@ -230,7 +232,7 @@ as:</p>
 <span class="math">\(\hat{\Omega}\)</span> is the set of observed stochastic nodes.  Sometimes one may
 want to avoid the factorization between some variables.  For this purpose, there
 are some nodes which model several variables jointly without factorization.  For
-instance, <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianGammaISO.html#bayespy.nodes.GaussianGammaISO" title="bayespy.nodes.GaussianGammaISO"><tt class="xref py py-class docutils literal"><span class="pre">GaussianGammaISO</span></tt></a> is a joint node for <span class="math">\(\mu\)</span> and
+instance, <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianGammaISO.html#bayespy.nodes.GaussianGammaISO" title="bayespy.nodes.GaussianGammaISO"><code class="xref py py-class docutils literal"><span class="pre">GaussianGammaISO</span></code></a> is a joint node for <span class="math">\(\mu\)</span> and
 <span class="math">\(\tau\)</span> variables from the normal-gamma distribution and the posterior
 approximation does not factorize between <span class="math">\(\mu\)</span> and <span class="math">\(\tau\)</span>, that is,
 the posterior approximation is <span class="math">\(q(\mu,\tau)\)</span>.</p>
@@ -239,10 +241,10 @@ the posterior approximation is <span class="math">\(q(\mu,\tau)\)</span>.</p>
 <h3>Functional form of the posterior<a class="headerlink" href="#functional-form-of-the-posterior" title="Permalink to this headline">¶</a></h3>
 <p>Last, the nodes define the functional form of the posterior approximation.
 Usually, the posterior approximation has the same or similar functional form as
-the prior.  For instance, <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.Gamma.html#bayespy.nodes.Gamma" title="bayespy.nodes.Gamma"><tt class="xref py py-class docutils literal"><span class="pre">Gamma</span></tt></a> uses gamma distribution to also
-approximate the posterior distribution.  Similarly, <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><tt class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></tt></a> uses
+the prior.  For instance, <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.Gamma.html#bayespy.nodes.Gamma" title="bayespy.nodes.Gamma"><code class="xref py py-class docutils literal"><span class="pre">Gamma</span></code></a> uses gamma distribution to also
+approximate the posterior distribution.  Similarly, <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><code class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></code></a> uses
 Gaussian distribution for the posterior.  However, the posterior approximation
-of <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><tt class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></tt></a> uses a full covariance matrix although the prior assumes
+of <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><code class="xref py py-class docutils literal"><span class="pre">GaussianARD</span></code></a> uses a full covariance matrix although the prior assumes
 a diagonal covariance matrix.  Thus, there can be slight differences in the
 exact functional form of the posterior approximation but the rule of thumb is
 that the functional form of the posterior approximation is the same as or more
@@ -253,7 +255,7 @@ general than the functional form of the prior.</p>
 <h2>Using plate notation<a class="headerlink" href="#using-plate-notation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="defining-plates">
 <h3>Defining plates<a class="headerlink" href="#defining-plates" title="Permalink to this headline">¶</a></h3>
-<p>Stochastic nodes take the optional parameter <tt class="docutils literal"><span class="pre">plates</span></tt>, which can be used to
+<p>Stochastic nodes take the optional parameter <code class="docutils literal"><span class="pre">plates</span></code>, which can be used to
 define plates of the variable. A plate defines the number of repetitions of a
 set of variables. For instance, a set of random variables
 <span class="math">\(\mathbf{y}_{mn}\)</span> could be defined as</p>
@@ -599,14 +601,14 @@ below left=5pt and 0pt of #1.south east] %
 </div>
 <p>There are a few things to notice here. First, the plates are defined similarly
 as shapes in NumPy, that is, they use similar broadcasting rules. For instance,
-the plates <tt class="docutils literal"><span class="pre">(10,1)</span></tt> and <tt class="docutils literal"><span class="pre">(1,30)</span></tt> broadcast to <tt class="docutils literal"><span class="pre">(10,30)</span></tt>. In fact, one
-could use plates <tt class="docutils literal"><span class="pre">(10,1)</span></tt> and <tt class="docutils literal"><span class="pre">(30,)</span></tt> to get the broadcasted plates
-<tt class="docutils literal"><span class="pre">(10,30)</span></tt> because broadcasting compares the plates from right to left starting
-from the last axis. Second, <tt class="docutils literal"><span class="pre">X</span></tt> is not given <tt class="docutils literal"><span class="pre">plates</span></tt> keyword argument
+the plates <code class="docutils literal"><span class="pre">(10,1)</span></code> and <code class="docutils literal"><span class="pre">(1,30)</span></code> broadcast to <code class="docutils literal"><span class="pre">(10,30)</span></code>. In fact, one
+could use plates <code class="docutils literal"><span class="pre">(10,1)</span></code> and <code class="docutils literal"><span class="pre">(30,)</span></code> to get the broadcasted plates
+<code class="docutils literal"><span class="pre">(10,30)</span></code> because broadcasting compares the plates from right to left starting
+from the last axis. Second, <code class="docutils literal"><span class="pre">X</span></code> is not given <code class="docutils literal"><span class="pre">plates</span></code> keyword argument
 because the default plates are the plates broadcasted from the parents and that
 was what we wanted so it was not necessary to provide the keyword argument. If
-we wanted, for instance, plates <tt class="docutils literal"><span class="pre">(20,10,30)</span></tt> for <tt class="docutils literal"><span class="pre">X</span></tt>, then we would have
-needed to provide <tt class="docutils literal"><span class="pre">plates=(20,10,30)</span></tt>.</p>
+we wanted, for instance, plates <code class="docutils literal"><span class="pre">(20,10,30)</span></code> for <code class="docutils literal"><span class="pre">X</span></code>, then we would have
+needed to provide <code class="docutils literal"><span class="pre">plates=(20,10,30)</span></code>.</p>
 <p>The validity of the plates between a child and its parents is checked as
 follows. The plates are compared plate-wise starting from the last axis and
 working the way forward. A plate of the child is compatible with a plate of the
@@ -673,16 +675,16 @@ because there is no randomness. The deterministic node would just have the same
 value over the extra plates, but it is not necessary to do this explicitly
 because the child nodes of the deterministic node can utilize broadcasting
 anyway. Thus, there is no point in having extra plates in deterministic nodes,
-and for this reason, deterministic nodes do not use <tt class="docutils literal"><span class="pre">plates</span></tt> keyword argument.</p>
+and for this reason, deterministic nodes do not use <code class="docutils literal"><span class="pre">plates</span></code> keyword argument.</p>
 </div>
 <div class="section" id="plates-in-constants">
 <h3>Plates in constants<a class="headerlink" href="#plates-in-constants" title="Permalink to this headline">¶</a></h3>
 <p>It is useful to understand how the plates and the shape of a random variable are
 connected. The shape of an array which contains all the plates of a random
 variable is the concatenation of the plates and the shape of the variable. For
-instance, consider a 2-dimensional Gaussian variable with plates <tt class="docutils literal"><span class="pre">(3,)</span></tt>. If
+instance, consider a 2-dimensional Gaussian variable with plates <code class="docutils literal"><span class="pre">(3,)</span></code>. If
 you want the value of the constant mean vector and constant precision matrix to
-vary between plates, they are given as <tt class="docutils literal"><span class="pre">(3,2)</span></tt>-shape and <tt class="docutils literal"><span class="pre">(3,2,2)</span></tt>-shape
+vary between plates, they are given as <code class="docutils literal"><span class="pre">(3,2)</span></code>-shape and <code class="docutils literal"><span class="pre">(3,2,2)</span></code>-shape
 arrays, respectively:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mu</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="p">]</span>
@@ -703,8 +705,8 @@ arrays, respectively:</p>
 </div>
 <p>Thus, the leading axes of an array are the plate axes and the trailing axes are
 the random variable axes. In the example above, the mean vector has plates
-<tt class="docutils literal"><span class="pre">(3,)</span></tt> and shape <tt class="docutils literal"><span class="pre">(2,)</span></tt>, and the precision matrix has plates <tt class="docutils literal"><span class="pre">(3,)</span></tt> and
-shape <tt class="docutils literal"><span class="pre">(2,2)</span></tt>.</p>
+<code class="docutils literal"><span class="pre">(3,)</span></code> and shape <code class="docutils literal"><span class="pre">(2,)</span></code>, and the precision matrix has plates <code class="docutils literal"><span class="pre">(3,)</span></code> and
+shape <code class="docutils literal"><span class="pre">(2,2)</span></code>.</p>
 </div>
 <div class="section" id="factorization-of-plates">
 <h3>Factorization of plates<a class="headerlink" href="#factorization-of-plates" title="Permalink to this headline">¶</a></h3>
@@ -740,11 +742,11 @@ distribution does not have that plate:</p>
 <span class="go">(100,)</span>
 </pre></div>
 </div>
-<p>The plates <tt class="docutils literal"><span class="pre">(3,)</span></tt> and <tt class="docutils literal"><span class="pre">(100,)</span></tt> should not broadcast according to the rules
-mentioned above. However, when validating the plates, <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.Mixture.html#bayespy.nodes.Mixture" title="bayespy.nodes.Mixture"><tt class="xref py py-class docutils literal"><span class="pre">Mixture</span></tt></a> removes
-the plate which corresponds to the clusters in <tt class="docutils literal"><span class="pre">mu</span></tt> and <tt class="docutils literal"><span class="pre">Lambda</span></tt>. Thus,
-<tt class="docutils literal"><span class="pre">X</span></tt> has plates which are the result of broadcasting plates <tt class="docutils literal"><span class="pre">()</span></tt> and
-<tt class="docutils literal"><span class="pre">(100,)</span></tt> which equals <tt class="docutils literal"><span class="pre">(100,)</span></tt>.</p>
+<p>The plates <code class="docutils literal"><span class="pre">(3,)</span></code> and <code class="docutils literal"><span class="pre">(100,)</span></code> should not broadcast according to the rules
+mentioned above. However, when validating the plates, <a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.Mixture.html#bayespy.nodes.Mixture" title="bayespy.nodes.Mixture"><code class="xref py py-class docutils literal"><span class="pre">Mixture</span></code></a> removes
+the plate which corresponds to the clusters in <code class="docutils literal"><span class="pre">mu</span></code> and <code class="docutils literal"><span class="pre">Lambda</span></code>. Thus,
+<code class="docutils literal"><span class="pre">X</span></code> has plates which are the result of broadcasting plates <code class="docutils literal"><span class="pre">()</span></code> and
+<code class="docutils literal"><span class="pre">(100,)</span></code> which equals <code class="docutils literal"><span class="pre">(100,)</span></code>.</p>
 <p>Also, sometimes the plates of the parents may be mapped to the variable
 axes. For instance, an automatic relevance determination (ARD) prior for a
 Gaussian variable is constructed by giving the diagonal elements of the
@@ -760,9 +762,9 @@ vector, a matrix or a tensor. A set of five <span class="math">\(4 \times 3\)</s
 <span class="go">(5,)</span>
 </pre></div>
 </div>
-<p>Note how the last two plate axes of <tt class="docutils literal"><span class="pre">tau</span></tt> are mapped to the variable axes of
-<tt class="docutils literal"><span class="pre">X</span></tt> with shape <tt class="docutils literal"><span class="pre">(4,3)</span></tt> and the plates of <tt class="docutils literal"><span class="pre">X</span></tt> are obtained by taking the
-remaining leading plate axes of <tt class="docutils literal"><span class="pre">tau</span></tt>.</p>
+<p>Note how the last two plate axes of <code class="docutils literal"><span class="pre">tau</span></code> are mapped to the variable axes of
+<code class="docutils literal"><span class="pre">X</span></code> with shape <code class="docutils literal"><span class="pre">(4,3)</span></code> and the plates of <code class="docutils literal"><span class="pre">X</span></code> are obtained by taking the
+remaining leading plate axes of <code class="docutils literal"><span class="pre">tau</span></code>.</p>
 </div>
 </div>
 <div class="section" id="example-model-principal-component-analysis">
@@ -965,11 +967,11 @@ dimensionality of the latent space in our model:</p>
 <span class="gp">... </span>                <span class="n">name</span><span class="o">=</span><span class="s">&#39;X&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that the shape of <tt class="docutils literal"><span class="pre">X</span></tt> is <tt class="docutils literal"><span class="pre">(D,)</span></tt>, although the latent dimensions are
+<p>Note that the shape of <code class="docutils literal"><span class="pre">X</span></code> is <code class="docutils literal"><span class="pre">(D,)</span></code>, although the latent dimensions are
 marked with a plate in the graphical model and they are conditionally
 independent in the prior.  However, we want to (and need to) model the posterior
 dependency of the latent dimensions, thus we cannot factorize them, which would
-happen if we used <tt class="docutils literal"><span class="pre">plates=(1,100,D)</span></tt> and <tt class="docutils literal"><span class="pre">shape=()</span></tt>.  The first plate axis
+happen if we used <code class="docutils literal"><span class="pre">plates=(1,100,D)</span></code> and <code class="docutils literal"><span class="pre">shape=()</span></code>.  The first plate axis
 with size 1 is given just for clarity.</p>
 <p>The prior for the ARD parameters <span class="math">\(\boldsymbol{\alpha}\)</span> of the loading
 matrix:</p>
@@ -985,19 +987,19 @@ matrix:</p>
 <span class="gp">... </span>                <span class="n">name</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Again, note that the shape is the same as for <tt class="docutils literal"><span class="pre">X</span></tt> for the same reason.  Also,
-the plates of <tt class="docutils literal"><span class="pre">alpha</span></tt>, <tt class="docutils literal"><span class="pre">(D,)</span></tt>, are mapped to the full shape of the node
-<tt class="docutils literal"><span class="pre">C</span></tt>, <tt class="docutils literal"><span class="pre">(10,1,D)</span></tt>, using standard broadcasting rules.</p>
+<p>Again, note that the shape is the same as for <code class="docutils literal"><span class="pre">X</span></code> for the same reason.  Also,
+the plates of <code class="docutils literal"><span class="pre">alpha</span></code>, <code class="docutils literal"><span class="pre">(D,)</span></code>, are mapped to the full shape of the node
+<code class="docutils literal"><span class="pre">C</span></code>, <code class="docutils literal"><span class="pre">(10,1,D)</span></code>, using standard broadcasting rules.</p>
 <p>The dot product is just a deterministic node:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>However, note that <tt class="docutils literal"><span class="pre">Dot</span></tt> requires that the input Gaussian nodes have the same
+<p>However, note that <code class="docutils literal"><span class="pre">Dot</span></code> requires that the input Gaussian nodes have the same
 shape and that this shape has exactly one axis, that is, the variables are
-vectors.  This the reason why we used shape <tt class="docutils literal"><span class="pre">(D,)</span></tt> for <tt class="docutils literal"><span class="pre">X</span></tt> and <tt class="docutils literal"><span class="pre">C</span></tt> but
+vectors.  This the reason why we used shape <code class="docutils literal"><span class="pre">(D,)</span></code> for <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">C</span></code> but
 from a bit different perspective.  The node computes the inner product of
-<span class="math">\(D\)</span>-dimensional vectors resulting in plates <tt class="docutils literal"><span class="pre">(10,100)</span></tt> broadcasted from
-the plates <tt class="docutils literal"><span class="pre">(1,100)</span></tt> and <tt class="docutils literal"><span class="pre">(10,1)</span></tt>:</p>
+<span class="math">\(D\)</span>-dimensional vectors resulting in plates <code class="docutils literal"><span class="pre">(10,100)</span></code> broadcasted from
+the plates <code class="docutils literal"><span class="pre">(1,100)</span></code> and <code class="docutils literal"><span class="pre">(10,1)</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">.</span><span class="n">plates</span>
 <span class="go">(10, 100)</span>
 </pre></div>
@@ -1021,7 +1023,7 @@ perform inference.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1036,13 +1038,13 @@ perform inference.</p>
         <li class="right" >
           <a href="quickstart.html" title="Quick start guide"
              >previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" >User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" >User guide</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

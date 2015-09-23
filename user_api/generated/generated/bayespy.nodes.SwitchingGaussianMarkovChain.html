@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.nodes.SwitchingGaussianMarkovChain &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>bayespy.nodes.SwitchingGaussianMarkovChain &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../../index.html" />
     <link rel="up" title="bayespy.nodes" href="../bayespy.nodes.html" />
     <link rel="next" title="bayespy.nodes.SwitchingGaussianMarkovChain.__init__" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.__init__.html" />
     <link rel="prev" title="bayespy.nodes.GaussianMarkovChain.plates_multiplier" href="generated/bayespy.nodes.GaussianMarkovChain.plates_multiplier.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,12 +45,12 @@
         <li class="right" >
           <a href="generated/bayespy.nodes.GaussianMarkovChain.plates_multiplier.html" title="bayespy.nodes.GaussianMarkovChain.plates_multiplier"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li><a href="../bayespy.nodes.html" accesskey="U">bayespy.nodes</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../bayespy.nodes.html" accesskey="U">bayespy.nodes</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="generated/bayespy.nodes.GaussianMarkovChain.plates_multiplier.html"
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.__init__.html"
                         title="next chapter">bayespy.nodes.SwitchingGaussianMarkovChain.__init__</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../../../_sources/user_api/generated/generated/bayespy.nodes.SwitchingGaussianMarkovChain.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_api/generated/generated/bayespy.nodes.SwitchingGaussianMarkovChain.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../../search.html" method="get">
       <input type="text" name="q" />
@@ -82,13 +84,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="bayespy-nodes-switchinggaussianmarkovchain">
 <h1>bayespy.nodes.SwitchingGaussianMarkovChain<a class="headerlink" href="#bayespy-nodes-switchinggaussianmarkovchain" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="bayespy.nodes.SwitchingGaussianMarkovChain">
-<em class="property">class </em><tt class="descclassname">bayespy.nodes.</tt><tt class="descname">SwitchingGaussianMarkovChain</tt><big>(</big><em>mu</em>, <em>Lambda</em>, <em>B</em>, <em>Z</em>, <em>nu</em>, <em>n=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bayespy.nodes.SwitchingGaussianMarkovChain" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">bayespy.nodes.</code><code class="descname">SwitchingGaussianMarkovChain</code><span class="sig-paren">(</span><em>mu</em>, <em>Lambda</em>, <em>B</em>, <em>Z</em>, <em>nu</em>, <em>n=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bayespy/inference/vmp/nodes/gaussian_markov_chain.html#SwitchingGaussianMarkovChain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.nodes.SwitchingGaussianMarkovChain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Node for Gaussian Markov chain random variables with switching dynamics.</p>
 <p>The node models a sequence of Gaussian variables
 :math:<a href="#id1"><span class="problematic" id="id2">`</span></a>mathbf{x}_0,ldots,mathbf{x}_{N-1}$ with linear Markovian dynamics.
@@ -327,17 +329,17 @@ does not have plates over the time domain (which would not make sense).</p>
 </table>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="bayespy.nodes.Gaussian.html#bayespy.nodes.Gaussian" title="bayespy.nodes.Gaussian"><tt class="xref py py-obj docutils literal"><span class="pre">Gaussian</span></tt></a>, <a class="reference internal" href="bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><tt class="xref py py-obj docutils literal"><span class="pre">GaussianARD</span></tt></a>, <a class="reference internal" href="bayespy.nodes.Wishart.html#bayespy.nodes.Wishart" title="bayespy.nodes.Wishart"><tt class="xref py py-obj docutils literal"><span class="pre">Wishart</span></tt></a>, <a class="reference internal" href="bayespy.nodes.Gamma.html#bayespy.nodes.Gamma" title="bayespy.nodes.Gamma"><tt class="xref py py-obj docutils literal"><span class="pre">Gamma</span></tt></a>, <a class="reference internal" href="bayespy.nodes.GaussianMarkovChain.html#bayespy.nodes.GaussianMarkovChain" title="bayespy.nodes.GaussianMarkovChain"><tt class="xref py py-obj docutils literal"><span class="pre">GaussianMarkovChain</span></tt></a>, <a class="reference internal" href="bayespy.nodes.VaryingGaussianMarkovChain.html#bayespy.nodes.VaryingGaussianMarkovChain" title="bayespy.nodes.VaryingGaussianMarkovChain"><tt class="xref py py-obj docutils literal"><span class="pre">VaryingGaussianMarkovChain</span></tt></a>, <a class="reference internal" href="bayespy.nodes.Categorical.html#bayespy.nodes.Categorical" title="bayespy.nodes.Categorical"><tt class="xref py py-obj docutils literal"><span class="pre">Categorical</span></tt></a>, <a class="reference internal" href="bayespy.nodes.CategoricalMarkovChain.html#bayespy.nodes.CategoricalMarkovChain" title="bayespy.nodes.CategoricalMarkovChain"><tt class="xref py py-obj docutils literal"><span class="pre">CategoricalMarkovChain</span></tt></a></p>
+<p class="last"><a class="reference internal" href="bayespy.nodes.Gaussian.html#bayespy.nodes.Gaussian" title="bayespy.nodes.Gaussian"><code class="xref py py-obj docutils literal"><span class="pre">Gaussian</span></code></a>, <a class="reference internal" href="bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><code class="xref py py-obj docutils literal"><span class="pre">GaussianARD</span></code></a>, <a class="reference internal" href="bayespy.nodes.Wishart.html#bayespy.nodes.Wishart" title="bayespy.nodes.Wishart"><code class="xref py py-obj docutils literal"><span class="pre">Wishart</span></code></a>, <a class="reference internal" href="bayespy.nodes.Gamma.html#bayespy.nodes.Gamma" title="bayespy.nodes.Gamma"><code class="xref py py-obj docutils literal"><span class="pre">Gamma</span></code></a>, <a class="reference internal" href="bayespy.nodes.GaussianMarkovChain.html#bayespy.nodes.GaussianMarkovChain" title="bayespy.nodes.GaussianMarkovChain"><code class="xref py py-obj docutils literal"><span class="pre">GaussianMarkovChain</span></code></a>, <a class="reference internal" href="bayespy.nodes.VaryingGaussianMarkovChain.html#bayespy.nodes.VaryingGaussianMarkovChain" title="bayespy.nodes.VaryingGaussianMarkovChain"><code class="xref py py-obj docutils literal"><span class="pre">VaryingGaussianMarkovChain</span></code></a>, <a class="reference internal" href="bayespy.nodes.Categorical.html#bayespy.nodes.Categorical" title="bayespy.nodes.Categorical"><code class="xref py py-obj docutils literal"><span class="pre">Categorical</span></code></a>, <a class="reference internal" href="bayespy.nodes.CategoricalMarkovChain.html#bayespy.nodes.CategoricalMarkovChain" title="bayespy.nodes.CategoricalMarkovChain"><code class="xref py py-obj docutils literal"><span class="pre">CategoricalMarkovChain</span></code></a></p>
 </div>
 <p class="rubric">Notes</p>
-<p>Equivalent model block can be constructed with <a class="reference internal" href="bayespy.nodes.GaussianMarkovChain.html#bayespy.nodes.GaussianMarkovChain" title="bayespy.nodes.GaussianMarkovChain"><tt class="xref py py-class docutils literal"><span class="pre">GaussianMarkovChain</span></tt></a>
-by explicitly using <a class="reference internal" href="bayespy.nodes.Gate.html#bayespy.nodes.Gate" title="bayespy.nodes.Gate"><tt class="xref py py-class docutils literal"><span class="pre">Gate</span></tt></a> to select the state dynamics matrix.
+<p>Equivalent model block can be constructed with <a class="reference internal" href="bayespy.nodes.GaussianMarkovChain.html#bayespy.nodes.GaussianMarkovChain" title="bayespy.nodes.GaussianMarkovChain"><code class="xref py py-class docutils literal"><span class="pre">GaussianMarkovChain</span></code></a>
+by explicitly using <a class="reference internal" href="bayespy.nodes.Gate.html#bayespy.nodes.Gate" title="bayespy.nodes.Gate"><code class="xref py py-class docutils literal"><span class="pre">Gate</span></code></a> to select the state dynamics matrix.
 However, that approach is not very efficient for large datasets because it
 does not utilize the structure of <span class="math">\(\mathbf{A}_n\)</span>, thus it explicitly
 computes huge moment arrays.</p>
 <dl class="method">
 <dt id="bayespy.nodes.SwitchingGaussianMarkovChain.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>mu</em>, <em>Lambda</em>, <em>B</em>, <em>Z</em>, <em>nu</em>, <em>n=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#bayespy.nodes.SwitchingGaussianMarkovChain.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>mu</em>, <em>Lambda</em>, <em>B</em>, <em>Z</em>, <em>nu</em>, <em>n=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bayespy/inference/vmp/nodes/gaussian_markov_chain.html#SwitchingGaussianMarkovChain.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.nodes.SwitchingGaussianMarkovChain.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create SwitchingGaussianMarkovChain node.</p>
 </dd></dl>
 
@@ -348,97 +350,97 @@ computes huge moment arrays.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.__init__.html#bayespy.nodes.SwitchingGaussianMarkovChain.__init__" title="bayespy.nodes.SwitchingGaussianMarkovChain.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(mu,&nbsp;Lambda,&nbsp;B,&nbsp;Z,&nbsp;nu[,&nbsp;n])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.__init__.html#bayespy.nodes.SwitchingGaussianMarkovChain.__init__" title="bayespy.nodes.SwitchingGaussianMarkovChain.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>(mu,&nbsp;Lambda,&nbsp;B,&nbsp;Z,&nbsp;nu[,&nbsp;n])</td>
 <td>Create SwitchingGaussianMarkovChain node.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.add_plate_axis.html#bayespy.nodes.SwitchingGaussianMarkovChain.add_plate_axis" title="bayespy.nodes.SwitchingGaussianMarkovChain.add_plate_axis"><tt class="xref py py-obj docutils literal"><span class="pre">add_plate_axis</span></tt></a>(to_plate)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.add_plate_axis.html#bayespy.nodes.SwitchingGaussianMarkovChain.add_plate_axis" title="bayespy.nodes.SwitchingGaussianMarkovChain.add_plate_axis"><code class="xref py py-obj docutils literal"><span class="pre">add_plate_axis</span></code></a>(to_plate)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.broadcasting_multiplier.html#bayespy.nodes.SwitchingGaussianMarkovChain.broadcasting_multiplier" title="bayespy.nodes.SwitchingGaussianMarkovChain.broadcasting_multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">broadcasting_multiplier</span></tt></a>(plates,&nbsp;*args)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.broadcasting_multiplier.html#bayespy.nodes.SwitchingGaussianMarkovChain.broadcasting_multiplier" title="bayespy.nodes.SwitchingGaussianMarkovChain.broadcasting_multiplier"><code class="xref py py-obj docutils literal"><span class="pre">broadcasting_multiplier</span></code></a>(plates,&nbsp;*args)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.delete.html#bayespy.nodes.SwitchingGaussianMarkovChain.delete" title="bayespy.nodes.SwitchingGaussianMarkovChain.delete"><tt class="xref py py-obj docutils literal"><span class="pre">delete</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.delete.html#bayespy.nodes.SwitchingGaussianMarkovChain.delete" title="bayespy.nodes.SwitchingGaussianMarkovChain.delete"><code class="xref py py-obj docutils literal"><span class="pre">delete</span></code></a>()</td>
 <td>Delete this node and the children</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_gradient.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_gradient" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_gradient"><tt class="xref py py-obj docutils literal"><span class="pre">get_gradient</span></tt></a>(rg)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_gradient.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_gradient" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_gradient"><code class="xref py py-obj docutils literal"><span class="pre">get_gradient</span></code></a>(rg)</td>
 <td>Computes gradient with respect to the natural parameters.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_mask.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_mask" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_mask"><tt class="xref py py-obj docutils literal"><span class="pre">get_mask</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_mask.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_mask" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_mask"><code class="xref py py-obj docutils literal"><span class="pre">get_mask</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_moments.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_moments" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_moments"><tt class="xref py py-obj docutils literal"><span class="pre">get_moments</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_moments.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_moments" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_moments"><code class="xref py py-obj docutils literal"><span class="pre">get_moments</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_parameters.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_parameters" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_parameters"><tt class="xref py py-obj docutils literal"><span class="pre">get_parameters</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_parameters.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_parameters" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_parameters</span></code></a>()</td>
 <td>Return parameters of the VB distribution.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_riemannian_gradient.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_riemannian_gradient" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_riemannian_gradient"><tt class="xref py py-obj docutils literal"><span class="pre">get_riemannian_gradient</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_riemannian_gradient.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_riemannian_gradient" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_riemannian_gradient"><code class="xref py py-obj docutils literal"><span class="pre">get_riemannian_gradient</span></code></a>()</td>
 <td>Computes the Riemannian/natural gradient.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_shape.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_shape" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_shape"><tt class="xref py py-obj docutils literal"><span class="pre">get_shape</span></tt></a>(ind)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.get_shape.html#bayespy.nodes.SwitchingGaussianMarkovChain.get_shape" title="bayespy.nodes.SwitchingGaussianMarkovChain.get_shape"><code class="xref py py-obj docutils literal"><span class="pre">get_shape</span></code></a>(ind)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.has_plotter.html#bayespy.nodes.SwitchingGaussianMarkovChain.has_plotter" title="bayespy.nodes.SwitchingGaussianMarkovChain.has_plotter"><tt class="xref py py-obj docutils literal"><span class="pre">has_plotter</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.has_plotter.html#bayespy.nodes.SwitchingGaussianMarkovChain.has_plotter" title="bayespy.nodes.SwitchingGaussianMarkovChain.has_plotter"><code class="xref py py-obj docutils literal"><span class="pre">has_plotter</span></code></a>()</td>
 <td>Return True if the node has a plotter</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_parameters.html#bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_parameters" title="bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_parameters"><tt class="xref py py-obj docutils literal"><span class="pre">initialize_from_parameters</span></tt></a>(*args)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_parameters.html#bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_parameters" title="bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_parameters"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_parameters</span></code></a>(*args)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_prior.html#bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_prior" title="bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_prior"><tt class="xref py py-obj docutils literal"><span class="pre">initialize_from_prior</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_prior.html#bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_prior" title="bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_prior"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_prior</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_random.html#bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_random" title="bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_random"><tt class="xref py py-obj docutils literal"><span class="pre">initialize_from_random</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_random.html#bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_random" title="bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_random"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_random</span></code></a>()</td>
 <td>Set the variable to a random sample from the current distribution.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_value.html#bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_value" title="bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_value"><tt class="xref py py-obj docutils literal"><span class="pre">initialize_from_value</span></tt></a>(x,&nbsp;*args)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_value.html#bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_value" title="bayespy.nodes.SwitchingGaussianMarkovChain.initialize_from_value"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_value</span></code></a>(x,&nbsp;*args)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.load.html#bayespy.nodes.SwitchingGaussianMarkovChain.load" title="bayespy.nodes.SwitchingGaussianMarkovChain.load"><tt class="xref py py-obj docutils literal"><span class="pre">load</span></tt></a>(filename)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.load.html#bayespy.nodes.SwitchingGaussianMarkovChain.load" title="bayespy.nodes.SwitchingGaussianMarkovChain.load"><code class="xref py py-obj docutils literal"><span class="pre">load</span></code></a>(filename)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.logpdf.html#bayespy.nodes.SwitchingGaussianMarkovChain.logpdf" title="bayespy.nodes.SwitchingGaussianMarkovChain.logpdf"><tt class="xref py py-obj docutils literal"><span class="pre">logpdf</span></tt></a>(X[,&nbsp;mask])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.logpdf.html#bayespy.nodes.SwitchingGaussianMarkovChain.logpdf" title="bayespy.nodes.SwitchingGaussianMarkovChain.logpdf"><code class="xref py py-obj docutils literal"><span class="pre">logpdf</span></code></a>(X[,&nbsp;mask])</td>
 <td>Compute the log probability density function Q(X) of this node.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.lower_bound_contribution.html#bayespy.nodes.SwitchingGaussianMarkovChain.lower_bound_contribution" title="bayespy.nodes.SwitchingGaussianMarkovChain.lower_bound_contribution"><tt class="xref py py-obj docutils literal"><span class="pre">lower_bound_contribution</span></tt></a>([gradient,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.lower_bound_contribution.html#bayespy.nodes.SwitchingGaussianMarkovChain.lower_bound_contribution" title="bayespy.nodes.SwitchingGaussianMarkovChain.lower_bound_contribution"><code class="xref py py-obj docutils literal"><span class="pre">lower_bound_contribution</span></code></a>([gradient,&nbsp;...])</td>
 <td>Compute E[ log p(X|parents) - log q(X) ]</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.lowerbound.html#bayespy.nodes.SwitchingGaussianMarkovChain.lowerbound" title="bayespy.nodes.SwitchingGaussianMarkovChain.lowerbound"><tt class="xref py py-obj docutils literal"><span class="pre">lowerbound</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.lowerbound.html#bayespy.nodes.SwitchingGaussianMarkovChain.lowerbound" title="bayespy.nodes.SwitchingGaussianMarkovChain.lowerbound"><code class="xref py py-obj docutils literal"><span class="pre">lowerbound</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.move_plates.html#bayespy.nodes.SwitchingGaussianMarkovChain.move_plates" title="bayespy.nodes.SwitchingGaussianMarkovChain.move_plates"><tt class="xref py py-obj docutils literal"><span class="pre">move_plates</span></tt></a>(from_plate,&nbsp;to_plate)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.move_plates.html#bayespy.nodes.SwitchingGaussianMarkovChain.move_plates" title="bayespy.nodes.SwitchingGaussianMarkovChain.move_plates"><code class="xref py py-obj docutils literal"><span class="pre">move_plates</span></code></a>(from_plate,&nbsp;to_plate)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.observe.html#bayespy.nodes.SwitchingGaussianMarkovChain.observe" title="bayespy.nodes.SwitchingGaussianMarkovChain.observe"><tt class="xref py py-obj docutils literal"><span class="pre">observe</span></tt></a>(x,&nbsp;*args[,&nbsp;mask])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.observe.html#bayespy.nodes.SwitchingGaussianMarkovChain.observe" title="bayespy.nodes.SwitchingGaussianMarkovChain.observe"><code class="xref py py-obj docutils literal"><span class="pre">observe</span></code></a>(x,&nbsp;*args[,&nbsp;mask])</td>
 <td>Fix moments, compute f and propagate mask.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.pdf.html#bayespy.nodes.SwitchingGaussianMarkovChain.pdf" title="bayespy.nodes.SwitchingGaussianMarkovChain.pdf"><tt class="xref py py-obj docutils literal"><span class="pre">pdf</span></tt></a>(X[,&nbsp;mask])</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.pdf.html#bayespy.nodes.SwitchingGaussianMarkovChain.pdf" title="bayespy.nodes.SwitchingGaussianMarkovChain.pdf"><code class="xref py py-obj docutils literal"><span class="pre">pdf</span></code></a>(X[,&nbsp;mask])</td>
 <td>Compute the probability density function of this node.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.plot.html#bayespy.nodes.SwitchingGaussianMarkovChain.plot" title="bayespy.nodes.SwitchingGaussianMarkovChain.plot"><tt class="xref py py-obj docutils literal"><span class="pre">plot</span></tt></a>([fig])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.plot.html#bayespy.nodes.SwitchingGaussianMarkovChain.plot" title="bayespy.nodes.SwitchingGaussianMarkovChain.plot"><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code></a>([fig])</td>
 <td>Plot the node distribution using the plotter of the node</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.random.html#bayespy.nodes.SwitchingGaussianMarkovChain.random" title="bayespy.nodes.SwitchingGaussianMarkovChain.random"><tt class="xref py py-obj docutils literal"><span class="pre">random</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.random.html#bayespy.nodes.SwitchingGaussianMarkovChain.random" title="bayespy.nodes.SwitchingGaussianMarkovChain.random"><code class="xref py py-obj docutils literal"><span class="pre">random</span></code></a>()</td>
 <td>Draw a random sample from the distribution.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.rotate.html#bayespy.nodes.SwitchingGaussianMarkovChain.rotate" title="bayespy.nodes.SwitchingGaussianMarkovChain.rotate"><tt class="xref py py-obj docutils literal"><span class="pre">rotate</span></tt></a>(R[,&nbsp;inv,&nbsp;logdet])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.rotate.html#bayespy.nodes.SwitchingGaussianMarkovChain.rotate" title="bayespy.nodes.SwitchingGaussianMarkovChain.rotate"><code class="xref py py-obj docutils literal"><span class="pre">rotate</span></code></a>(R[,&nbsp;inv,&nbsp;logdet])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.save.html#bayespy.nodes.SwitchingGaussianMarkovChain.save" title="bayespy.nodes.SwitchingGaussianMarkovChain.save"><tt class="xref py py-obj docutils literal"><span class="pre">save</span></tt></a>(filename)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.save.html#bayespy.nodes.SwitchingGaussianMarkovChain.save" title="bayespy.nodes.SwitchingGaussianMarkovChain.save"><code class="xref py py-obj docutils literal"><span class="pre">save</span></code></a>(filename)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.set_parameters.html#bayespy.nodes.SwitchingGaussianMarkovChain.set_parameters" title="bayespy.nodes.SwitchingGaussianMarkovChain.set_parameters"><tt class="xref py py-obj docutils literal"><span class="pre">set_parameters</span></tt></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.set_parameters.html#bayespy.nodes.SwitchingGaussianMarkovChain.set_parameters" title="bayespy.nodes.SwitchingGaussianMarkovChain.set_parameters"><code class="xref py py-obj docutils literal"><span class="pre">set_parameters</span></code></a>(x)</td>
 <td>Set the parameters of the VB distribution.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.set_plotter.html#bayespy.nodes.SwitchingGaussianMarkovChain.set_plotter" title="bayespy.nodes.SwitchingGaussianMarkovChain.set_plotter"><tt class="xref py py-obj docutils literal"><span class="pre">set_plotter</span></tt></a>(plotter)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.set_plotter.html#bayespy.nodes.SwitchingGaussianMarkovChain.set_plotter" title="bayespy.nodes.SwitchingGaussianMarkovChain.set_plotter"><code class="xref py py-obj docutils literal"><span class="pre">set_plotter</span></code></a>(plotter)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.show.html#bayespy.nodes.SwitchingGaussianMarkovChain.show" title="bayespy.nodes.SwitchingGaussianMarkovChain.show"><tt class="xref py py-obj docutils literal"><span class="pre">show</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.show.html#bayespy.nodes.SwitchingGaussianMarkovChain.show" title="bayespy.nodes.SwitchingGaussianMarkovChain.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>()</td>
 <td>Print the distribution using standard parameterization.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.unobserve.html#bayespy.nodes.SwitchingGaussianMarkovChain.unobserve" title="bayespy.nodes.SwitchingGaussianMarkovChain.unobserve"><tt class="xref py py-obj docutils literal"><span class="pre">unobserve</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.unobserve.html#bayespy.nodes.SwitchingGaussianMarkovChain.unobserve" title="bayespy.nodes.SwitchingGaussianMarkovChain.unobserve"><code class="xref py py-obj docutils literal"><span class="pre">unobserve</span></code></a>()</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.update.html#bayespy.nodes.SwitchingGaussianMarkovChain.update" title="bayespy.nodes.SwitchingGaussianMarkovChain.update"><tt class="xref py py-obj docutils literal"><span class="pre">update</span></tt></a>([annealing])</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.update.html#bayespy.nodes.SwitchingGaussianMarkovChain.update" title="bayespy.nodes.SwitchingGaussianMarkovChain.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>([annealing])</td>
 <td></td>
 </tr>
 </tbody>
@@ -450,13 +452,13 @@ computes huge moment arrays.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.dims.html#bayespy.nodes.SwitchingGaussianMarkovChain.dims" title="bayespy.nodes.SwitchingGaussianMarkovChain.dims"><tt class="xref py py-obj docutils literal"><span class="pre">dims</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.dims.html#bayespy.nodes.SwitchingGaussianMarkovChain.dims" title="bayespy.nodes.SwitchingGaussianMarkovChain.dims"><code class="xref py py-obj docutils literal"><span class="pre">dims</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.plates.html#bayespy.nodes.SwitchingGaussianMarkovChain.plates" title="bayespy.nodes.SwitchingGaussianMarkovChain.plates"><tt class="xref py py-obj docutils literal"><span class="pre">plates</span></tt></a></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.plates.html#bayespy.nodes.SwitchingGaussianMarkovChain.plates" title="bayespy.nodes.SwitchingGaussianMarkovChain.plates"><code class="xref py py-obj docutils literal"><span class="pre">plates</span></code></a></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.plates_multiplier.html#bayespy.nodes.SwitchingGaussianMarkovChain.plates_multiplier" title="bayespy.nodes.SwitchingGaussianMarkovChain.plates_multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">plates_multiplier</span></tt></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.plates_multiplier.html#bayespy.nodes.SwitchingGaussianMarkovChain.plates_multiplier" title="bayespy.nodes.SwitchingGaussianMarkovChain.plates_multiplier"><code class="xref py py-obj docutils literal"><span class="pre">plates_multiplier</span></code></a></td>
 <td>Plate multiplier is applied to messages to parents</td>
 </tr>
 </tbody>
@@ -471,7 +473,7 @@ computes huge moment arrays.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -486,14 +488,14 @@ computes huge moment arrays.</p>
         <li class="right" >
           <a href="generated/bayespy.nodes.GaussianMarkovChain.plates_multiplier.html" title="bayespy.nodes.GaussianMarkovChain.plates_multiplier"
              >previous</a> |</li>
-        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li><a href="../bayespy.nodes.html" >bayespy.nodes</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../bayespy.nodes.html" >bayespy.nodes</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

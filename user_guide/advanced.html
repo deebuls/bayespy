@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advanced topics &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>Advanced topics &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../index.html" />
     <link rel="up" title="User guide" href="user_guide.html" />
     <link rel="next" title="Examples" href="../examples/examples.html" />
     <link rel="prev" title="Examining the results" href="plot.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,11 +45,11 @@
         <li class="right" >
           <a href="plot.html" title="Examining the results"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -70,12 +70,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="../examples/examples.html"
                         title="next chapter">Examples</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/user_guide/advanced.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/advanced.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -94,7 +96,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="advanced-topics">
 <h1>Advanced topics<a class="headerlink" href="#advanced-topics" title="Permalink to this headline">¶</a></h1>
@@ -121,12 +123,12 @@ gradient ascent.  These optimization methods are especially useful when the
 VB-EM update equations are not available but one has to use fixed form
 approximation.  But it is possible that the Riemannian conjugate gradient method
 improve performance even when the VB-EM update equations are available.</p>
-<p>The optimization algorithm in <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.optimize.html#bayespy.inference.VB.optimize" title="bayespy.inference.VB.optimize"><tt class="xref py py-func docutils literal"><span class="pre">VB.optimize()</span></tt></a> has a simple interface.
+<p>The optimization algorithm in <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.optimize.html#bayespy.inference.VB.optimize" title="bayespy.inference.VB.optimize"><code class="xref py py-func docutils literal"><span class="pre">VB.optimize()</span></code></a> has a simple interface.
 Instead of using the default Riemannian geometry, one can use the Euclidean
-geometry by giving <tt class="code docutils literal"><span class="pre">riemannian=False</span></tt>.  It is also possible to choose the
-optimization method from gradient ascent (<tt class="code docutils literal"><span class="pre">method='gradient'</span></tt>) or
-conjugate gradient methods (only <tt class="code docutils literal"><span class="pre">method='fletcher-reeves'</span></tt> implemented at
-the moment).  For instance, we could optimize nodes <tt class="docutils literal"><span class="pre">C</span></tt> and <tt class="docutils literal"><span class="pre">X</span></tt> jointly
+geometry by giving <code class="code docutils literal"><span class="pre">riemannian=False</span></code>.  It is also possible to choose the
+optimization method from gradient ascent (<code class="code docutils literal"><span class="pre">method='gradient'</span></code>) or
+conjugate gradient methods (only <code class="code docutils literal"><span class="pre">method='fletcher-reeves'</span></code> implemented at
+the moment).  For instance, we could optimize nodes <code class="docutils literal"><span class="pre">C</span></code> and <code class="docutils literal"><span class="pre">X</span></code> jointly
 using Euclidean gradient ascent as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">VB</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">riemannian</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;gradient&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -146,14 +148,14 @@ but also by the conjugate gradient methods in the Riemannian geometry.  Thus,
 the Riemannian conjugate gradient may not yet work for all models.</p>
 </div>
 <p>It is possible to construct custom optimization algorithms with the tools
-provided by <a class="reference internal" href="../user_api/generated/generated/bayespy.inference.VB.html#bayespy.inference.VB" title="bayespy.inference.VB"><tt class="xref py py-class docutils literal"><span class="pre">VB</span></tt></a>.  For instance, <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.get_parameters.html#bayespy.inference.VB.get_parameters" title="bayespy.inference.VB.get_parameters"><tt class="xref py py-func docutils literal"><span class="pre">VB.get_parameters()</span></tt></a> and
-<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.set_parameters.html#bayespy.inference.VB.set_parameters" title="bayespy.inference.VB.set_parameters"><tt class="xref py py-func docutils literal"><span class="pre">VB.set_parameters()</span></tt></a> can be used to handle the parameters of nodes.
-<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.get_gradients.html#bayespy.inference.VB.get_gradients" title="bayespy.inference.VB.get_gradients"><tt class="xref py py-func docutils literal"><span class="pre">VB.get_gradients()</span></tt></a> is used for computing the gradients of nodes.  The
+provided by <a class="reference internal" href="../user_api/generated/generated/bayespy.inference.VB.html#bayespy.inference.VB" title="bayespy.inference.VB"><code class="xref py py-class docutils literal"><span class="pre">VB</span></code></a>.  For instance, <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.get_parameters.html#bayespy.inference.VB.get_parameters" title="bayespy.inference.VB.get_parameters"><code class="xref py py-func docutils literal"><span class="pre">VB.get_parameters()</span></code></a> and
+<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.set_parameters.html#bayespy.inference.VB.set_parameters" title="bayespy.inference.VB.set_parameters"><code class="xref py py-func docutils literal"><span class="pre">VB.set_parameters()</span></code></a> can be used to handle the parameters of nodes.
+<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.get_gradients.html#bayespy.inference.VB.get_gradients" title="bayespy.inference.VB.get_gradients"><code class="xref py py-func docutils literal"><span class="pre">VB.get_gradients()</span></code></a> is used for computing the gradients of nodes.  The
 parameter and gradient objects are not numerical arrays but more complex nested
 lists not meant to be accessed by the user.  Thus, for simple arithmetics with
-the parameter and gradient objects, use functions <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.add.html#bayespy.inference.VB.add" title="bayespy.inference.VB.add"><tt class="xref py py-func docutils literal"><span class="pre">VB.add()</span></tt></a> and
-<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.dot.html#bayespy.inference.VB.dot" title="bayespy.inference.VB.dot"><tt class="xref py py-func docutils literal"><span class="pre">VB.dot()</span></tt></a>.  Finally, <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.compute_lowerbound.html#bayespy.inference.VB.compute_lowerbound" title="bayespy.inference.VB.compute_lowerbound"><tt class="xref py py-func docutils literal"><span class="pre">VB.compute_lowerbound()</span></tt></a> and
-<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.has_converged.html#bayespy.inference.VB.has_converged" title="bayespy.inference.VB.has_converged"><tt class="xref py py-func docutils literal"><span class="pre">VB.has_converged()</span></tt></a> can be used to monitor the lower bound.</p>
+the parameter and gradient objects, use functions <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.add.html#bayespy.inference.VB.add" title="bayespy.inference.VB.add"><code class="xref py py-func docutils literal"><span class="pre">VB.add()</span></code></a> and
+<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.dot.html#bayespy.inference.VB.dot" title="bayespy.inference.VB.dot"><code class="xref py py-func docutils literal"><span class="pre">VB.dot()</span></code></a>.  Finally, <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.compute_lowerbound.html#bayespy.inference.VB.compute_lowerbound" title="bayespy.inference.VB.compute_lowerbound"><code class="xref py py-func docutils literal"><span class="pre">VB.compute_lowerbound()</span></code></a> and
+<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.has_converged.html#bayespy.inference.VB.has_converged" title="bayespy.inference.VB.has_converged"><code class="xref py py-func docutils literal"><span class="pre">VB.has_converged()</span></code></a> can be used to monitor the lower bound.</p>
 </div>
 <div class="section" id="collapsed-inference">
 <h2>Collapsed inference<a class="headerlink" href="#collapsed-inference" title="Permalink to this headline">¶</a></h2>
@@ -168,11 +170,11 @@ instance, in our PCA example, we could optimize as follows:</p>
 </pre></div>
 </div>
 <p>The collapsed variables are given as a list.  This optimization does basically
-the following: It first computes the gradients for <tt class="docutils literal"><span class="pre">C</span></tt> and <tt class="docutils literal"><span class="pre">tau</span></tt> and takes
+the following: It first computes the gradients for <code class="docutils literal"><span class="pre">C</span></code> and <code class="docutils literal"><span class="pre">tau</span></code> and takes
 an update step using the desired optimization method.  Then, it updates the
 collapsed variables by using the standard VB-EM update equations.  These two
 steps are taken in turns.  Effectively, this corresponds to collapsing the
-variables <tt class="docutils literal"><span class="pre">X</span></tt> and <tt class="docutils literal"><span class="pre">alpha</span></tt> in a particular way.  The point of this method is
+variables <code class="docutils literal"><span class="pre">X</span></code> and <code class="docutils literal"><span class="pre">alpha</span></code> in a particular way.  The point of this method is
 that the number of parameters in the optimization reduces significantly and the
 collapsed variables are updated optimally.  For more details, see
 <a class="reference internal" href="../references.html#hensman-2012" id="id3">[1]</a>.</p>
@@ -199,7 +201,7 @@ in the VB parameters on successive updates (or several updates).  The idea is
 that the VB-EM algorithm may be slow because it just zigzags and this can be
 fixed by moving to the direction in which the VB-EM is slowly moving.</p>
 <p>BayesPy offers a simple built-in pattern search method
-<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.pattern_search.html#bayespy.inference.VB.pattern_search" title="bayespy.inference.VB.pattern_search"><tt class="xref py py-func docutils literal"><span class="pre">VB.pattern_search()</span></tt></a>.  The method updates the nodes twice, measures the
+<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.pattern_search.html#bayespy.inference.VB.pattern_search" title="bayespy.inference.VB.pattern_search"><code class="xref py py-func docutils literal"><span class="pre">VB.pattern_search()</span></code></a>.  The method updates the nodes twice, measures the
 difference in the parameters and performs a line search with a small number of
 function evaluations:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">pattern_search</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
@@ -213,7 +215,7 @@ apply as above.  The collapsed variables are given as list:</p>
 <span class="go">Iteration ...</span>
 </pre></div>
 </div>
-<p>Also, a maximum number of iterations can be set by using <tt class="docutils literal"><span class="pre">maxiter</span></tt> keyword
+<p>Also, a maximum number of iterations can be set by using <code class="docutils literal"><span class="pre">maxiter</span></code> keyword
 argument.  It is not always obvious whether a pattern search will improve the
 rate of convergence or not but if it seems that the convergence is slow because
 of zigzagging, it may be worth a try.  Note that the computational cost of the
@@ -221,7 +223,7 @@ pattern search is quite high, thus it is not recommended to perform it after
 every VB-EM update but every now and then, for instance, after every 10
 iterations.  In addition, it is possible to write a more customized VB learning
 algorithm which uses pattern searches by using the different methods of
-<a class="reference internal" href="../user_api/generated/generated/bayespy.inference.VB.html#bayespy.inference.VB" title="bayespy.inference.VB"><tt class="xref py py-class docutils literal"><span class="pre">VB</span></tt></a> discussed above.</p>
+<a class="reference internal" href="../user_api/generated/generated/bayespy.inference.VB.html#bayespy.inference.VB" title="bayespy.inference.VB"><code class="xref py py-class docutils literal"><span class="pre">VB</span></code></a> discussed above.</p>
 </div>
 <div class="section" id="deterministic-annealing">
 <h2>Deterministic annealing<a class="headerlink" href="#deterministic-annealing" title="Permalink to this headline">¶</a></h2>
@@ -233,7 +235,7 @@ entropy of the posterior approximation in the VB lower bound.  Effectively, the
 annealed lower bound becomes closer to a uniform function instead of the
 original multimodal lower bound.  The weight on the entropy is recovered slowly
 and the optimization is much more robust to initialization.</p>
-<p>In BayesPy, the annealing can be set by using <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.set_annealing.html#bayespy.inference.VB.set_annealing" title="bayespy.inference.VB.set_annealing"><tt class="xref py py-func docutils literal"><span class="pre">VB.set_annealing()</span></tt></a>.  The
+<p>In BayesPy, the annealing can be set by using <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.set_annealing.html#bayespy.inference.VB.set_annealing" title="bayespy.inference.VB.set_annealing"><code class="xref py py-func docutils literal"><span class="pre">VB.set_annealing()</span></code></a>.  The
 given annealing should be in range <span class="math">\((0,1]\)</span> but this is not validated in
 case the user wants to do something experimental.  If annealing is set to 1, the
 original VB lower bound is recovered.  Annealing with 0 would lead to an
@@ -254,7 +256,7 @@ instance as:</p>
 <span class="go">Iteration ...</span>
 </pre></div>
 </div>
-<p>Here, the <tt class="docutils literal"><span class="pre">tol</span></tt> keyword argument is used to adjust the threshold for
+<p>Here, the <code class="docutils literal"><span class="pre">tol</span></code> keyword argument is used to adjust the threshold for
 convergence.  In this case, it is a bit larger than by default so the algorithm
 does not need to converge perfectly but a rougher convergence is sufficient for
 the next iteration with a new annealing value.</p>
@@ -288,10 +290,10 @@ parameter is <span class="math">\(\alpha_i = (\delta + i)^{-\gamma}\)</span>, wh
 <p>Stochastic variational inference is relatively easy to use in BayesPy.  The idea
 is that the user creates a model for the size of a mini-batch and specifies a
 multiplier for those plate axes that are replicated.  For the PCA example, the
-mini-batch model can be costructed as follows.  We decide to use <tt class="docutils literal"><span class="pre">X</span></tt> as an
+mini-batch model can be costructed as follows.  We decide to use <code class="docutils literal"><span class="pre">X</span></code> as an
 intermediate variable and the other variables are global.  The global variables
-<tt class="docutils literal"><span class="pre">alpha</span></tt>, <tt class="docutils literal"><span class="pre">C</span></tt> and <tt class="docutils literal"><span class="pre">tau</span></tt> are constructed identically as before.  The
-intermediate variable <tt class="docutils literal"><span class="pre">X</span></tt> is constructed as:</p>
+<code class="docutils literal"><span class="pre">alpha</span></code>, <code class="docutils literal"><span class="pre">C</span></code> and <code class="docutils literal"><span class="pre">tau</span></code> are constructed identically as before.  The
+intermediate variable <code class="docutils literal"><span class="pre">X</span></code> is constructed as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">GaussianARD</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
 <span class="gp">... </span>                <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">D</span><span class="p">,),</span>
 <span class="gp">... </span>                <span class="n">plates</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
@@ -299,8 +301,8 @@ intermediate variable <tt class="docutils literal"><span class="pre">X</span></t
 <span class="gp">... </span>                <span class="n">name</span><span class="o">=</span><span class="s">&#39;X&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that the plates are <tt class="docutils literal"><span class="pre">(1,5)</span></tt> whereas they are <tt class="docutils literal"><span class="pre">(1,100)</span></tt> in the full
-model.  Thus, we need to provide a plates multiplier <tt class="docutils literal"><span class="pre">(1,20)</span></tt> to define how
+<p>Note that the plates are <code class="docutils literal"><span class="pre">(1,5)</span></code> whereas they are <code class="docutils literal"><span class="pre">(1,100)</span></code> in the full
+model.  Thus, we need to provide a plates multiplier <code class="docutils literal"><span class="pre">(1,20)</span></code> to define how
 the plates are replicated to get the full dataset.  These multipliers do not
 need to be integers, in this case the latter plate axis is multiplied by
 <span class="math">\(100/5=20\)</span>.  The remaining variables are defined as before:</p>
@@ -308,7 +310,7 @@ need to be integers, in this case the latter plate axis is multiplied by
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Y</span> <span class="o">=</span> <span class="n">GaussianARD</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;Y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that the plates of <tt class="docutils literal"><span class="pre">Y</span></tt> and <tt class="docutils literal"><span class="pre">F</span></tt> also correspond to the size of the
+<p>Note that the plates of <code class="docutils literal"><span class="pre">Y</span></code> and <code class="docutils literal"><span class="pre">F</span></code> also correspond to the size of the
 mini-batch and they also deduce the plate multipliers from their parents, thus
 we do not need to specify the multiplier here explicitly (although it is ok to
 do so).</p>
@@ -316,7 +318,7 @@ do so).</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">VB</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Use random initialization for <tt class="docutils literal"><span class="pre">C</span></tt> to break the symmetry in <tt class="docutils literal"><span class="pre">C</span></tt> and <tt class="docutils literal"><span class="pre">X</span></tt>:</p>
+<p>Use random initialization for <code class="docutils literal"><span class="pre">C</span></code> to break the symmetry in <code class="docutils literal"><span class="pre">C</span></code> and <code class="docutils literal"><span class="pre">X</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">initialize_from_random</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -333,7 +335,7 @@ do so).</p>
 </div>
 <p>First, we ignore the bound checks because they are noisy.  Then, the loop
 consists of three parts: 1) Draw a random mini-batch of the data (5 samples from
-100).  2) Update the intermediate variable <tt class="docutils literal"><span class="pre">X</span></tt>.  3) Update global variables
+100).  2) Update the intermediate variable <code class="docutils literal"><span class="pre">X</span></code>.  3) Update global variables
 with gradient ascent using a proper learning rate.</p>
 </div>
 <div class="section" id="black-box-variational-inference">
@@ -348,7 +350,7 @@ with gradient ascent using a proper learning rate.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -363,13 +365,13 @@ with gradient ascent using a proper learning rate.</p>
         <li class="right" >
           <a href="plot.html" title="Examining the results"
              >previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" >User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" >User guide</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

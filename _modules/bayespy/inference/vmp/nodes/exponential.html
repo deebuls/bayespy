@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>bayespy.inference.vmp.nodes.exponential &mdash; BayesPy v0.3.7 Documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '0.3.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for bayespy.inference.vmp.nodes.exponential</h1><div class="highlight"><pre>
+<span class="c">################################################################################</span>
+<span class="c"># Copyright (C) 2014 Jaakko Luttinen</span>
+<span class="c">#</span>
+<span class="c"># This file is licensed under the MIT License.</span>
+<span class="c">################################################################################</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module for the exponential distribution node.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.gamma</span> <span class="kn">import</span> <span class="p">(</span><span class="n">GammaMoments</span><span class="p">,</span>
+                    <span class="n">Gamma</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.expfamily</span> <span class="kn">import</span> <span class="n">ExponentialFamily</span>
+
+
+<span class="n">ExponentialMoments</span> <span class="o">=</span> <span class="n">GammaMoments</span>
+
+
+<div class="viewcode-block" id="Exponential"><a class="viewcode-back" href="../../../../../user_api/generated/generated/bayespy.nodes.Exponential.html#bayespy.nodes.Exponential">[docs]</a><span class="k">class</span> <span class="nc">Exponential</span><span class="p">(</span><span class="n">Gamma</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">    Node for exponential random variables.</span>
+
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        Use :class:`Gamma` instead of this. `Exponential(l)` is equivalent to</span>
+<span class="sd">        `Gamma(1, l)`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    l : gamma-like node or scalar or array</span>
+
+<span class="sd">        Rate parameter</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    Gamma, Poisson</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    </span>
+<span class="sd">    For simplicity, this is just a gamma node with the first parent fixed to</span>
+<span class="sd">    one.  Note that this is a bit inconsistent with the BayesPy philosophy which</span>
+<span class="sd">    states that the node does not only define the form of the prior distribution</span>
+<span class="sd">    but more importantly the form of the posterior approximation.  Thus, one</span>
+<span class="sd">    might expect that this node would have exponential posterior distribution</span>
+<span class="sd">    approximation.  However, it has a gamma distribution.  Also, the moments are</span>
+<span class="sd">    gamma moments although only E[x] would be the moment of a exponential random</span>
+<span class="sd">    variable.  All this was done because: a) gamma was already implemented, so</span>
+<span class="sd">    there was no need to implement anything, and b) people might easily use</span>
+<span class="sd">    Exponential node as a prior definition and expect to get gamma posterior</span>
+<span class="sd">    (which is what happens now).  Maybe some day a pure Exponential node is</span>
+<span class="sd">    implemented and the users are advised to use Gamma(1,b) if they want to use</span>
+<span class="sd">    an exponential prior distribution but gamma posterior approximation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="Exponential.__init__"><a class="viewcode-back" href="../../../../../user_api/generated/generated/generated/bayespy.nodes.Exponential.__init__.html#bayespy.nodes.Exponential.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;Not yet implemented. Use Gamma(1, lambda)&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+</div>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_constructor</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;Not yet implemented. Use Gamma(1, lambda)&quot;</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

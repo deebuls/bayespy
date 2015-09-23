@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Linear state-space model &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>Linear state-space model &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../index.html" />
     <link rel="up" title="Examples" href="examples.html" />
     <link rel="next" title="Latent Dirichlet allocation" href="lda.html" />
     <link rel="prev" title="Principal component analysis" href="pca.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,11 +45,11 @@
         <li class="right" >
           <a href="pca.html" title="Principal component analysis"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="examples.html" accesskey="U">Examples</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="examples.html" accesskey="U">Examples</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -71,12 +71,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="lda.html"
                         title="next chapter">Latent Dirichlet allocation</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/examples/lssm.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/examples/lssm.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -95,7 +97,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="linear-state-space-model">
 <h1>Linear state-space model<a class="headerlink" href="#linear-state-space-model" title="Permalink to this headline">¶</a></h1>
@@ -146,10 +148,10 @@ the dependencies of high-dimensional observations efficiently.</p>
 </pre></div>
 </div>
 <p>Note that <span class="math">\(\mathbf{A}\)</span> is a <span class="math">\(D\times{}D\)</span>-dimensional matrix.
-However, in BayesPy it is modelled as a collection (<tt class="docutils literal"><span class="pre">plates=(D,)</span></tt>) of
-<span class="math">\(D\)</span>-dimensional vectors (<tt class="docutils literal"><span class="pre">shape=(D,)</span></tt>) because this is how the variables
+However, in BayesPy it is modelled as a collection (<code class="docutils literal"><span class="pre">plates=(D,)</span></code>) of
+<span class="math">\(D\)</span>-dimensional vectors (<code class="docutils literal"><span class="pre">shape=(D,)</span></code>) because this is how the variables
 factorize in the posterior approximation of the state dynamics matrix in
-<a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianMarkovChain.html#bayespy.nodes.GaussianMarkovChain" title="bayespy.nodes.GaussianMarkovChain"><tt class="xref py py-class docutils literal"><span class="pre">GaussianMarkovChain</span></tt></a>.  The latent states are constructed as</p>
+<a class="reference internal" href="../user_api/generated/generated/bayespy.nodes.GaussianMarkovChain.html#bayespy.nodes.GaussianMarkovChain" title="bayespy.nodes.GaussianMarkovChain"><code class="xref py py-class docutils literal"><span class="pre">GaussianMarkovChain</span></code></a>.  The latent states are constructed as</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">GaussianMarkovChain</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">D</span><span class="p">),</span>
 <span class="gp">... </span>                        <span class="mf">1e-3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">D</span><span class="p">),</span>
 <span class="gp">... </span>                        <span class="n">A</span><span class="p">,</span>
@@ -161,8 +163,8 @@ factorize in the posterior approximation of the state dynamics matrix in
 <p>where the first two arguments are the mean and precision matrix of the initial
 state, the third argument is the state dynamics matrix and the fourth argument
 is the diagonal elements of the precision matrix of the innovation noise.  The
-node also needs the length of the chain given as the keyword argument <tt class="docutils literal"><span class="pre">n=N</span></tt>.
-Thus, the shape of this node is <tt class="docutils literal"><span class="pre">(N,D)</span></tt>.</p>
+node also needs the length of the chain given as the keyword argument <code class="docutils literal"><span class="pre">n=N</span></code>.
+Thus, the shape of this node is <code class="docutils literal"><span class="pre">(N,D)</span></code>.</p>
 <p>The linear mapping from the latent space to the observation space is modelled
 with the loading matrix which has ARD prior:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gamma</span> <span class="o">=</span> <span class="n">Gamma</span><span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span>
@@ -176,8 +178,8 @@ with the loading matrix which has ARD prior:</p>
 <span class="gp">... </span>                <span class="n">name</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that the plates for <tt class="docutils literal"><span class="pre">C</span></tt> are <tt class="docutils literal"><span class="pre">(M,1)</span></tt>, thus the full shape of the node is
-<tt class="docutils literal"><span class="pre">(M,1,D)</span></tt>.  The unit plate axis is added so that <tt class="docutils literal"><span class="pre">C</span></tt> broadcasts with <tt class="docutils literal"><span class="pre">X</span></tt>
+<p>Note that the plates for <code class="docutils literal"><span class="pre">C</span></code> are <code class="docutils literal"><span class="pre">(M,1)</span></code>, thus the full shape of the node is
+<code class="docutils literal"><span class="pre">(M,1,D)</span></code>.  The unit plate axis is added so that <code class="docutils literal"><span class="pre">C</span></code> broadcasts with <code class="docutils literal"><span class="pre">X</span></code>
 when computing the dot product:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="n">X</span><span class="p">,</span>
@@ -186,16 +188,16 @@ when computing the dot product:</p>
 </div>
 <p>This dot product is computed over the <span class="math">\(D\)</span>-dimensional latent space, thus
 the result is a <span class="math">\(M\times{}N\)</span>-dimensional matrix which is now represented
-with plates <tt class="docutils literal"><span class="pre">(M,N)</span></tt> in BayesPy:</p>
+with plates <code class="docutils literal"><span class="pre">(M,N)</span></code> in BayesPy:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">.</span><span class="n">plates</span>
 <span class="go">(30, 400)</span>
 </pre></div>
 </div>
-<p>We also need to use random initialization either for <tt class="docutils literal"><span class="pre">C</span></tt> or <tt class="docutils literal"><span class="pre">X</span></tt> in order to
-find non-zero latent space because by default both <tt class="docutils literal"><span class="pre">C</span></tt> and <tt class="docutils literal"><span class="pre">X</span></tt> are
+<p>We also need to use random initialization either for <code class="docutils literal"><span class="pre">C</span></code> or <code class="docutils literal"><span class="pre">X</span></code> in order to
+find non-zero latent space because by default both <code class="docutils literal"><span class="pre">C</span></code> and <code class="docutils literal"><span class="pre">X</span></code> are
 initialized to zero because of their prior distributions.  We use random
-initialization for <tt class="docutils literal"><span class="pre">C</span></tt> and then we must update <tt class="docutils literal"><span class="pre">X</span></tt> the first time before
-updating <tt class="docutils literal"><span class="pre">C</span></tt>:</p>
+initialization for <code class="docutils literal"><span class="pre">C</span></code> and then we must update <code class="docutils literal"><span class="pre">X</span></code> the first time before
+updating <code class="docutils literal"><span class="pre">C</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">initialize_from_random</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -216,7 +218,7 @@ updating <tt class="docutils literal"><span class="pre">C</span></tt>:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span> <span class="o">=</span> <span class="n">VB</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that <tt class="docutils literal"><span class="pre">X</span></tt> is given before <tt class="docutils literal"><span class="pre">C</span></tt>, thus <tt class="docutils literal"><span class="pre">X</span></tt> is updated before <tt class="docutils literal"><span class="pre">C</span></tt> by
+<p>Note that <code class="docutils literal"><span class="pre">X</span></code> is given before <code class="docutils literal"><span class="pre">C</span></code>, thus <code class="docutils literal"><span class="pre">X</span></code> is updated before <code class="docutils literal"><span class="pre">C</span></code> by
 default.</p>
 </div>
 <div class="section" id="data">
@@ -268,7 +270,7 @@ now for some of the nodes:</p>
 </pre></div>
 </div>
 <p>This enables plotting of the approximate posterior distributions during VB
-learning.  The inference engine can be run using <tt class="xref py py-func docutils literal"><span class="pre">VB.update()</span></tt> method:</p>
+learning.  The inference engine can be run using <code class="xref py py-func docutils literal"><span class="pre">VB.update()</span></code> method:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">repeat</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">Iteration 1: loglike=-1.439704e+05 (... seconds)</span>
 <span class="gp">...</span>
@@ -279,7 +281,7 @@ learning.  The inference engine can be run using <tt class="xref py py-func docu
 to speed it up.</p>
 <div class="section" id="parameter-expansion">
 <h3>Parameter expansion<a class="headerlink" href="#parameter-expansion" title="Permalink to this headline">¶</a></h3>
-<p>Section <a class="reference internal" href="../user_guide/inference.html#sec-parameter-expansion"><em>Parameter expansion</em></a> discusses parameter expansion for
+<p>Section <a class="reference internal" href="../user_guide/inference.html#sec-parameter-expansion"><span>Parameter expansion</span></a> discusses parameter expansion for
 state-space models to speed up inference.  It is based on a rotating the latent
 space such that the posterior in the observation space is not affected:</p>
 <div class="math">
@@ -297,7 +299,7 @@ dynamics matrix <span class="math">\(\mathbf{A}\)</span> must be transformed acc
 <span class="math">\(\mathbf{A}\rightarrow\mathbf{R}\mathbf{A}\mathbf{R}^{-1}\)</span>.  For more
 details, refer to <a class="reference internal" href="../references.html#luttinen-2013" id="id1">[6]</a> and <a class="reference internal" href="../references.html#luttinen-2010" id="id2">[7]</a>.  In BayesPy,
 the transformations are available in
-<tt class="xref py py-mod docutils literal"><span class="pre">bayespy.inference.vmp.transformations</span></tt>:</p>
+<code class="xref py py-mod docutils literal"><span class="pre">bayespy.inference.vmp.transformations</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bayespy.inference.vmp</span> <span class="kn">import</span> <span class="n">transformations</span>
 </pre></div>
 </div>
@@ -305,7 +307,7 @@ the transformations are available in
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rotC</span> <span class="o">=</span> <span class="n">transformations</span><span class="o">.</span><span class="n">RotateGaussianARD</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For rotating <tt class="docutils literal"><span class="pre">X</span></tt>, we first need to define the rotation of the state dynamics
+<p>For rotating <code class="docutils literal"><span class="pre">X</span></code>, we first need to define the rotation of the state dynamics
 matrix:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rotA</span> <span class="o">=</span> <span class="n">transformations</span><span class="o">.</span><span class="n">RotateGaussianARD</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 </pre></div>
@@ -326,7 +328,7 @@ matrix:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">repeat</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="go">Iteration 11: loglike=-1.010806e+04 (... seconds)</span>
 <span class="gp">...</span>
-<span class="go">Iteration 59: loglike=-8.906...e+03 (... seconds)</span>
+<span class="go">Iteration 58: loglike=-8.906...e+03 (... seconds)</span>
 <span class="go">Converged at iteration ...</span>
 </pre></div>
 </div>
@@ -339,27 +341,27 @@ matrix:</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../examples/lssm-1.py">Source code</a>)</p>
-<div class="figure">
+<div class="figure" id="id3">
 <img alt="../_images/lssm-1_00.png" src="../_images/lssm-1_00.png" />
-<p class="caption">(<a class="reference external" href="../examples/lssm-1_00.png">png</a>, <a class="reference external" href="../examples/lssm-1_00.hires.png">hires.png</a>, <a class="reference external" href="../examples/lssm-1_00.pdf">pdf</a>)</p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="../examples/lssm-1_00.png">png</a>, <a class="reference external" href="../examples/lssm-1_00.hires.png">hires.png</a>, <a class="reference external" href="../examples/lssm-1_00.pdf">pdf</a>)</span></p>
 </div>
-<div class="figure">
+<div class="figure" id="id4">
 <img alt="../_images/lssm-1_01.png" src="../_images/lssm-1_01.png" />
-<p class="caption">(<a class="reference external" href="../examples/lssm-1_01.png">png</a>, <a class="reference external" href="../examples/lssm-1_01.hires.png">hires.png</a>, <a class="reference external" href="../examples/lssm-1_01.pdf">pdf</a>)</p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="../examples/lssm-1_01.png">png</a>, <a class="reference external" href="../examples/lssm-1_01.hires.png">hires.png</a>, <a class="reference external" href="../examples/lssm-1_01.pdf">pdf</a>)</span></p>
 </div>
-<div class="figure">
+<div class="figure" id="id5">
 <img alt="../_images/lssm-1_02.png" src="../_images/lssm-1_02.png" />
-<p class="caption">(<a class="reference external" href="../examples/lssm-1_02.png">png</a>, <a class="reference external" href="../examples/lssm-1_02.hires.png">hires.png</a>, <a class="reference external" href="../examples/lssm-1_02.pdf">pdf</a>)</p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="../examples/lssm-1_02.png">png</a>, <a class="reference external" href="../examples/lssm-1_02.hires.png">hires.png</a>, <a class="reference external" href="../examples/lssm-1_02.pdf">pdf</a>)</span></p>
 </div>
-<div class="figure">
+<div class="figure" id="id6">
 <img alt="../_images/lssm-1_03.png" src="../_images/lssm-1_03.png" />
-<p class="caption">(<a class="reference external" href="../examples/lssm-1_03.png">png</a>, <a class="reference external" href="../examples/lssm-1_03.hires.png">hires.png</a>, <a class="reference external" href="../examples/lssm-1_03.pdf">pdf</a>)</p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="../examples/lssm-1_03.png">png</a>, <a class="reference external" href="../examples/lssm-1_03.hires.png">hires.png</a>, <a class="reference external" href="../examples/lssm-1_03.pdf">pdf</a>)</span></p>
 </div>
-<p>There are clearly four effective components in <tt class="docutils literal"><span class="pre">X</span></tt>: random walk (component
+<p>There are clearly four effective components in <code class="docutils literal"><span class="pre">X</span></code>: random walk (component
 number 1), random oscillation (7 and 10), and white noise (9).  These dynamics
 are also visible in the state dynamics matrix Hinton diagram.  Note that the
-white noise component does not have any dynamics.  Also <tt class="docutils literal"><span class="pre">C</span></tt> shows only four
-effective components.  The posterior of <tt class="docutils literal"><span class="pre">tau</span></tt> captures the true value
+white noise component does not have any dynamics.  Also <code class="docutils literal"><span class="pre">C</span></code> shows only four
+effective components.  The posterior of <code class="docutils literal"><span class="pre">tau</span></code> captures the true value
 <span class="math">\(3^{-2}\approx0.111\)</span> accurately.  We can also plot predictions in the
 observation space:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -387,7 +389,7 @@ predictions are quite good considering that only 20% of the data was used.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -402,13 +404,13 @@ predictions are quite good considering that only 20% of the data was used.</p>
         <li class="right" >
           <a href="pca.html" title="Principal component analysis"
              >previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="examples.html" >Examples</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="examples.html" >Examples</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

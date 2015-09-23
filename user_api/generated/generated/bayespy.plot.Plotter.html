@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.plot.Plotter &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>bayespy.plot.Plotter &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../../../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../../index.html" />
     <link rel="up" title="bayespy.plot" href="../bayespy.plot.html" />
     <link rel="next" title="bayespy.plot.Plotter.__init__" href="generated/bayespy.plot.Plotter.__init__.html" />
     <link rel="prev" title="bayespy.plot.gaussian_mixture_2d" href="bayespy.plot.gaussian_mixture_2d.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,12 +45,12 @@
         <li class="right" >
           <a href="bayespy.plot.gaussian_mixture_2d.html" title="bayespy.plot.gaussian_mixture_2d"
              accesskey="P">previous</a> |</li>
-        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li><a href="../bayespy.plot.html" accesskey="U">bayespy.plot</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../bayespy.plot.html" accesskey="U">bayespy.plot</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="bayespy.plot.gaussian_mixture_2d.html"
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="generated/bayespy.plot.Plotter.__init__.html"
                         title="next chapter">bayespy.plot.Plotter.__init__</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../../../_sources/user_api/generated/generated/bayespy.plot.Plotter.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_api/generated/generated/bayespy.plot.Plotter.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../../search.html" method="get">
       <input type="text" name="q" />
@@ -82,13 +84,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="bayespy-plot-plotter">
 <h1>bayespy.plot.Plotter<a class="headerlink" href="#bayespy-plot-plotter" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="bayespy.plot.Plotter">
-<em class="property">class </em><tt class="descclassname">bayespy.plot.</tt><tt class="descname">Plotter</tt><big>(</big><em>plotter</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../../_modules/bayespy/plot.html#Plotter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.plot.Plotter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">bayespy.plot.</code><code class="descname">Plotter</code><span class="sig-paren">(</span><em>plotter</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bayespy/plot.html#Plotter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.plot.Plotter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for plotting functions and base class for node plotters</p>
 <p>The purpose of this class is to collect all the parameters needed by a
 plotting function and provide a callable interface which needs only the node
@@ -135,7 +137,7 @@ plotter wrapper:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">bpplt</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">bpplt</span><span class="o">.</span><span class="n">pdf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Now, this callable object <tt class="docutils literal"><span class="pre">p</span></tt> needs only the node as the input:</p>
+<p>Now, this callable object <code class="docutils literal"><span class="pre">p</span></code> needs only the node as the input:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                                                
 <span class="go">[&lt;matplotlib.lines.Line2D object at 0x...&gt;]</span>
 </pre></div>
@@ -148,7 +150,7 @@ plotter wrapper:</p>
 </div>
 <dl class="method">
 <dt id="bayespy.plot.Plotter.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>plotter</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../../../_modules/bayespy/plot.html#Plotter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.plot.Plotter.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>plotter</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bayespy/plot.html#Plotter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.plot.Plotter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -158,7 +160,7 @@ plotter wrapper:</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.plot.Plotter.__init__.html#bayespy.plot.Plotter.__init__" title="bayespy.plot.Plotter.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(plotter,&nbsp;*args,&nbsp;**kwargs)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.plot.Plotter.__init__.html#bayespy.plot.Plotter.__init__" title="bayespy.plot.Plotter.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>(plotter,&nbsp;*args,&nbsp;**kwargs)</td>
 <td></td>
 </tr>
 </tbody>
@@ -173,7 +175,7 @@ plotter wrapper:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -188,14 +190,14 @@ plotter wrapper:</p>
         <li class="right" >
           <a href="bayespy.plot.gaussian_mixture_2d.html" title="bayespy.plot.gaussian_mixture_2d"
              >previous</a> |</li>
-        <li><a href="../../../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li><a href="../bayespy.plot.html" >bayespy.plot</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../bayespy.plot.html" >bayespy.plot</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

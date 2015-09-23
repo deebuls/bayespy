@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Examining the results &mdash; BayesPy v0.3.6 Documentation</title>
+    <title>Examining the results &mdash; BayesPy v0.3.7 Documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.3.6',
+        VERSION:     '0.3.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.6 Documentation" href="../index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../index.html" />
     <link rel="up" title="User guide" href="user_guide.html" />
     <link rel="next" title="Advanced topics" href="advanced.html" />
     <link rel="prev" title="Performing inference" href="inference.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,11 +45,11 @@
         <li class="right" >
           <a href="inference.html" title="Performing inference"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" accesskey="U">User guide</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -68,12 +68,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="advanced.html"
                         title="next chapter">Advanced topics</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/user_guide/plot.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/plot.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -92,7 +94,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="examining-the-results">
 <h1>Examining the results<a class="headerlink" href="#examining-the-results" title="Permalink to this headline">¶</a></h1>
@@ -103,26 +105,26 @@ addition, the posterior distributions can be visualized during the learning
 algorithm and the results can saved into a file.</p>
 <div class="section" id="plotting-the-results">
 <h2>Plotting the results<a class="headerlink" href="#plotting-the-results" title="Permalink to this headline">¶</a></h2>
-<p>The module <tt class="xref py py-mod docutils literal"><span class="pre">plot</span></tt> offers some plotting basic functionality:</p>
+<p>The module <code class="xref py py-mod docutils literal"><span class="pre">plot</span></code> offers some plotting basic functionality:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">bayespy.plot</span> <span class="kn">as</span> <span class="nn">bpplt</span>
 </pre></div>
 </div>
-<p>The module contains <tt class="docutils literal"><span class="pre">matplotlib.pyplot</span></tt> module if the user needs that.  For
+<p>The module contains <code class="docutils literal"><span class="pre">matplotlib.pyplot</span></code> module if the user needs that.  For
 instance, interactive plotting can be enabled as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The <tt class="xref py py-mod docutils literal"><span class="pre">plot</span></tt> module contains some functions but it is not a very
+<p>The <code class="xref py py-mod docutils literal"><span class="pre">plot</span></code> module contains some functions but it is not a very
 comprehensive collection, thus the user may need to write some problem- or
 model-specific plotting functions.  The current collection is:</p>
 <ul class="simple">
-<li><a class="reference internal" href="../user_api/generated/generated/bayespy.plot.pdf.html#bayespy.plot.pdf" title="bayespy.plot.pdf"><tt class="xref py py-func docutils literal"><span class="pre">pdf()</span></tt></a>: show probability density function of a scalar</li>
-<li><a class="reference internal" href="../user_api/generated/generated/bayespy.plot.contour.html#bayespy.plot.contour" title="bayespy.plot.contour"><tt class="xref py py-func docutils literal"><span class="pre">contour()</span></tt></a>: show probability density function of two-element vector</li>
-<li><a class="reference internal" href="../user_api/generated/generated/bayespy.plot.hinton.html#bayespy.plot.hinton" title="bayespy.plot.hinton"><tt class="xref py py-func docutils literal"><span class="pre">hinton()</span></tt></a>: show the Hinton diagram</li>
-<li><a class="reference internal" href="../user_api/generated/generated/bayespy.plot.plot.html#bayespy.plot.plot" title="bayespy.plot.plot"><tt class="xref py py-func docutils literal"><span class="pre">plot()</span></tt></a>: show value as a function</li>
+<li><a class="reference internal" href="../user_api/generated/generated/bayespy.plot.pdf.html#bayespy.plot.pdf" title="bayespy.plot.pdf"><code class="xref py py-func docutils literal"><span class="pre">pdf()</span></code></a>: show probability density function of a scalar</li>
+<li><a class="reference internal" href="../user_api/generated/generated/bayespy.plot.contour.html#bayespy.plot.contour" title="bayespy.plot.contour"><code class="xref py py-func docutils literal"><span class="pre">contour()</span></code></a>: show probability density function of two-element vector</li>
+<li><a class="reference internal" href="../user_api/generated/generated/bayespy.plot.hinton.html#bayespy.plot.hinton" title="bayespy.plot.hinton"><code class="xref py py-func docutils literal"><span class="pre">hinton()</span></code></a>: show the Hinton diagram</li>
+<li><a class="reference internal" href="../user_api/generated/generated/bayespy.plot.plot.html#bayespy.plot.plot" title="bayespy.plot.plot"><code class="xref py py-func docutils literal"><span class="pre">plot()</span></code></a>: show value as a function</li>
 </ul>
 <p>The probability density function of a scalar random variable can be plotted
-using the function <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.pdf.html#bayespy.plot.pdf" title="bayespy.plot.pdf"><tt class="xref py py-func docutils literal"><span class="pre">pdf()</span></tt></a>:</p>
+using the function <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.pdf.html#bayespy.plot.pdf" title="bayespy.plot.pdf"><code class="xref py py-func docutils literal"><span class="pre">pdf()</span></code></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="go">&lt;matplotlib.figure.Figure object at 0x...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="s">&#39;tau&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
@@ -133,9 +135,9 @@ using the function <a class="reference internal" href="../user_api/generated/gen
 <div class="figure">
 <img alt="../_images/plot-1.png" src="../_images/plot-1.png" />
 </div>
-<p>The variable <tt class="docutils literal"><span class="pre">tau</span></tt> models the inverse variance of the noise, for which the
+<p>The variable <code class="docutils literal"><span class="pre">tau</span></code> models the inverse variance of the noise, for which the
 true value is <span class="math">\(0.1^{-2}=100\)</span>.  Thus, the posterior captures the true value
-quite accurately.  Similarly, the function <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.contour.html#bayespy.plot.contour" title="bayespy.plot.contour"><tt class="xref py py-func docutils literal"><span class="pre">contour()</span></tt></a> can be used to plot
+quite accurately.  Similarly, the function <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.contour.html#bayespy.plot.contour" title="bayespy.plot.contour"><code class="xref py py-func docutils literal"><span class="pre">contour()</span></code></a> can be used to plot
 the probability density function of a 2-dimensional variable, for instance:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">V</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -148,10 +150,10 @@ the probability density function of a 2-dimensional variable, for instance:</p>
 <div class="figure">
 <img alt="../_images/plot-2.png" src="../_images/plot-2.png" />
 </div>
-<p>Both <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.pdf.html#bayespy.plot.pdf" title="bayespy.plot.pdf"><tt class="xref py py-func docutils literal"><span class="pre">pdf()</span></tt></a> and <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.contour.html#bayespy.plot.contour" title="bayespy.plot.contour"><tt class="xref py py-func docutils literal"><span class="pre">contour()</span></tt></a> require that the user provides the grid on
+<p>Both <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.pdf.html#bayespy.plot.pdf" title="bayespy.plot.pdf"><code class="xref py py-func docutils literal"><span class="pre">pdf()</span></code></a> and <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.contour.html#bayespy.plot.contour" title="bayespy.plot.contour"><code class="xref py py-func docutils literal"><span class="pre">contour()</span></code></a> require that the user provides the grid on
 which the probability density function is computed.  They also support several
-keyword arguments for modifying the output, similarly as <tt class="docutils literal"><span class="pre">plot</span></tt> and
-<tt class="docutils literal"><span class="pre">contour</span></tt> in <tt class="docutils literal"><span class="pre">matplotlib.pyplot</span></tt>.  These functions can be used only for
+keyword arguments for modifying the output, similarly as <code class="docutils literal"><span class="pre">plot</span></code> and
+<code class="docutils literal"><span class="pre">contour</span></code> in <code class="docutils literal"><span class="pre">matplotlib.pyplot</span></code>.  These functions can be used only for
 stochastic nodes.  A few other plot types are also available as built-in
 functions.  A Hinton diagram can be plotted as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -169,10 +171,10 @@ black correspond to positive and negative values, respectively.  The non-filled
 rectangle shows standard deviation.  From this diagram it is clear that the
 third column of <span class="math">\(C\)</span> has been pruned out and the rows that were missing in
 the data have zero mean and column-specific variance.  The function
-<a class="reference internal" href="../user_api/generated/generated/bayespy.plot.hinton.html#bayespy.plot.hinton" title="bayespy.plot.hinton"><tt class="xref py py-func docutils literal"><span class="pre">hinton()</span></tt></a> is a simple wrapper for node-specific Hinton diagram plotters,
-such as <tt class="xref py py-func docutils literal"><span class="pre">gaussian_hinton()</span></tt> and <tt class="xref py py-func docutils literal"><span class="pre">dirichlet_hinton()</span></tt>.  Thus, the keyword
+<a class="reference internal" href="../user_api/generated/generated/bayespy.plot.hinton.html#bayespy.plot.hinton" title="bayespy.plot.hinton"><code class="xref py py-func docutils literal"><span class="pre">hinton()</span></code></a> is a simple wrapper for node-specific Hinton diagram plotters,
+such as <code class="xref py py-func docutils literal"><span class="pre">gaussian_hinton()</span></code> and <code class="xref py py-func docutils literal"><span class="pre">dirichlet_hinton()</span></code>.  Thus, the keyword
 arguments depend on the node which is plotted.</p>
-<p>Another plotting function is <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.plot.html#bayespy.plot.plot" title="bayespy.plot.plot"><tt class="xref py py-func docutils literal"><span class="pre">plot()</span></tt></a>, which just plots the values of the
+<p>Another plotting function is <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.plot.html#bayespy.plot.plot" title="bayespy.plot.plot"><code class="xref py py-func docutils literal"><span class="pre">plot()</span></code></a>, which just plots the values of the
 node over one axis as a function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bpplt</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="go">&lt;matplotlib.figure.Figure object at 0x...&gt;</span>
@@ -183,13 +185,13 @@ node over one axis as a function:</p>
 <div class="figure">
 <img alt="../_images/plot-4.png" src="../_images/plot-4.png" />
 </div>
-<p>Now, the <tt class="docutils literal"><span class="pre">axis</span></tt> is the second last axis which corresponds to
+<p>Now, the <code class="docutils literal"><span class="pre">axis</span></code> is the second last axis which corresponds to
 <span class="math">\(n=0,\ldots,N-1\)</span>.  As <span class="math">\(D=3\)</span>, there are three subplots.  For Gaussian
 variables, the function shows the mean and two standard deviations.  The plot
 shows that the third component has been pruned out, thus the method has been
 able to recover the true dimensionality of the latent space.  It also has
-similar keyword arguments to <tt class="docutils literal"><span class="pre">plot</span></tt> function in <tt class="docutils literal"><span class="pre">matplotlib.pyplot</span></tt>.  Again,
-<a class="reference internal" href="../user_api/generated/generated/bayespy.plot.plot.html#bayespy.plot.plot" title="bayespy.plot.plot"><tt class="xref py py-func docutils literal"><span class="pre">plot()</span></tt></a> is a simple wrapper over node-specific plotting functions, thus it
+similar keyword arguments to <code class="docutils literal"><span class="pre">plot</span></code> function in <code class="docutils literal"><span class="pre">matplotlib.pyplot</span></code>.  Again,
+<a class="reference internal" href="../user_api/generated/generated/bayespy.plot.plot.html#bayespy.plot.plot" title="bayespy.plot.plot"><code class="xref py py-func docutils literal"><span class="pre">plot()</span></code></a> is a simple wrapper over node-specific plotting functions, thus it
 supports only some node classes.</p>
 </div>
 <div class="section" id="monitoring-during-the-inference-algorithm">
@@ -202,33 +204,33 @@ or she wishes to monitor.  This can be done either when creating the node or
 later at any time.</p>
 <p>The plotters are set by creating a plotter object and providing this object to
 the node.  The plotter is a wrapper of one of the plotting functions mentioned
-above: <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.PDFPlotter.html#bayespy.plot.PDFPlotter" title="bayespy.plot.PDFPlotter"><tt class="xref py py-class docutils literal"><span class="pre">PDFPlotter</span></tt></a>, <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.ContourPlotter.html#bayespy.plot.ContourPlotter" title="bayespy.plot.ContourPlotter"><tt class="xref py py-class docutils literal"><span class="pre">ContourPlotter</span></tt></a>, <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.HintonPlotter.html#bayespy.plot.HintonPlotter" title="bayespy.plot.HintonPlotter"><tt class="xref py py-class docutils literal"><span class="pre">HintonPlotter</span></tt></a> or
-<a class="reference internal" href="../user_api/generated/generated/bayespy.plot.FunctionPlotter.html#bayespy.plot.FunctionPlotter" title="bayespy.plot.FunctionPlotter"><tt class="xref py py-class docutils literal"><span class="pre">FunctionPlotter</span></tt></a>.  Thus, our example model could use the following
+above: <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.PDFPlotter.html#bayespy.plot.PDFPlotter" title="bayespy.plot.PDFPlotter"><code class="xref py py-class docutils literal"><span class="pre">PDFPlotter</span></code></a>, <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.ContourPlotter.html#bayespy.plot.ContourPlotter" title="bayespy.plot.ContourPlotter"><code class="xref py py-class docutils literal"><span class="pre">ContourPlotter</span></code></a>, <a class="reference internal" href="../user_api/generated/generated/bayespy.plot.HintonPlotter.html#bayespy.plot.HintonPlotter" title="bayespy.plot.HintonPlotter"><code class="xref py py-class docutils literal"><span class="pre">HintonPlotter</span></code></a> or
+<a class="reference internal" href="../user_api/generated/generated/bayespy.plot.FunctionPlotter.html#bayespy.plot.FunctionPlotter" title="bayespy.plot.FunctionPlotter"><code class="xref py py-class docutils literal"><span class="pre">FunctionPlotter</span></code></a>.  Thus, our example model could use the following
 plotters:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tau</span><span class="o">.</span><span class="n">set_plotter</span><span class="p">(</span><span class="n">bpplt</span><span class="o">.</span><span class="n">PDFPlotter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">C</span><span class="o">.</span><span class="n">set_plotter</span><span class="p">(</span><span class="n">bpplt</span><span class="o">.</span><span class="n">HintonPlotter</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="o">.</span><span class="n">set_plotter</span><span class="p">(</span><span class="n">bpplt</span><span class="o">.</span><span class="n">FunctionPlotter</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>These could have been given at node creation as a keyword argument <tt class="docutils literal"><span class="pre">plotter</span></tt>:</p>
+<p>These could have been given at node creation as a keyword argument <code class="docutils literal"><span class="pre">plotter</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">V</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span>
 <span class="gp">... </span>             <span class="n">plotter</span><span class="o">=</span><span class="n">bpplt</span><span class="o">.</span><span class="n">ContourPlotter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
 <span class="gp">... </span>                                          <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p>When the plotter is set, one can use the <tt class="docutils literal"><span class="pre">plot</span></tt> method of the node to perform
+<p>When the plotter is set, one can use the <code class="docutils literal"><span class="pre">plot</span></code> method of the node to perform
 plotting:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="go">&lt;matplotlib.contour.QuadContourSet object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>Nodes can also be plotted using the <tt class="docutils literal"><span class="pre">plot</span></tt> method of the inference engine:</p>
+<p>Nodes can also be plotted using the <code class="docutils literal"><span class="pre">plot</span></code> method of the inference engine:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This method remembers the figure in which a node has been plotted and uses that
 every time it plots the same node.  In order to monitor the nodes during
-learning, it is possible to use the keyword argument <tt class="docutils literal"><span class="pre">plot</span></tt>:</p>
+learning, it is possible to use the keyword argument <code class="docutils literal"><span class="pre">plot</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">repeat</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 <span class="go">Iteration 19: loglike=-1.221354e+02 (... seconds)</span>
 <span class="go">Iteration 20: loglike=-1.221354e+02 (... seconds)</span>
@@ -244,7 +246,7 @@ time consuming.</p>
 <div class="section" id="posterior-parameters-and-moments">
 <h2>Posterior parameters and moments<a class="headerlink" href="#posterior-parameters-and-moments" title="Permalink to this headline">¶</a></h2>
 <p>If the built-in plotting functions are not sufficient, it is possible to use
-<tt class="docutils literal"><span class="pre">matplotlib.pyplot</span></tt> for custom plotting.  Each node has <tt class="docutils literal"><span class="pre">get_moments</span></tt> method
+<code class="docutils literal"><span class="pre">matplotlib.pyplot</span></code> for custom plotting.  Each node has <code class="docutils literal"><span class="pre">get_moments</span></code> method
 which returns the moments and they can be used for plotting.  Stochastic
 exponential family nodes have natural parameter vectors which can also be used.
 In addition to plotting, it is also possible to just print the moments or
@@ -253,21 +255,21 @@ parameters in the console.</p>
 <div class="section" id="saving-and-loading-results">
 <h2>Saving and loading results<a class="headerlink" href="#saving-and-loading-results" title="Permalink to this headline">¶</a></h2>
 <p>The results of the inference engine can be easily saved and loaded using
-<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.save.html#bayespy.inference.VB.save" title="bayespy.inference.VB.save"><tt class="xref py py-func docutils literal"><span class="pre">VB.save()</span></tt></a> and <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.load.html#bayespy.inference.VB.load" title="bayespy.inference.VB.load"><tt class="xref py py-func docutils literal"><span class="pre">VB.load()</span></tt></a> methods:</p>
+<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.save.html#bayespy.inference.VB.save" title="bayespy.inference.VB.save"><code class="xref py py-func docutils literal"><span class="pre">VB.save()</span></code></a> and <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.load.html#bayespy.inference.VB.load" title="bayespy.inference.VB.load"><code class="xref py py-func docutils literal"><span class="pre">VB.load()</span></code></a> methods:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;tmp.hdf5&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Q</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;tmp.hdf5&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The results are stored in a HDF5 file.  The user may set an autosave file in
 which the results are automatically saved regularly.  Autosave filename can be
-set at creation time by <tt class="docutils literal"><span class="pre">autosave_filename</span></tt> keyword argument or later using
-<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.set_autosave.html#bayespy.inference.VB.set_autosave" title="bayespy.inference.VB.set_autosave"><tt class="xref py py-func docutils literal"><span class="pre">VB.set_autosave()</span></tt></a> method.  If autosave file has been set, the
-<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.save.html#bayespy.inference.VB.save" title="bayespy.inference.VB.save"><tt class="xref py py-func docutils literal"><span class="pre">VB.save()</span></tt></a> and <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.load.html#bayespy.inference.VB.load" title="bayespy.inference.VB.load"><tt class="xref py py-func docutils literal"><span class="pre">VB.load()</span></tt></a> methods use that file by default.  In order
+set at creation time by <code class="docutils literal"><span class="pre">autosave_filename</span></code> keyword argument or later using
+<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.set_autosave.html#bayespy.inference.VB.set_autosave" title="bayespy.inference.VB.set_autosave"><code class="xref py py-func docutils literal"><span class="pre">VB.set_autosave()</span></code></a> method.  If autosave file has been set, the
+<a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.save.html#bayespy.inference.VB.save" title="bayespy.inference.VB.save"><code class="xref py py-func docutils literal"><span class="pre">VB.save()</span></code></a> and <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.load.html#bayespy.inference.VB.load" title="bayespy.inference.VB.load"><code class="xref py py-func docutils literal"><span class="pre">VB.load()</span></code></a> methods use that file by default.  In order
 for the saving to work, all stochastic nodes must have been given (unique)
 names.</p>
 <p>However, note that these methods do <em>not</em> save nor load the node definitions.
 It means that the user must create the nodes and the inference engine and then
-use <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.load.html#bayespy.inference.VB.load" title="bayespy.inference.VB.load"><tt class="xref py py-func docutils literal"><span class="pre">VB.load()</span></tt></a> to set the state of the nodes and the inference engine.  If
+use <a class="reference internal" href="../user_api/generated/generated/generated/bayespy.inference.VB.load.html#bayespy.inference.VB.load" title="bayespy.inference.VB.load"><code class="xref py py-func docutils literal"><span class="pre">VB.load()</span></code></a> to set the state of the nodes and the inference engine.  If
 there are any differences in the model that was saved and the one which is tried
 to update using loading, then loading does not work.  Thus, the user should keep
 the model construction unmodified in a Python file in order to be able to load
@@ -282,7 +284,7 @@ share the model construction Python file with the HDF5 results file.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -297,13 +299,13 @@ share the model construction Python file with the HDF5 results file.</p>
         <li class="right" >
           <a href="inference.html" title="Performing inference"
              >previous</a> |</li>
-        <li><a href="../index.html">BayesPy v0.3.6 Documentation</a> &raquo;</li>
-          <li><a href="user_guide.html" >User guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="user_guide.html" >User guide</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2011-2015, Jaakko Luttinen, MIT.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>
