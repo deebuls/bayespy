@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.nodes.SumMultiply.plates_multiplier &mdash; BayesPy v0.4.1 Documentation</title>
+    <title>bayespy.nodes.Add.plot &mdash; BayesPy v0.4.1 Documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -25,9 +25,9 @@
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="BayesPy v0.4.1 Documentation" href="../../../../index.html" />
-    <link rel="up" title="bayespy.nodes.SumMultiply" href="../bayespy.nodes.SumMultiply.html" />
-    <link rel="next" title="bayespy.nodes.Add" href="../bayespy.nodes.Add.html" />
-    <link rel="prev" title="bayespy.nodes.SumMultiply.plates" href="bayespy.nodes.SumMultiply.plates.html" /> 
+    <link rel="up" title="bayespy.nodes.Add" href="../bayespy.nodes.Add.html" />
+    <link rel="next" title="bayespy.nodes.Add.set_plotter" href="bayespy.nodes.Add.set_plotter.html" />
+    <link rel="prev" title="bayespy.nodes.Add.move_plates" href="bayespy.nodes.Add.move_plates.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,29 +40,29 @@
           <a href="../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../bayespy.nodes.Add.html" title="bayespy.nodes.Add"
+          <a href="bayespy.nodes.Add.set_plotter.html" title="bayespy.nodes.Add.set_plotter"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="bayespy.nodes.SumMultiply.plates.html" title="bayespy.nodes.SumMultiply.plates"
+          <a href="bayespy.nodes.Add.move_plates.html" title="bayespy.nodes.Add.move_plates"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../../../user_api.html" >User API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../../bayespy.nodes.html" >bayespy.nodes</a> &raquo;</li>
-          <li class="nav-item nav-item-3"><a href="../bayespy.nodes.SumMultiply.html" accesskey="U">bayespy.nodes.SumMultiply</a> &raquo;</li> 
+          <li class="nav-item nav-item-3"><a href="../bayespy.nodes.Add.html" accesskey="U">bayespy.nodes.Add</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="bayespy.nodes.SumMultiply.plates.html"
-                        title="previous chapter">bayespy.nodes.SumMultiply.plates</a></p>
+  <p class="topless"><a href="bayespy.nodes.Add.move_plates.html"
+                        title="previous chapter">bayespy.nodes.Add.move_plates</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../bayespy.nodes.Add.html"
-                        title="next chapter">bayespy.nodes.Add</a></p>
+  <p class="topless"><a href="bayespy.nodes.Add.set_plotter.html"
+                        title="next chapter">bayespy.nodes.Add.set_plotter</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../../../_sources/user_api/generated/generated/generated/bayespy.nodes.SumMultiply.plates_multiplier.txt"
+      <li><a href="../../../../_sources/user_api/generated/generated/generated/bayespy.nodes.Add.plot.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -87,12 +87,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="bayespy-nodes-summultiply-plates-multiplier">
-<h1>bayespy.nodes.SumMultiply.plates_multiplier<a class="headerlink" href="#bayespy-nodes-summultiply-plates-multiplier" title="Permalink to this headline">¶</a></h1>
-<dl class="attribute">
-<dt id="bayespy.nodes.SumMultiply.plates_multiplier">
-<code class="descclassname">SumMultiply.</code><code class="descname">plates_multiplier</code><a class="headerlink" href="#bayespy.nodes.SumMultiply.plates_multiplier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plate multiplier is applied to messages to parents</p>
+  <div class="section" id="bayespy-nodes-add-plot">
+<h1>bayespy.nodes.Add.plot<a class="headerlink" href="#bayespy-nodes-add-plot" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="bayespy.nodes.Add.plot">
+<code class="descclassname">Add.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>fig=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bayespy.nodes.Add.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the node distribution using the plotter of the node</p>
+<p>Because the distributions are in general very difficult to plot, the
+user must specify some functions which performs the plotting as
+wanted. See, for instance, bayespy.plot.plotting for available plotters,
+that is, functions that perform plotting for a node.</p>
 </dd></dl>
 
 </div>
@@ -113,15 +117,15 @@
           <a href="../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../bayespy.nodes.Add.html" title="bayespy.nodes.Add"
+          <a href="bayespy.nodes.Add.set_plotter.html" title="bayespy.nodes.Add.set_plotter"
              >next</a> |</li>
         <li class="right" >
-          <a href="bayespy.nodes.SumMultiply.plates.html" title="bayespy.nodes.SumMultiply.plates"
+          <a href="bayespy.nodes.Add.move_plates.html" title="bayespy.nodes.Add.move_plates"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../../../user_api.html" >User API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../../bayespy.nodes.html" >bayespy.nodes</a> &raquo;</li>
-          <li class="nav-item nav-item-3"><a href="../bayespy.nodes.SumMultiply.html" >bayespy.nodes.SumMultiply</a> &raquo;</li> 
+          <li class="nav-item nav-item-3"><a href="../bayespy.nodes.Add.html" >bayespy.nodes.Add</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
