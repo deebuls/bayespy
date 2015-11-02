@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.inference.vmp.nodes.poisson.PoissonMoments &mdash; BayesPy v0.3.7 Documentation</title>
+    <title>bayespy.inference.vmp.nodes.poisson.PoissonMoments &mdash; BayesPy v0.4.0 Documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.3.7',
+        VERSION:     '0.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,10 +24,10 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../index.html" />
+    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../index.html" />
     <link rel="up" title="Moments" href="../moments.html" />
-    <link rel="next" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter" href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter.html" />
-    <link rel="prev" title="bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.get_converter" href="generated/bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.get_converter.html" /> 
+    <link rel="next" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values" href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values.html" />
+    <link rel="prev" title="bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.compute_fixed_moments" href="generated/bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.compute_fixed_moments.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,12 +40,12 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter.html" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter"
+          <a href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values.html" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="generated/bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.get_converter.html" title="bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.get_converter"
+          <a href="generated/bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.compute_fixed_moments.html" title="bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.compute_fixed_moments"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../dev_api.html" >Developer API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../moments.html" accesskey="U">Moments</a> &raquo;</li> 
       </ul>
@@ -53,11 +53,11 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="generated/bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.get_converter.html"
-                        title="previous chapter">bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.get_converter</a></p>
+  <p class="topless"><a href="generated/bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.compute_fixed_moments.html"
+                        title="previous chapter">bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.compute_fixed_moments</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter.html"
-                        title="next chapter">bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter</a></p>
+  <p class="topless"><a href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values.html"
+                        title="next chapter">bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -105,17 +105,11 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter.html#bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter"><code class="xref py py-obj docutils literal"><span class="pre">add_converter</span></code></a>(moments_to,&nbsp;converter)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values.html#bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values"><code class="xref py py-obj docutils literal"><span class="pre">compute_dims_from_values</span></code></a>(x)</td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values.html#bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values"><code class="xref py py-obj docutils literal"><span class="pre">compute_dims_from_values</span></code></a>(x)</td>
 <td>Return the shape of the moments for a fixed value.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_fixed_moments.html#bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_fixed_moments" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_fixed_moments"><code class="xref py py-obj docutils literal"><span class="pre">compute_fixed_moments</span></code></a>(x)</td>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_fixed_moments.html#bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_fixed_moments" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_fixed_moments"><code class="xref py py-obj docutils literal"><span class="pre">compute_fixed_moments</span></code></a>(x)</td>
 <td>Compute the moments for a fixed value</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.get_converter.html#bayespy.inference.vmp.nodes.poisson.PoissonMoments.get_converter" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.get_converter"><code class="xref py py-obj docutils literal"><span class="pre">get_converter</span></code></a>(moments_to)</td>
-<td>Finds conversion to another moments type if possible.</td>
 </tr>
 </tbody>
 </table>
@@ -139,12 +133,12 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter.html" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.add_converter"
+          <a href="generated/bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values.html" title="bayespy.inference.vmp.nodes.poisson.PoissonMoments.compute_dims_from_values"
              >next</a> |</li>
         <li class="right" >
-          <a href="generated/bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.get_converter.html" title="bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.get_converter"
+          <a href="generated/bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.compute_fixed_moments.html" title="bayespy.inference.vmp.nodes.multinomial.MultinomialMoments.compute_fixed_moments"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../dev_api.html" >Developer API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../moments.html" >Moments</a> &raquo;</li> 
       </ul>

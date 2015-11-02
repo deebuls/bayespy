@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.inference.VB &mdash; BayesPy v0.3.7 Documentation</title>
+    <title>bayespy.inference.VB &mdash; BayesPy v0.4.0 Documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.3.7',
+        VERSION:     '0.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,10 +24,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../../index.html" />
-    <link rel="up" title="bayespy.inference" href="../bayespy.inference.html" />
-    <link rel="next" title="bayespy.inference.VB.__init__" href="generated/bayespy.inference.VB.__init__.html" />
-    <link rel="prev" title="bayespy.inference.vmp.transformations.RotateMultiple.setup" href="generated/bayespy.inference.vmp.transformations.RotateMultiple.setup.html" /> 
+    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../../index.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -39,25 +36,11 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="generated/bayespy.inference.VB.__init__.html" title="bayespy.inference.VB.__init__"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="generated/bayespy.inference.vmp.transformations.RotateMultiple.setup.html" title="bayespy.inference.vmp.transformations.RotateMultiple.setup"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../bayespy.inference.html" accesskey="U">bayespy.inference</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="generated/bayespy.inference.vmp.transformations.RotateMultiple.setup.html"
-                        title="previous chapter">bayespy.inference.vmp.transformations.RotateMultiple.setup</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="generated/bayespy.inference.VB.__init__.html"
-                        title="next chapter">bayespy.inference.VB.__init__</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -134,75 +117,6 @@ lower bound.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.__init__.html#bayespy.inference.VB.__init__" title="bayespy.inference.VB.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>(*nodes[,&nbsp;tol,&nbsp;autosave_filename,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.add.html#bayespy.inference.VB.add" title="bayespy.inference.VB.add"><code class="xref py py-obj docutils literal"><span class="pre">add</span></code></a>(x1,&nbsp;x2[,&nbsp;scale])</td>
-<td>Add two vectors (in parameter format)</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.compute_lowerbound.html#bayespy.inference.VB.compute_lowerbound" title="bayespy.inference.VB.compute_lowerbound"><code class="xref py py-obj docutils literal"><span class="pre">compute_lowerbound</span></code></a>([ignore_masked])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.compute_lowerbound_terms.html#bayespy.inference.VB.compute_lowerbound_terms" title="bayespy.inference.VB.compute_lowerbound_terms"><code class="xref py py-obj docutils literal"><span class="pre">compute_lowerbound_terms</span></code></a>(*nodes)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.dot.html#bayespy.inference.VB.dot" title="bayespy.inference.VB.dot"><code class="xref py py-obj docutils literal"><span class="pre">dot</span></code></a>(x1,&nbsp;x2)</td>
-<td>Computes dot products of given vectors (in parameter format)</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.get_gradients.html#bayespy.inference.VB.get_gradients" title="bayespy.inference.VB.get_gradients"><code class="xref py py-obj docutils literal"><span class="pre">get_gradients</span></code></a>(*nodes[,&nbsp;euclidian])</td>
-<td>Computes gradients (both Riemannian and normal)</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.get_iteration_by_nodes.html#bayespy.inference.VB.get_iteration_by_nodes" title="bayespy.inference.VB.get_iteration_by_nodes"><code class="xref py py-obj docutils literal"><span class="pre">get_iteration_by_nodes</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.get_parameters.html#bayespy.inference.VB.get_parameters" title="bayespy.inference.VB.get_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_parameters</span></code></a>(*nodes)</td>
-<td>Get parameters of the nodes</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.gradient_step.html#bayespy.inference.VB.gradient_step" title="bayespy.inference.VB.gradient_step"><code class="xref py py-obj docutils literal"><span class="pre">gradient_step</span></code></a>(*nodes[,&nbsp;scale])</td>
-<td>Update nodes by taking a gradient ascent step</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.has_converged.html#bayespy.inference.VB.has_converged" title="bayespy.inference.VB.has_converged"><code class="xref py py-obj docutils literal"><span class="pre">has_converged</span></code></a>([tol])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.load.html#bayespy.inference.VB.load" title="bayespy.inference.VB.load"><code class="xref py py-obj docutils literal"><span class="pre">load</span></code></a>(*nodes[,&nbsp;filename,&nbsp;nodes_only])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.loglikelihood_lowerbound.html#bayespy.inference.VB.loglikelihood_lowerbound" title="bayespy.inference.VB.loglikelihood_lowerbound"><code class="xref py py-obj docutils literal"><span class="pre">loglikelihood_lowerbound</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.optimize.html#bayespy.inference.VB.optimize" title="bayespy.inference.VB.optimize"><code class="xref py py-obj docutils literal"><span class="pre">optimize</span></code></a>(*nodes[,&nbsp;maxiter,&nbsp;verbose,&nbsp;method,&nbsp;...])</td>
-<td>Optimize nodes using Riemannian conjugate gradient</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.pattern_search.html#bayespy.inference.VB.pattern_search" title="bayespy.inference.VB.pattern_search"><code class="xref py py-obj docutils literal"><span class="pre">pattern_search</span></code></a>(*nodes[,&nbsp;collapsed,&nbsp;maxiter])</td>
-<td>Perform simple pattern search <a class="reference internal" href="../../../references.html#honkela-2003" id="id1">[4]</a>.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.plot.html#bayespy.inference.VB.plot" title="bayespy.inference.VB.plot"><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code></a>(*nodes,&nbsp;**kwargs)</td>
-<td>Plot the distribution of the given nodes (or all nodes)</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.plot_iteration_by_nodes.html#bayespy.inference.VB.plot_iteration_by_nodes" title="bayespy.inference.VB.plot_iteration_by_nodes"><code class="xref py py-obj docutils literal"><span class="pre">plot_iteration_by_nodes</span></code></a>([axes,&nbsp;diff])</td>
-<td>Plot the cost function per node during the iteration.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.save.html#bayespy.inference.VB.save" title="bayespy.inference.VB.save"><code class="xref py py-obj docutils literal"><span class="pre">save</span></code></a>(*nodes[,&nbsp;filename])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.set_annealing.html#bayespy.inference.VB.set_annealing" title="bayespy.inference.VB.set_annealing"><code class="xref py py-obj docutils literal"><span class="pre">set_annealing</span></code></a>(annealing)</td>
-<td>Set deterministic annealing from range (0, 1].</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.set_autosave.html#bayespy.inference.VB.set_autosave" title="bayespy.inference.VB.set_autosave"><code class="xref py py-obj docutils literal"><span class="pre">set_autosave</span></code></a>(filename[,&nbsp;iterations,&nbsp;nodes])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.set_callback.html#bayespy.inference.VB.set_callback" title="bayespy.inference.VB.set_callback"><code class="xref py py-obj docutils literal"><span class="pre">set_callback</span></code></a>(callback)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.set_parameters.html#bayespy.inference.VB.set_parameters" title="bayespy.inference.VB.set_parameters"><code class="xref py py-obj docutils literal"><span class="pre">set_parameters</span></code></a>(x,&nbsp;*nodes)</td>
-<td>Set parameters of the nodes</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.VB.update.html#bayespy.inference.VB.update" title="bayespy.inference.VB.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>(*nodes[,&nbsp;repeat,&nbsp;plot,&nbsp;tol,&nbsp;verbose])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.VB.use_logging.html#bayespy.inference.VB.use_logging" title="bayespy.inference.VB.use_logging"><code class="xref py py-obj docutils literal"><span class="pre">use_logging</span></code></a>(use)</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -236,15 +150,7 @@ lower bound.</p>
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="generated/bayespy.inference.VB.__init__.html" title="bayespy.inference.VB.__init__"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="generated/bayespy.inference.vmp.transformations.RotateMultiple.setup.html" title="bayespy.inference.vmp.transformations.RotateMultiple.setup"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../bayespy.inference.html" >bayespy.inference</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

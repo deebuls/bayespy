@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.nodes &mdash; BayesPy v0.3.7 Documentation</title>
+    <title>bayespy.nodes &mdash; BayesPy v0.4.0 Documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.3.7',
+        VERSION:     '0.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,9 +24,9 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../index.html" />
+    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../index.html" />
     <link rel="up" title="User API" href="../user_api.html" />
-    <link rel="next" title="bayespy.nodes.Gaussian" href="generated/bayespy.nodes.Gaussian.html" />
+    <link rel="next" title="bayespy.inference" href="bayespy.inference.html" />
     <link rel="prev" title="bayespy.plot.CategoricalMarkovChainPlotter.__init__" href="generated/generated/bayespy.plot.CategoricalMarkovChainPlotter.__init__.html" /> 
   </head>
   <body role="document">
@@ -40,12 +40,12 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="generated/bayespy.nodes.Gaussian.html" title="bayespy.nodes.Gaussian"
+          <a href="bayespy.inference.html" title="bayespy.inference"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="generated/generated/bayespy.plot.CategoricalMarkovChainPlotter.__init__.html" title="bayespy.plot.CategoricalMarkovChainPlotter.__init__"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../user_api.html" accesskey="U">User API</a> &raquo;</li> 
       </ul>
     </div>
@@ -66,8 +66,8 @@
   <p class="topless"><a href="generated/generated/bayespy.plot.CategoricalMarkovChainPlotter.__init__.html"
                         title="previous chapter">bayespy.plot.CategoricalMarkovChainPlotter.__init__</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="generated/bayespy.nodes.Gaussian.html"
-                        title="next chapter">bayespy.nodes.Gaussian</a></p>
+  <p class="topless"><a href="bayespy.inference.html"
+                        title="next chapter">bayespy.inference</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -108,12 +108,6 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Gaussian.html#bayespy.nodes.Gaussian" title="bayespy.nodes.Gaussian"><code class="xref py py-obj docutils literal"><span class="pre">Gaussian</span></code></a>(mu,&nbsp;Lambda,&nbsp;**kwargs)</td>
-<td>Node for Gaussian variables.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.GaussianARD.html#bayespy.nodes.GaussianARD" title="bayespy.nodes.GaussianARD"><code class="xref py py-obj docutils literal"><span class="pre">GaussianARD</span></code></a>(mu,&nbsp;alpha[,&nbsp;ndim,&nbsp;shape])</td>
-<td>Node for Gaussian variables with ARD prior.</td>
-</tr>
 </tbody>
 </table>
 <p>Nodes for precision and scale variables:</p>
@@ -123,15 +117,6 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Gamma.html#bayespy.nodes.Gamma" title="bayespy.nodes.Gamma"><code class="xref py py-obj docutils literal"><span class="pre">Gamma</span></code></a>(a,&nbsp;b,&nbsp;**kwargs)</td>
-<td>Node for gamma random variables.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Wishart.html#bayespy.nodes.Wishart" title="bayespy.nodes.Wishart"><code class="xref py py-obj docutils literal"><span class="pre">Wishart</span></code></a>(n,&nbsp;V,&nbsp;**kwargs)</td>
-<td>Node for Wishart random variables.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Exponential.html#bayespy.nodes.Exponential" title="bayespy.nodes.Exponential"><code class="xref py py-obj docutils literal"><span class="pre">Exponential</span></code></a>(l,&nbsp;**kwargs)</td>
-<td>Node for exponential random variables.</td>
-</tr>
 </tbody>
 </table>
 <p>Nodes for modelling Gaussian and precision variables jointly (useful as prior
@@ -142,15 +127,6 @@ for Gaussian nodes):</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.GaussianGammaISO.html#bayespy.nodes.GaussianGammaISO" title="bayespy.nodes.GaussianGammaISO"><code class="xref py py-obj docutils literal"><span class="pre">GaussianGammaISO</span></code></a>(*args,&nbsp;**kwargs)</td>
-<td>Node for Gaussian-gamma (isotropic) random variables.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.GaussianGammaARD.html#bayespy.nodes.GaussianGammaARD" title="bayespy.nodes.GaussianGammaARD"><code class="xref py py-obj docutils literal"><span class="pre">GaussianGammaARD</span></code></a>(mu,&nbsp;alpha,&nbsp;a,&nbsp;b,&nbsp;**kwargs)</td>
-<td>Node for Gaussian and gamma random variables with ARD form.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.GaussianWishart.html#bayespy.nodes.GaussianWishart" title="bayespy.nodes.GaussianWishart"><code class="xref py py-obj docutils literal"><span class="pre">GaussianWishart</span></code></a>(*args,&nbsp;**kwargs)</td>
-<td>Node for Gaussian-Wishart random variables.</td>
-</tr>
 </tbody>
 </table>
 <p>Nodes for discrete count variables:</p>
@@ -160,21 +136,6 @@ for Gaussian nodes):</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Bernoulli.html#bayespy.nodes.Bernoulli" title="bayespy.nodes.Bernoulli"><code class="xref py py-obj docutils literal"><span class="pre">Bernoulli</span></code></a>(p,&nbsp;**kwargs)</td>
-<td>Node for Bernoulli random variables.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Binomial.html#bayespy.nodes.Binomial" title="bayespy.nodes.Binomial"><code class="xref py py-obj docutils literal"><span class="pre">Binomial</span></code></a>(n,&nbsp;p,&nbsp;**kwargs)</td>
-<td>Node for binomial random variables.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Categorical.html#bayespy.nodes.Categorical" title="bayespy.nodes.Categorical"><code class="xref py py-obj docutils literal"><span class="pre">Categorical</span></code></a>(p,&nbsp;**kwargs)</td>
-<td>Node for categorical random variables.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Multinomial.html#bayespy.nodes.Multinomial" title="bayespy.nodes.Multinomial"><code class="xref py py-obj docutils literal"><span class="pre">Multinomial</span></code></a>(n,&nbsp;p,&nbsp;**kwargs)</td>
-<td>Node for multinomial random variables.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Poisson.html#bayespy.nodes.Poisson" title="bayespy.nodes.Poisson"><code class="xref py py-obj docutils literal"><span class="pre">Poisson</span></code></a>(l,&nbsp;**kwargs)</td>
-<td>Node for Poisson random variables.</td>
-</tr>
 </tbody>
 </table>
 <p>Nodes for probabilities:</p>
@@ -184,12 +145,6 @@ for Gaussian nodes):</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Beta.html#bayespy.nodes.Beta" title="bayespy.nodes.Beta"><code class="xref py py-obj docutils literal"><span class="pre">Beta</span></code></a>(alpha,&nbsp;**kwargs)</td>
-<td>Node for beta random variables.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Dirichlet.html#bayespy.nodes.Dirichlet" title="bayespy.nodes.Dirichlet"><code class="xref py py-obj docutils literal"><span class="pre">Dirichlet</span></code></a>(*args,&nbsp;**kwargs)</td>
-<td>Node for Dirichlet random variables.</td>
-</tr>
 </tbody>
 </table>
 <p>Nodes for dynamic variables:</p>
@@ -199,18 +154,6 @@ for Gaussian nodes):</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.CategoricalMarkovChain.html#bayespy.nodes.CategoricalMarkovChain" title="bayespy.nodes.CategoricalMarkovChain"><code class="xref py py-obj docutils literal"><span class="pre">CategoricalMarkovChain</span></code></a>(pi,&nbsp;A[,&nbsp;states])</td>
-<td>Node for categorical Markov chain random variables.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.GaussianMarkovChain.html#bayespy.nodes.GaussianMarkovChain" title="bayespy.nodes.GaussianMarkovChain"><code class="xref py py-obj docutils literal"><span class="pre">GaussianMarkovChain</span></code></a>(mu,&nbsp;Lambda,&nbsp;A,&nbsp;nu[,&nbsp;n,&nbsp;...])</td>
-<td>Node for Gaussian Markov chain random variables.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.SwitchingGaussianMarkovChain.html#bayespy.nodes.SwitchingGaussianMarkovChain" title="bayespy.nodes.SwitchingGaussianMarkovChain"><code class="xref py py-obj docutils literal"><span class="pre">SwitchingGaussianMarkovChain</span></code></a>(mu,&nbsp;Lambda,&nbsp;B,&nbsp;...)</td>
-<td>Node for Gaussian Markov chain random variables with switching dynamics.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.VaryingGaussianMarkovChain.html#bayespy.nodes.VaryingGaussianMarkovChain" title="bayespy.nodes.VaryingGaussianMarkovChain"><code class="xref py py-obj docutils literal"><span class="pre">VaryingGaussianMarkovChain</span></code></a>(mu,&nbsp;Lambda,&nbsp;B,&nbsp;S,&nbsp;nu)</td>
-<td>Node for Gaussian Markov chain random variables with time-varying dynamics.</td>
-</tr>
 </tbody>
 </table>
 <p>Other stochastic nodes:</p>
@@ -220,9 +163,6 @@ for Gaussian nodes):</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.html#bayespy.nodes.Mixture" title="bayespy.nodes.Mixture"><code class="xref py py-obj docutils literal"><span class="pre">Mixture</span></code></a>(z,&nbsp;node_class,&nbsp;*params[,&nbsp;cluster_plate])</td>
-<td>Node for exponential family mixture variables.</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -234,15 +174,6 @@ for Gaussian nodes):</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Dot.html#bayespy.nodes.Dot" title="bayespy.nodes.Dot"><code class="xref py py-obj docutils literal"><span class="pre">Dot</span></code></a>(*args,&nbsp;**kwargs)</td>
-<td>Node for computing inner product of several Gaussian vectors.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.SumMultiply.html#bayespy.nodes.SumMultiply" title="bayespy.nodes.SumMultiply"><code class="xref py py-obj docutils literal"><span class="pre">SumMultiply</span></code></a>(*args[,&nbsp;iterator_axis])</td>
-<td>Node for computing general products and sums of Gaussian nodes.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Gate.html#bayespy.nodes.Gate" title="bayespy.nodes.Gate"><code class="xref py py-obj docutils literal"><span class="pre">Gate</span></code></a>(Z,&nbsp;X[,&nbsp;gated_plate,&nbsp;moments])</td>
-<td>Deterministic gating of one node.</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -264,12 +195,12 @@ for Gaussian nodes):</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="generated/bayespy.nodes.Gaussian.html" title="bayespy.nodes.Gaussian"
+          <a href="bayespy.inference.html" title="bayespy.inference"
              >next</a> |</li>
         <li class="right" >
           <a href="generated/generated/bayespy.plot.CategoricalMarkovChainPlotter.__init__.html" title="bayespy.plot.CategoricalMarkovChainPlotter.__init__"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../user_api.html" >User API</a> &raquo;</li> 
       </ul>
     </div>

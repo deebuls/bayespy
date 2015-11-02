@@ -22,7 +22,6 @@ bayespy.utils.misc
       broadcasted_shape_from_arrays
       broadcasting_multiplier
       ceildiv
-      check_gradient
       chol
       chol_inv
       chol_logdet
@@ -77,8 +76,6 @@ bayespy.utils.misc
       tempfile
       trues
       unique
-      vb_optimize
-      vb_optimize_nodes
       write_to_hdf5
       zipper_merge
    

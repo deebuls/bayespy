@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.utils.optimize.check_gradient &mdash; BayesPy v0.3.7 Documentation</title>
+    <title>bayespy.utils.optimize.check_gradient &mdash; BayesPy v0.4.0 Documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.3.7',
+        VERSION:     '0.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../../index.html" />
+    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../../index.html" />
     <link rel="up" title="bayespy.utils.optimize" href="../bayespy.utils.optimize.html" />
     <link rel="next" title="bayespy.utils.optimize.minimize" href="bayespy.utils.optimize.minimize.html" />
     <link rel="prev" title="bayespy.utils.optimize.minimize" href="bayespy.utils.optimize.minimize.html" /> 
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="bayespy.utils.optimize.minimize.html" title="bayespy.utils.optimize.minimize"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../../dev_api.html" >Developer API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../../utils.html" >Utility functions</a> &raquo;</li>
           <li class="nav-item nav-item-3"><a href="../bayespy.utils.optimize.html" accesskey="U">bayespy.utils.optimize</a> &raquo;</li> 
@@ -91,10 +91,10 @@
 <h1>bayespy.utils.optimize.check_gradient<a class="headerlink" href="#bayespy-utils-optimize-check-gradient" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="bayespy.utils.optimize.check_gradient">
-<code class="descclassname">bayespy.utils.optimize.</code><code class="descname">check_gradient</code><span class="sig-paren">(</span><em>f</em>, <em>x0</em>, <em>verbose=True</em>, <em>epsilon=1.4901161193847656e-08</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bayespy/utils/optimize.html#check_gradient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.utils.optimize.check_gradient" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">bayespy.utils.optimize.</code><code class="descname">check_gradient</code><span class="sig-paren">(</span><em>f</em>, <em>x0</em>, <em>verbose=True</em>, <em>epsilon=1.4901161193847656e-08</em>, <em>return_abserr=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/bayespy/utils/optimize.html#check_gradient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.utils.optimize.check_gradient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple wrapper for SciPy&#8217;s gradient checker.</p>
 <p>The given function must return a tuple: (value, gradient).</p>
-<p>Returns relative</p>
+<p>Returns absolute and relative errors</p>
 </dd></dl>
 
 </div>
@@ -120,7 +120,7 @@
         <li class="right" >
           <a href="bayespy.utils.optimize.minimize.html" title="bayespy.utils.optimize.minimize"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../../dev_api.html" >Developer API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../../utils.html" >Utility functions</a> &raquo;</li>
           <li class="nav-item nav-item-3"><a href="../bayespy.utils.optimize.html" >bayespy.utils.optimize</a> &raquo;</li> 

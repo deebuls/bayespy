@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.nodes.Mixture &mdash; BayesPy v0.3.7 Documentation</title>
+    <title>bayespy.nodes.Mixture &mdash; BayesPy v0.4.0 Documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.3.7',
+        VERSION:     '0.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,10 +24,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.3.7 Documentation" href="../../../index.html" />
-    <link rel="up" title="bayespy.nodes" href="../bayespy.nodes.html" />
-    <link rel="next" title="bayespy.nodes.Mixture.__init__" href="generated/bayespy.nodes.Mixture.__init__.html" />
-    <link rel="prev" title="bayespy.nodes.VaryingGaussianMarkovChain.plates_multiplier" href="generated/bayespy.nodes.VaryingGaussianMarkovChain.plates_multiplier.html" /> 
+    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../../index.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -39,25 +36,11 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="generated/bayespy.nodes.Mixture.__init__.html" title="bayespy.nodes.Mixture.__init__"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="generated/bayespy.nodes.VaryingGaussianMarkovChain.plates_multiplier.html" title="bayespy.nodes.VaryingGaussianMarkovChain.plates_multiplier"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../bayespy.nodes.html" accesskey="U">bayespy.nodes</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="generated/bayespy.nodes.VaryingGaussianMarkovChain.plates_multiplier.html"
-                        title="previous chapter">bayespy.nodes.VaryingGaussianMarkovChain.plates_multiplier</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="generated/bayespy.nodes.Mixture.__init__.html"
-                        title="next chapter">bayespy.nodes.Mixture.__init__</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -167,99 +150,6 @@ for 100 samples can be constructed, for instance, as:</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.__init__.html#bayespy.nodes.Mixture.__init__" title="bayespy.nodes.Mixture.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>(z,&nbsp;node_class,&nbsp;*params[,&nbsp;cluster_plate])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.add_plate_axis.html#bayespy.nodes.Mixture.add_plate_axis" title="bayespy.nodes.Mixture.add_plate_axis"><code class="xref py py-obj docutils literal"><span class="pre">add_plate_axis</span></code></a>(to_plate)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.broadcasting_multiplier.html#bayespy.nodes.Mixture.broadcasting_multiplier" title="bayespy.nodes.Mixture.broadcasting_multiplier"><code class="xref py py-obj docutils literal"><span class="pre">broadcasting_multiplier</span></code></a>(plates,&nbsp;*args)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.delete.html#bayespy.nodes.Mixture.delete" title="bayespy.nodes.Mixture.delete"><code class="xref py py-obj docutils literal"><span class="pre">delete</span></code></a>()</td>
-<td>Delete this node and the children</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.get_gradient.html#bayespy.nodes.Mixture.get_gradient" title="bayespy.nodes.Mixture.get_gradient"><code class="xref py py-obj docutils literal"><span class="pre">get_gradient</span></code></a>(rg)</td>
-<td>Computes gradient with respect to the natural parameters.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.get_mask.html#bayespy.nodes.Mixture.get_mask" title="bayespy.nodes.Mixture.get_mask"><code class="xref py py-obj docutils literal"><span class="pre">get_mask</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.get_moments.html#bayespy.nodes.Mixture.get_moments" title="bayespy.nodes.Mixture.get_moments"><code class="xref py py-obj docutils literal"><span class="pre">get_moments</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.get_parameters.html#bayespy.nodes.Mixture.get_parameters" title="bayespy.nodes.Mixture.get_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_parameters</span></code></a>()</td>
-<td>Return parameters of the VB distribution.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.get_riemannian_gradient.html#bayespy.nodes.Mixture.get_riemannian_gradient" title="bayespy.nodes.Mixture.get_riemannian_gradient"><code class="xref py py-obj docutils literal"><span class="pre">get_riemannian_gradient</span></code></a>()</td>
-<td>Computes the Riemannian/natural gradient.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.get_shape.html#bayespy.nodes.Mixture.get_shape" title="bayespy.nodes.Mixture.get_shape"><code class="xref py py-obj docutils literal"><span class="pre">get_shape</span></code></a>(ind)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.has_plotter.html#bayespy.nodes.Mixture.has_plotter" title="bayespy.nodes.Mixture.has_plotter"><code class="xref py py-obj docutils literal"><span class="pre">has_plotter</span></code></a>()</td>
-<td>Return True if the node has a plotter</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.initialize_from_parameters.html#bayespy.nodes.Mixture.initialize_from_parameters" title="bayespy.nodes.Mixture.initialize_from_parameters"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_parameters</span></code></a>(*args)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.initialize_from_prior.html#bayespy.nodes.Mixture.initialize_from_prior" title="bayespy.nodes.Mixture.initialize_from_prior"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_prior</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.initialize_from_random.html#bayespy.nodes.Mixture.initialize_from_random" title="bayespy.nodes.Mixture.initialize_from_random"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_random</span></code></a>()</td>
-<td>Set the variable to a random sample from the current distribution.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.initialize_from_value.html#bayespy.nodes.Mixture.initialize_from_value" title="bayespy.nodes.Mixture.initialize_from_value"><code class="xref py py-obj docutils literal"><span class="pre">initialize_from_value</span></code></a>(x,&nbsp;*args)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.integrated_logpdf_from_parents.html#bayespy.nodes.Mixture.integrated_logpdf_from_parents" title="bayespy.nodes.Mixture.integrated_logpdf_from_parents"><code class="xref py py-obj docutils literal"><span class="pre">integrated_logpdf_from_parents</span></code></a>(x,&nbsp;index)</td>
-<td>Approximates the posterior predictive pdf int p(x|parents) q(parents) dparents in log-scale as int q(parents_i) exp( int q(<a href="#id1"><span class="problematic" id="id2">parents_</span></a>i) log p(x|parents) <a href="#id3"><span class="problematic" id="id4">dparents_</span></a>i ) dparents_i.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.load.html#bayespy.nodes.Mixture.load" title="bayespy.nodes.Mixture.load"><code class="xref py py-obj docutils literal"><span class="pre">load</span></code></a>(filename)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.logpdf.html#bayespy.nodes.Mixture.logpdf" title="bayespy.nodes.Mixture.logpdf"><code class="xref py py-obj docutils literal"><span class="pre">logpdf</span></code></a>(X[,&nbsp;mask])</td>
-<td>Compute the log probability density function Q(X) of this node.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.lower_bound_contribution.html#bayespy.nodes.Mixture.lower_bound_contribution" title="bayespy.nodes.Mixture.lower_bound_contribution"><code class="xref py py-obj docutils literal"><span class="pre">lower_bound_contribution</span></code></a>([gradient,&nbsp;...])</td>
-<td>Compute E[ log p(X|parents) - log q(X) ]</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.lowerbound.html#bayespy.nodes.Mixture.lowerbound" title="bayespy.nodes.Mixture.lowerbound"><code class="xref py py-obj docutils literal"><span class="pre">lowerbound</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.move_plates.html#bayespy.nodes.Mixture.move_plates" title="bayespy.nodes.Mixture.move_plates"><code class="xref py py-obj docutils literal"><span class="pre">move_plates</span></code></a>(from_plate,&nbsp;to_plate)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.observe.html#bayespy.nodes.Mixture.observe" title="bayespy.nodes.Mixture.observe"><code class="xref py py-obj docutils literal"><span class="pre">observe</span></code></a>(x,&nbsp;*args[,&nbsp;mask])</td>
-<td>Fix moments, compute f and propagate mask.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.pdf.html#bayespy.nodes.Mixture.pdf" title="bayespy.nodes.Mixture.pdf"><code class="xref py py-obj docutils literal"><span class="pre">pdf</span></code></a>(X[,&nbsp;mask])</td>
-<td>Compute the probability density function of this node.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.plot.html#bayespy.nodes.Mixture.plot" title="bayespy.nodes.Mixture.plot"><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code></a>([fig])</td>
-<td>Plot the node distribution using the plotter of the node</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.random.html#bayespy.nodes.Mixture.random" title="bayespy.nodes.Mixture.random"><code class="xref py py-obj docutils literal"><span class="pre">random</span></code></a>()</td>
-<td>Draw a random sample from the distribution.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.save.html#bayespy.nodes.Mixture.save" title="bayespy.nodes.Mixture.save"><code class="xref py py-obj docutils literal"><span class="pre">save</span></code></a>(filename)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.set_parameters.html#bayespy.nodes.Mixture.set_parameters" title="bayespy.nodes.Mixture.set_parameters"><code class="xref py py-obj docutils literal"><span class="pre">set_parameters</span></code></a>(x)</td>
-<td>Set the parameters of the VB distribution.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.set_plotter.html#bayespy.nodes.Mixture.set_plotter" title="bayespy.nodes.Mixture.set_plotter"><code class="xref py py-obj docutils literal"><span class="pre">set_plotter</span></code></a>(plotter)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.show.html#bayespy.nodes.Mixture.show" title="bayespy.nodes.Mixture.show"><code class="xref py py-obj docutils literal"><span class="pre">show</span></code></a>()</td>
-<td>Print the distribution using standard parameterization.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.unobserve.html#bayespy.nodes.Mixture.unobserve" title="bayespy.nodes.Mixture.unobserve"><code class="xref py py-obj docutils literal"><span class="pre">unobserve</span></code></a>()</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.nodes.Mixture.update.html#bayespy.nodes.Mixture.update" title="bayespy.nodes.Mixture.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>([annealing])</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
@@ -299,15 +189,7 @@ for 100 samples can be constructed, for instance, as:</p>
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="generated/bayespy.nodes.Mixture.__init__.html" title="bayespy.nodes.Mixture.__init__"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="generated/bayespy.nodes.VaryingGaussianMarkovChain.plates_multiplier.html" title="bayespy.nodes.VaryingGaussianMarkovChain.plates_multiplier"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.3.7 Documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../user_api.html" >User API</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../bayespy.nodes.html" >bayespy.nodes</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
