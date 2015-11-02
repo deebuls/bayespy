@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.utils.misc.TestCase.assertRaises &mdash; BayesPy v0.4.0 Documentation</title>
+    <title>bayespy.utils.misc.TestCase.assertRaises &mdash; BayesPy v0.4.1 Documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
-        VERSION:     '0.4.0',
+        VERSION:     '0.4.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,10 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../../../index.html" /> 
+    <link rel="top" title="BayesPy v0.4.1 Documentation" href="../../../../index.html" />
+    <link rel="up" title="bayespy.utils.misc.TestCase" href="../bayespy.utils.misc.TestCase.html" />
+    <link rel="next" title="bayespy.utils.misc.TestCase.assertRaisesRegex" href="bayespy.utils.misc.TestCase.assertRaisesRegex.html" />
+    <link rel="prev" title="bayespy.utils.misc.TestCase.assertNotRegex" href="bayespy.utils.misc.TestCase.assertNotRegex.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -36,11 +39,27 @@
         <li class="right" >
           <a href="../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="bayespy.utils.misc.TestCase.assertRaisesRegex.html" title="bayespy.utils.misc.TestCase.assertRaisesRegex"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bayespy.utils.misc.TestCase.assertNotRegex.html" title="bayespy.utils.misc.TestCase.assertNotRegex"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../dev_api.html" >Developer API</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../utils.html" >Utility functions</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="../../bayespy.utils.misc.html" >bayespy.utils.misc</a> &raquo;</li>
+          <li class="nav-item nav-item-4"><a href="../bayespy.utils.misc.TestCase.html" accesskey="U">bayespy.utils.misc.TestCase</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bayespy.utils.misc.TestCase.assertNotRegex.html"
+                        title="previous chapter">bayespy.utils.misc.TestCase.assertNotRegex</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bayespy.utils.misc.TestCase.assertRaisesRegex.html"
+                        title="next chapter">bayespy.utils.misc.TestCase.assertRaisesRegex</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -73,14 +92,14 @@
 <h1>bayespy.utils.misc.TestCase.assertRaises<a class="headerlink" href="#bayespy-utils-misc-testcase-assertraises" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="bayespy.utils.misc.TestCase.assertRaises">
-<code class="descclassname">TestCase.</code><code class="descname">assertRaises</code><span class="sig-paren">(</span><em>excClass</em>, <em>callableObj=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/unittest/case.html#TestCase.assertRaises"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.utils.misc.TestCase.assertRaises" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fail unless an exception of class excClass is raised
-by callableObj when invoked with arguments args and keyword
-arguments kwargs. If a different type of exception is
+<code class="descclassname">TestCase.</code><code class="descname">assertRaises</code><span class="sig-paren">(</span><em>expected_exception</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/unittest/case.html#TestCase.assertRaises"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bayespy.utils.misc.TestCase.assertRaises" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fail unless an exception of class expected_exception is raised
+by the callable when invoked with specified positional and
+keyword arguments. If a different type of exception is
 raised, it will not be caught, and the test case will be
 deemed to have suffered an error, exactly as for an
 unexpected exception.</p>
-<p>If called with callableObj omitted or None, will return a
+<p>If called with the callable and arguments omitted, will return a
 context object used like this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">SomeException</span><span class="p">):</span>
     <span class="n">do_something</span><span class="p">()</span>
@@ -116,7 +135,17 @@ exception after the assertion:</p>
         <li class="right" >
           <a href="../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="bayespy.utils.misc.TestCase.assertRaisesRegex.html" title="bayespy.utils.misc.TestCase.assertRaisesRegex"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bayespy.utils.misc.TestCase.assertNotRegex.html" title="bayespy.utils.misc.TestCase.assertNotRegex"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../dev_api.html" >Developer API</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../utils.html" >Utility functions</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="../../bayespy.utils.misc.html" >bayespy.utils.misc</a> &raquo;</li>
+          <li class="nav-item nav-item-4"><a href="../bayespy.utils.misc.TestCase.html" >bayespy.utils.misc.TestCase</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

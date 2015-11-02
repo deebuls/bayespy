@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>unittest.case &mdash; BayesPy v0.4.0 Documentation</title>
+    <title>unittest.case &mdash; BayesPy v0.4.1 Documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.4.0',
+        VERSION:     '0.4.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../index.html" />
+    <link rel="top" title="BayesPy v0.4.1 Documentation" href="../../index.html" />
     <link rel="up" title="Module code" href="../index.html" /> 
   </head>
   <body role="document">
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
       </ul>
     </div>
@@ -186,6 +186,10 @@
     <span class="n">test_item</span><span class="o">.</span><span class="n">__unittest_expecting_failure__</span> <span class="o">=</span> <span class="bp">True</span>
     <span class="k">return</span> <span class="n">test_item</span>
 
+<span class="k">def</span> <span class="nf">_is_subtype</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">basetype</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">_is_subtype</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">basetype</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">expected</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">basetype</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">_BaseTestCaseContext</span><span class="p">:</span>
 
@@ -196,41 +200,54 @@
         <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_case</span><span class="o">.</span><span class="n">_formatMessage</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">,</span> <span class="n">standardMsg</span><span class="p">)</span>
         <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_case</span><span class="o">.</span><span class="n">failureException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-
 <span class="k">class</span> <span class="nc">_AssertRaisesBaseContext</span><span class="p">(</span><span class="n">_BaseTestCaseContext</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">test_case</span><span class="p">,</span> <span class="n">callable_obj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                 <span class="n">expected_regex</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">test_case</span><span class="p">,</span> <span class="n">expected_regex</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="n">_BaseTestCaseContext</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_case</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">expected</span> <span class="o">=</span> <span class="n">expected</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">test_case</span> <span class="o">=</span> <span class="n">test_case</span>
-        <span class="k">if</span> <span class="n">callable_obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">obj_name</span> <span class="o">=</span> <span class="n">callable_obj</span><span class="o">.</span><span class="n">__name__</span>
-            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">obj_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">callable_obj</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">obj_name</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="n">expected_regex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="n">expected_regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">expected_regex</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">expected_regex</span> <span class="o">=</span> <span class="n">expected_regex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj_name</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="bp">None</span>
 
-    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">callable_obj</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        If callable_obj is None, assertRaises/Warns is being used as a</span>
+<span class="sd">        If args is empty, assertRaises/Warns is being used as a</span>
 <span class="sd">        context manager, so check for a &#39;msg&#39; kwarg and return self.</span>
-<span class="sd">        If callable_obj is not None, call it passing args and kwargs.</span>
+<span class="sd">        If args is not empty, call a callable passing positional and keyword</span>
+<span class="sd">        arguments.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">callable_obj</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_subtype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_type</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">() arg 1 must be </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span>
+                            <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_type_str</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">args</span> <span class="ow">and</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&quot;callable is None&quot;</span><span class="p">,</span>
+                          <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;msg&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%r</span><span class="s"> is an invalid keyword argument for &#39;</span>
+                              <span class="s">&#39;this function&#39;</span> <span class="o">%</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)),</span>
+                              <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="n">callable_obj</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj_name</span> <span class="o">=</span> <span class="n">callable_obj</span><span class="o">.</span><span class="n">__name__</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">callable_obj</span><span class="p">)</span>
         <span class="k">with</span> <span class="bp">self</span><span class="p">:</span>
             <span class="n">callable_obj</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">_AssertRaisesContext</span><span class="p">(</span><span class="n">_AssertRaisesBaseContext</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A context manager used to implement TestCase.assertRaises* methods.&quot;&quot;&quot;</span>
+
+    <span class="n">_base_type</span> <span class="o">=</span> <span class="ne">BaseException</span>
+    <span class="n">_base_type_str</span> <span class="o">=</span> <span class="s">&#39;an exception type or tuple of exception types&#39;</span>
 
     <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span>
@@ -265,6 +282,9 @@
 
 <span class="k">class</span> <span class="nc">_AssertWarnsContext</span><span class="p">(</span><span class="n">_AssertRaisesBaseContext</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A context manager used to implement TestCase.assertWarns* methods.&quot;&quot;&quot;</span>
+
+    <span class="n">_base_type</span> <span class="o">=</span> <span class="ne">Warning</span>
+    <span class="n">_base_type_str</span> <span class="o">=</span> <span class="s">&#39;a warning type or tuple of warning types&#39;</span>
 
     <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c"># The __warningregistry__&#39;s need to be in a pristine state for tests</span>
@@ -741,15 +761,15 @@
         <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
             <span class="k">return</span>  <span class="s">&#39;</span><span class="si">%s</span><span class="s"> : </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">safe_repr</span><span class="p">(</span><span class="n">standardMsg</span><span class="p">),</span> <span class="n">safe_repr</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
 
-<div class="viewcode-block" id="TestCase.assertRaises"><a class="viewcode-back" href="../../dev_api/generated/generated/generated/bayespy.utils.misc.TestCase.assertRaises.html#bayespy.utils.misc.TestCase.assertRaises">[docs]</a>    <span class="k">def</span> <span class="nf">assertRaises</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">excClass</span><span class="p">,</span> <span class="n">callableObj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Fail unless an exception of class excClass is raised</span>
-<span class="sd">           by callableObj when invoked with arguments args and keyword</span>
-<span class="sd">           arguments kwargs. If a different type of exception is</span>
+<div class="viewcode-block" id="TestCase.assertRaises"><a class="viewcode-back" href="../../dev_api/generated/generated/generated/bayespy.utils.misc.TestCase.assertRaises.html#bayespy.utils.misc.TestCase.assertRaises">[docs]</a>    <span class="k">def</span> <span class="nf">assertRaises</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_exception</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Fail unless an exception of class expected_exception is raised</span>
+<span class="sd">           by the callable when invoked with specified positional and</span>
+<span class="sd">           keyword arguments. If a different type of exception is</span>
 <span class="sd">           raised, it will not be caught, and the test case will be</span>
 <span class="sd">           deemed to have suffered an error, exactly as for an</span>
 <span class="sd">           unexpected exception.</span>
 
-<span class="sd">           If called with callableObj omitted or None, will return a</span>
+<span class="sd">           If called with the callable and arguments omitted, will return a</span>
 <span class="sd">           context object used like this::</span>
 
 <span class="sd">                with self.assertRaises(SomeException):</span>
@@ -767,18 +787,18 @@
 <span class="sd">               the_exception = cm.exception</span>
 <span class="sd">               self.assertEqual(the_exception.error_code, 3)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">context</span> <span class="o">=</span> <span class="n">_AssertRaisesContext</span><span class="p">(</span><span class="n">excClass</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">callableObj</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s">&#39;assertRaises&#39;</span><span class="p">,</span> <span class="n">callableObj</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">_AssertRaisesContext</span><span class="p">(</span><span class="n">expected_exception</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s">&#39;assertRaises&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="TestCase.assertWarns"><a class="viewcode-back" href="../../dev_api/generated/generated/generated/bayespy.utils.misc.TestCase.assertWarns.html#bayespy.utils.misc.TestCase.assertWarns">[docs]</a>    <span class="k">def</span> <span class="nf">assertWarns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_warning</span><span class="p">,</span> <span class="n">callable_obj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="TestCase.assertWarns"><a class="viewcode-back" href="../../dev_api/generated/generated/generated/bayespy.utils.misc.TestCase.assertWarns.html#bayespy.utils.misc.TestCase.assertWarns">[docs]</a>    <span class="k">def</span> <span class="nf">assertWarns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_warning</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fail unless a warning of class warnClass is triggered</span>
-<span class="sd">           by callable_obj when invoked with arguments args and keyword</span>
-<span class="sd">           arguments kwargs.  If a different type of warning is</span>
+<span class="sd">           by the callable when invoked with specified positional and</span>
+<span class="sd">           keyword arguments.  If a different type of warning is</span>
 <span class="sd">           triggered, it will not be handled: depending on the other</span>
 <span class="sd">           warning filtering rules in effect, it might be silenced, printed</span>
 <span class="sd">           out, or raised as an exception.</span>
 
-<span class="sd">           If called with callable_obj omitted or None, will return a</span>
+<span class="sd">           If called with the callable and arguments omitted, will return a</span>
 <span class="sd">           context object used like this::</span>
 
 <span class="sd">                with self.assertWarns(SomeWarning):</span>
@@ -798,8 +818,8 @@
 <span class="sd">               the_warning = cm.warning</span>
 <span class="sd">               self.assertEqual(the_warning.some_attribute, 147)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">context</span> <span class="o">=</span> <span class="n">_AssertWarnsContext</span><span class="p">(</span><span class="n">expected_warning</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">callable_obj</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s">&#39;assertWarns&#39;</span><span class="p">,</span> <span class="n">callable_obj</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">_AssertWarnsContext</span><span class="p">(</span><span class="n">expected_warning</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s">&#39;assertWarns&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="TestCase.assertLogs"><a class="viewcode-back" href="../../dev_api/generated/generated/generated/bayespy.utils.misc.TestCase.assertLogs.html#bayespy.utils.misc.TestCase.assertLogs">[docs]</a>    <span class="k">def</span> <span class="nf">assertLogs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fail unless a log message of level *level* or higher is emitted</span>
@@ -1286,26 +1306,23 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_formatMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">standardMsg</span><span class="p">))</span>
 </div>
 <div class="viewcode-block" id="TestCase.assertRaisesRegex"><a class="viewcode-back" href="../../dev_api/generated/generated/generated/bayespy.utils.misc.TestCase.assertRaisesRegex.html#bayespy.utils.misc.TestCase.assertRaisesRegex">[docs]</a>    <span class="k">def</span> <span class="nf">assertRaisesRegex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_exception</span><span class="p">,</span> <span class="n">expected_regex</span><span class="p">,</span>
-                          <span class="n">callable_obj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                          <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Asserts that the message in a raised exception matches a regex.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            expected_exception: Exception class expected to be raised.</span>
 <span class="sd">            expected_regex: Regex (re pattern object or string) expected</span>
 <span class="sd">                    to be found in error message.</span>
-<span class="sd">            callable_obj: Function to be called.</span>
+<span class="sd">            args: Function to be called and extra positional args.</span>
+<span class="sd">            kwargs: Extra kwargs.</span>
 <span class="sd">            msg: Optional message used in case of failure. Can only be used</span>
 <span class="sd">                    when assertRaisesRegex is used as a context manager.</span>
-<span class="sd">            args: Extra args.</span>
-<span class="sd">            kwargs: Extra kwargs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">context</span> <span class="o">=</span> <span class="n">_AssertRaisesContext</span><span class="p">(</span><span class="n">expected_exception</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">callable_obj</span><span class="p">,</span>
-                                       <span class="n">expected_regex</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s">&#39;assertRaisesRegex&#39;</span><span class="p">,</span> <span class="n">callable_obj</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">_AssertRaisesContext</span><span class="p">(</span><span class="n">expected_exception</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">expected_regex</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s">&#39;assertRaisesRegex&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="TestCase.assertWarnsRegex"><a class="viewcode-back" href="../../dev_api/generated/generated/generated/bayespy.utils.misc.TestCase.assertWarnsRegex.html#bayespy.utils.misc.TestCase.assertWarnsRegex">[docs]</a>    <span class="k">def</span> <span class="nf">assertWarnsRegex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expected_warning</span><span class="p">,</span> <span class="n">expected_regex</span><span class="p">,</span>
-                         <span class="n">callable_obj</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                         <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Asserts that the message in a triggered warning matches a regexp.</span>
 <span class="sd">        Basic functioning is similar to assertWarns() with the addition</span>
 <span class="sd">        that only warnings whose messages also match the regular expression</span>
@@ -1315,15 +1332,13 @@
 <span class="sd">            expected_warning: Warning class expected to be triggered.</span>
 <span class="sd">            expected_regex: Regex (re pattern object or string) expected</span>
 <span class="sd">                    to be found in error message.</span>
-<span class="sd">            callable_obj: Function to be called.</span>
+<span class="sd">            args: Function to be called and extra positional args.</span>
+<span class="sd">            kwargs: Extra kwargs.</span>
 <span class="sd">            msg: Optional message used in case of failure. Can only be used</span>
 <span class="sd">                    when assertWarnsRegex is used as a context manager.</span>
-<span class="sd">            args: Extra args.</span>
-<span class="sd">            kwargs: Extra kwargs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">context</span> <span class="o">=</span> <span class="n">_AssertWarnsContext</span><span class="p">(</span><span class="n">expected_warning</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">callable_obj</span><span class="p">,</span>
-                                      <span class="n">expected_regex</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s">&#39;assertWarnsRegex&#39;</span><span class="p">,</span> <span class="n">callable_obj</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="n">_AssertWarnsContext</span><span class="p">(</span><span class="n">expected_warning</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">expected_regex</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="s">&#39;assertWarnsRegex&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </div>
 <div class="viewcode-block" id="TestCase.assertRegex"><a class="viewcode-back" href="../../dev_api/generated/generated/generated/bayespy.utils.misc.TestCase.assertRegex.html#bayespy.utils.misc.TestCase.assertRegex">[docs]</a>    <span class="k">def</span> <span class="nf">assertRegex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">expected_regex</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fail the test unless the text matches the regular expression.&quot;&quot;&quot;</span>
@@ -1478,7 +1493,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
       </ul>
     </div>

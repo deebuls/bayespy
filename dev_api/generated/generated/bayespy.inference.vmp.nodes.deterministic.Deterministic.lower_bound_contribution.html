@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.inference.vmp.nodes.deterministic.Deterministic.lower_bound_contribution &mdash; BayesPy v0.4.0 Documentation</title>
+    <title>bayespy.inference.vmp.nodes.deterministic.Deterministic.lower_bound_contribution &mdash; BayesPy v0.4.1 Documentation</title>
     
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.4.0',
+        VERSION:     '0.4.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,10 +24,10 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../../index.html" />
+    <link rel="top" title="BayesPy v0.4.1 Documentation" href="../../../index.html" />
     <link rel="up" title="bayespy.inference.vmp.nodes.deterministic.Deterministic" href="../bayespy.inference.vmp.nodes.deterministic.Deterministic.html" />
-    <link rel="next" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.plates" href="bayespy.inference.vmp.nodes.deterministic.Deterministic.plates.html" />
-    <link rel="prev" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.get_moments" href="bayespy.inference.vmp.nodes.deterministic.Deterministic.get_moments.html" /> 
+    <link rel="next" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.move_plates" href="bayespy.inference.vmp.nodes.deterministic.Deterministic.move_plates.html" />
+    <link rel="prev" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.has_plotter" href="bayespy.inference.vmp.nodes.deterministic.Deterministic.has_plotter.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,12 +40,12 @@
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.plates.html" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.plates"
+          <a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.move_plates.html" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.move_plates"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.get_moments.html" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.get_moments"
+          <a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.has_plotter.html" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.has_plotter"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../../dev_api.html" >Developer API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../../nodes.html" >Developer nodes</a> &raquo;</li>
           <li class="nav-item nav-item-3"><a href="../bayespy.inference.vmp.nodes.deterministic.Deterministic.html" accesskey="U">bayespy.inference.vmp.nodes.deterministic.Deterministic</a> &raquo;</li> 
@@ -54,11 +54,11 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.get_moments.html"
-                        title="previous chapter">bayespy.inference.vmp.nodes.deterministic.Deterministic.get_moments</a></p>
+  <p class="topless"><a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.has_plotter.html"
+                        title="previous chapter">bayespy.inference.vmp.nodes.deterministic.Deterministic.has_plotter</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.plates.html"
-                        title="next chapter">bayespy.inference.vmp.nodes.deterministic.Deterministic.plates</a></p>
+  <p class="topless"><a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.move_plates.html"
+                        title="next chapter">bayespy.inference.vmp.nodes.deterministic.Deterministic.move_plates</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -112,12 +112,12 @@
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.plates.html" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.plates"
+          <a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.move_plates.html" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.move_plates"
              >next</a> |</li>
         <li class="right" >
-          <a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.get_moments.html" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.get_moments"
+          <a href="bayespy.inference.vmp.nodes.deterministic.Deterministic.has_plotter.html" title="bayespy.inference.vmp.nodes.deterministic.Deterministic.has_plotter"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../../dev_api.html" >Developer API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../../nodes.html" >Developer nodes</a> &raquo;</li>
           <li class="nav-item nav-item-3"><a href="../bayespy.inference.vmp.nodes.deterministic.Deterministic.html" >bayespy.inference.vmp.nodes.deterministic.Deterministic</a> &raquo;</li> 

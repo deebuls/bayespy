@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution &mdash; BayesPy v0.4.0 Documentation</title>
+    <title>bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution &mdash; BayesPy v0.4.1 Documentation</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.4.0',
+        VERSION:     '0.4.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="BayesPy v0.4.0 Documentation" href="../../index.html" />
+    <link rel="top" title="BayesPy v0.4.1 Documentation" href="../../index.html" />
     <link rel="up" title="Distributions" href="../distributions.html" />
     <link rel="next" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.__init__" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.__init__.html" />
     <link rel="prev" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaISODistribution.random" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaISODistribution.random.html" /> 
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaISODistribution.random.html" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaISODistribution.random"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../dev_api.html" >Developer API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../distributions.html" accesskey="U">Distributions</a> &raquo;</li> 
       </ul>
@@ -106,6 +106,39 @@
 <tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.__init__.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.__init__" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>()</td>
 <td></td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_cgf_from_parents.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_cgf_from_parents" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_cgf_from_parents"><code class="xref py py-obj docutils literal"><span class="pre">compute_cgf_from_parents</span></code></a>(*u_parents)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_fixed_moments_and_f.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_fixed_moments_and_f" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_fixed_moments_and_f"><code class="xref py py-obj docutils literal"><span class="pre">compute_fixed_moments_and_f</span></code></a>(x[,&nbsp;mask])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_gradient.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_gradient" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_gradient"><code class="xref py py-obj docutils literal"><span class="pre">compute_gradient</span></code></a>(g,&nbsp;u,&nbsp;phi)</td>
+<td>Compute the standard gradient with respect to the natural parameters.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_logpdf.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_logpdf" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_logpdf"><code class="xref py py-obj docutils literal"><span class="pre">compute_logpdf</span></code></a>(u,&nbsp;phi,&nbsp;g,&nbsp;f,&nbsp;ndims)</td>
+<td>Compute E[log p(X)] given E[u], E[phi], E[g] and E[f].</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_mask_to_parent.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_mask_to_parent" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_mask_to_parent"><code class="xref py py-obj docutils literal"><span class="pre">compute_mask_to_parent</span></code></a>(index,&nbsp;mask)</td>
+<td>Maps the mask to the plates of a parent.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_message_to_parent.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_message_to_parent" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_message_to_parent"><code class="xref py py-obj docutils literal"><span class="pre">compute_message_to_parent</span></code></a>(parent,&nbsp;index,&nbsp;...)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_moments_and_cgf.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_moments_and_cgf" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_moments_and_cgf"><code class="xref py py-obj docutils literal"><span class="pre">compute_moments_and_cgf</span></code></a>(phi[,&nbsp;mask])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_phi_from_parents.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_phi_from_parents" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.compute_phi_from_parents"><code class="xref py py-obj docutils literal"><span class="pre">compute_phi_from_parents</span></code></a>(*u_parents[,&nbsp;mask])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.plates_from_parent.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.plates_from_parent" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.plates_from_parent"><code class="xref py py-obj docutils literal"><span class="pre">plates_from_parent</span></code></a>(index,&nbsp;plates)</td>
+<td>Resolve the plate mapping from a parent.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.plates_to_parent.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.plates_to_parent" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.plates_to_parent"><code class="xref py py-obj docutils literal"><span class="pre">plates_to_parent</span></code></a>(index,&nbsp;plates)</td>
+<td>Resolves the plate mapping to a parent.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.random.html#bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.random" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaARDDistribution.random"><code class="xref py py-obj docutils literal"><span class="pre">random</span></code></a>(*params[,&nbsp;plates])</td>
+<td>Draw a random sample from the distribution.</td>
+</tr>
 </tbody>
 </table>
 </dd></dl>
@@ -133,7 +166,7 @@
         <li class="right" >
           <a href="generated/bayespy.inference.vmp.nodes.gaussian.GaussianGammaISODistribution.random.html" title="bayespy.inference.vmp.nodes.gaussian.GaussianGammaISODistribution.random"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.0 Documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">BayesPy v0.4.1 Documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="../dev_api.html" >Developer API</a> &raquo;</li>
           <li class="nav-item nav-item-2"><a href="../distributions.html" >Distributions</a> &raquo;</li> 
       </ul>
